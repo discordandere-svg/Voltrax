@@ -1,0 +1,3 @@
+- [VOLTRAX brand & color rules](voltrax-brand.md) — #22a55d buttons everywhere, #EEF6F1 light green sections, #F9F7F4 beige footers; #0D2B1A is BANNED site-wide
+- [VOLTRAX EMS calculator model](voltrax-calculator.md) — non-linear utilisation_factor = 1-exp(-(bat_kWh/pv_daily)*2.2), validated output €1,576-€2,302/yr for standard inputs
+- [Battery animation masking](battery-animation-masking.md) — webp alpha mask (zIndex 2) + pixel left:55px/right:8px inside; SVG masks & clip-path both fail; z-index order is critical
