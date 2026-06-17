@@ -35,3 +35,8 @@ pydantic
 python-multipart
 starlette
 uvicorn
+fastapi
+pydantic
+python-multipart
+starlette
+uvicorn
