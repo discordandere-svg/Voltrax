@@ -131,7 +131,7 @@ function DetailRow({ label, value, sub, green, red, step }) {
   )
 }
 
-function BeforeAfter({ r, res }) {
+function BeforeAfter({ r, res, input }) {
   const gridCostWith    = r.grid_cost_with ?? (r.grid_import_with * (r.pE_used || 0))
   const netVoorPct      = r.net_voor_pct ?? (r.v_input > 0 ? Math.round(r.grid_import_without / r.v_input * 100) : 0)
   const netNaPct        = r.net_na_pct  ?? (r.v_input > 0 ? Math.round(r.grid_import_with    / r.v_input * 100) : 0)
@@ -142,8 +142,9 @@ function BeforeAfter({ r, res }) {
   const exportRevWith   = Math.round((r.export_kwh_with || 0) * (r.pT_used || 0))
   const missedValue     = Math.round((r.t_input || 0) * ((r.pE_used || 0) - (r.pT_used || 0)))
 
-  const netCostRaw = r.net_annual_cost_without ?? (r.grid_cost_without - Math.round((r.t_input || 0) * (r.pT_used || 0)))
-  const netCostIsEarning = netCostRaw < 0
+  const tkValue = input?.terugleverkosten_value || 0
+  const tkUnit  = input?.terugleverkosten_unit  || 'jaar'
+  const tkJaar  = tkUnit === 'kWh' ? Math.round(tkValue * (r.export_kwh_zonder || 0)) : Math.round(tkValue)
   const leftRows = [
     { label: res.baSolarOutput,   main: `${fmt(r.pv_input)} kWh`,        sub: res.baSolarOutputSub },
     { label: res.baSelfDirect,    main: `${fmt(r.sc_direct_kwh)} kWh`,   sub: `${Math.round(r.sc_direct_kwh / r.v_input * 100)}% ${res.baSelfDirectSub}` },
@@ -151,18 +152,14 @@ function BeforeAfter({ r, res }) {
     { label: res.baNetDep,        main: `${fmt(100 - netVoorPct, 0)}%`,   sub: res.baNetDepSub },
     { label: res.baGridImport,    main: `${fmt(r.grid_import_without)} kWh`, sub: `€ ${fmt(r.grid_cost_without)}/jr` },
     { label: res.baMissedValue,   main: `€ 0/jr`,                          sub: res.baMissedValueSub },
-    {
-      label: netCostIsEarning ? res.baNetEarning  : res.baNetCosts,
-      main:  netCostIsEarning ? `+ € ${fmt(Math.abs(netCostRaw))}/jr` : `€ ${fmt(netCostRaw)}/jr`,
-      sub:   netCostIsEarning ? res.baNetEarningSub : res.baNetCostsSub,
-    },
+    { label: res.feedinCosts,     main: `€ ${fmt(tkJaar)}/jr`,             sub: res.feedinSub },
   ]
   const rightRows = [
     { label: res.baSolarOutput,   main: `${fmt(r.sc_pct_zonder, 0)}% → ${fmt(r.sc_pct_met, 0)}%`, sub: res.baSelfConsumpBasis, delta: `↑ ${selfPctDelta}%`, deltaGreen: true },
     { label: res.baBatCaptures,   main: `${fmt(r.sc_battery_kwh)} kWh`,  sub: res.baBatCapturesSub, delta: `↑ ${fmt(r.sc_battery_kwh)} kWh`, deltaGreen: true },
-    { label: res.baTeruglevering, main: `${fmt(r.export_kwh_with)} kWh / € ${fmt(exportRevWith)}/jr`, delta: `↓ ${fmt(exportRevDelta)} kWh`, deltaGreen: true },
+    { label: res.baTeruglevering, main: `${fmt(r.export_kwh_with)} kWh / € ${fmt(exportRevWith)}/jr`, sub: res.baSelfUsedNotExported(fmt(exportRevDelta)), delta: `↓ ${fmt(exportRevDelta)} kWh`, deltaGreen: true },
     { label: res.baNetDep,        main: `${fmt(100 - netNaPct, 0)}%`,    sub: res.baNetDepSub, delta: netDepDelta > 0 ? `↑ ${netDepDelta}%` : null, deltaGreen: true },
-    { label: res.baGridImport,    main: `${fmt(r.grid_import_with)} kWh`, sub: `€ ${fmt(gridCostWith)}/jr`, delta: `↓ ${fmt(importDelta)} kWh`, deltaGreen: true },
+    { label: res.baGridImport,    main: `${fmt(r.grid_import_with)} kWh`, sub: res.baGridImportBatterySub(fmt(importDelta)), delta: `↓ ${fmt(importDelta)} kWh`, deltaGreen: true },
     { label: res.baEpexRow,       main: `€ ${fmt(r.smart_annual_low)}–${fmt(r.smart_annual_high)}/jr`, sub: res.baEpexRowSub, delta: '↑', deltaGreen: true },
     { label: res.baAnnualSaving,  main: `€ ${fmt(r.total_annual_low)}–${fmt(r.total_annual_high)}`, sub: res.perYear, delta: '↑', deltaGreen: true },
   ]
@@ -432,7 +429,7 @@ export default function ResultsPage() {
         </motion.div>
 
         {/* ── VOOR / NA VERGELIJKING ─────────────────────────────────────── */}
-        <BeforeAfter r={results} res={res} />
+        <BeforeAfter r={results} res={res} input={input} />
 
         {/* ── BLOK 2: WAARDEOPBOUW ────────────────────────────────────────── */}
         <Reveal className="bg-white rounded-2xl border border-black/[0.08] shadow-[0_2px_20px_rgba(0,0,0,0.05)] p-5 sm:p-6" delay={1}>

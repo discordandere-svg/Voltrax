@@ -202,7 +202,7 @@ export function PDFReport({ results: rv, input }) {
   const winst10_high = Math.max(0, Math.round(rv.total_annual_high * 10 * 0.92 - price))
   const tk      = input?.terugleverkosten_value || 0
   const tkUnit  = input?.terugleverkosten_unit  || 'jaar'
-  const tkJaar  = tkUnit === 'kWh' ? tk * (rv.export_kwh_zonder || 0) : tk
+  const tkJaar  = tkUnit === 'kWh' ? Math.round(tk * (rv.export_kwh_zonder || 0)) : Math.round(tk)
   const today   = new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })
   const isDynamic = rv.dynamic_contract === true
 
@@ -316,8 +316,8 @@ export function PDFReport({ results: rv, input }) {
               <Text style={s.cardTitleDark}>Met batterij</Text>
               <DR style={s.drG} lbl="Zonne-opwek"           val={`${fmt(rv.pv_input)} kWh`}                 sub="gelijk aan huidige situatie" />
               <DR style={s.drG} lbl="Totaal zelfverbruik"   val={`${fmt(rv.totalSelfConsumption)} kWh`}     sub={`${fmt(rv.sc_direct_kwh)} direct + ${fmt(rv.batterySelfConsumption)} batterij`} g />
-              <DR style={s.drG} lbl="Nog teruggeleverd"     val={`${fmt(rv.export_kwh_with)} kWh`}          sub={`${fmt(rv.export_kwh_zonder - rv.export_kwh_with)} kWh minder naar net`} />
-              <DR style={s.drG} lbl="Inkoop van net"        val={`${fmt(rv.grid_import_with)} kWh`}         sub={`${fmt(rv.grid_import_besparing_kwh)} kWh minder dan nu`} g />
+              <DR style={s.drG} lbl="Nog teruggeleverd"     val={`${fmt(rv.export_kwh_with)} kWh`}          sub={`${fmt(rv.export_kwh_zonder - rv.export_kwh_with)} kWh zelf gebruikt i.p.v. teruggeleverd`} />
+              <DR style={s.drG} lbl="Inkoop van net"        val={`${fmt(rv.grid_import_with)} kWh`}         sub={`${fmt(rv.grid_import_besparing_kwh)} kWh minder ingekocht door verbruik uit batterij`} g />
               <DR style={s.drG} lbl="Energiebesparing"      val={`+${EUR} ${fmt(rv.net_energy_saving_eur)}/jr`} sub="netto zelfverbruik, excl. EPEX" g />
               <DR style={s.drG} lbl="EMS marktoptimalisatie" val={`+${EUR} ${fmt(rv.smart_annual_low)}${DASH}${EUR}${fmt(rv.smart_annual_high)}/jr`} sub="EPEX SPOT dag-piek arbitrage" g />
             </View>
