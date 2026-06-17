@@ -33,25 +33,27 @@ Past breakage came from treating them carelessly:
   - Export always **decreases** with a battery; grid import always **decreases**. Assert both.
 - **SC_MAX cap must floor at `sc_direct`** — `sc_total = max(sc_direct, cap)`. Capping below
   `sc_direct` (small-PV/large-consumption homes) pushes grid import *up*, which is nonsensical.
-- `t_input` returned to the frontend = `export_kwh_zonder` (the modeled, consistent export), so the
-  "UW SITUATIE" tile matches the rest of the report. For realistic inputs this ≈ what the user typed;
-  impossible inputs are silently corrected to the consistent value.
-- **Teruglevering is a MODEL OUTPUT, never an input constraint.** Final owner ruling (juni 2026,
-  after first trying the opposite): *"De jaarrekening is een resultaat van het oude systeem, niet een
-  input voor het nieuwe systeem."* The model is driven only by PV-opwek, totaal verbruik,
-  zelfverbruik-ratio en batterijlogica; the user's entered `teruglevering` must NOT constrain
-  self-consumption or battery flows. When the entered value is inconsistent with the PV/verbruik
-  balance, the report shows the **recomputed** export (`t_input = export_kwh_zonder`, e.g. ~3780 for
-  5400/3600/1300), NOT the typed value.
-  - **Why:** anchoring the "Huidig" teruglevering display to the typed value (a brief experiment) made
-    it contradict every other battery-side number (Batterij opslag 1683, Netstroom inkoop ↓1683,
-    voordeel) which all derive from the ~3780 surplus → page told two stories. Owner reverted it.
-  - **How to apply:** in `ResultsPage.BeforeAfter` the teruglevering row uses `r.t_input` /
-    `r.export_revenue_without`; the "Resterende netinjectie" row (`baNetInjectie`, renamed from
-    "Teruglevering aan net" on the battery side only) uses `r.export_kwh_with`, breakdown
-    `baNetInjectieSub(export_kwh_zonder, export_kwh_zonder−export_kwh_with, export_kwh_with)`.
-    Do **not** re-introduce `input.teruglevering` into these rows.
-  - Minor expected gap: "Batterij opslag" (`sc_battery_kwh`, usable) is ~5% below the breakdown's
+- `t_input` returned to the frontend = `export_kwh_zonder`, which now equals the user's typed
+  teruglevering (see ruling below), so the "Huidig" tile shows exactly what the user entered.
+- **Teruglevering input is LEADING — it drives `export_kwh_zonder` directly.** Owner ruling (juni 2026,
+  this REVERSES the earlier "teruglevering = model output" ruling — it flip-flopped and caused real
+  user frustration; this is the current, final direction). The user's entered teruglevering is a
+  MEASURED fact from their energy bill and must be honored:
+  `if T>0: sc_direct_kwh = clamp(PV−T, 0, min(PV,V))` so `export_kwh_zonder = T`. Only when `T=0`
+  (not provided) does the model fall back to the physical estimate `sc_direct = min(PV, 0.45×V)`.
+  - **Why:** the user kept entering a teruglevering and seeing a completely different (higher) number,
+    because the old code did `min(sc_direct_user, sc_direct_realistic)` — the 0.45×V "realistic" cap
+    overrode their input. They were emphatic ("Je begrijpt het nog steeds niet"). Honor the input.
+  - **Physical floor (the ONE case input still shifts):** export can never be below `max(0, PV−V)`
+    (you can't self-consume more than total consumption). So e.g. 5400/3600 forces export ≥ 1800;
+    a typed 1300 is clamped UP to 1800. Explain this to the user — it's physics, not a bug. Side
+    effect: very low teruglevering → grid import ≈ 0 → battery self-consumption benefit collapses
+    (this is the honest consequence of honoring the input; do NOT re-add the 0.45 cap to hide it).
+  - **How to apply:** `ResultsPage.BeforeAfter` left teruglevering row uses `r.t_input` (= input).
+    The battery-side `baBatStorage` row was reframed to **"Zelf gebruikt i.p.v. teruggeleverd"**
+    (main = `sc_battery_kwh`) per explicit user demand — keep that self-used framing, not a
+    "teruggeleverd/netinjectie" framing, as the headline of the battery column.
+  - Minor expected gap: "Zelf gebruikt" (`sc_battery_kwh`, usable) is ~5% below the breakdown's
     "opgeslagen" (`export_kwh_zonder−export_kwh_with` = battery_charge, gross diverted from export) —
     that delta is round-trip efficiency (BATT_EFF 0.95), not a bug.
 

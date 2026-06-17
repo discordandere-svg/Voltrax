@@ -188,9 +188,16 @@ def calculate_battery_savings(
     DAYTIME_LOAD_FRAC = 0.45    # fractie van het verbruik dat samenvalt met zon-opwek
 
     sc_overlap_cap      = min(PV, V)
-    sc_direct_realistic = min(PV, DAYTIME_LOAD_FRAC * V)            # fysieke bovengrens direct
-    sc_direct_user      = clamp(PV - T, 0.0, sc_overlap_cap)        # impliciet uit klant-export
-    sc_direct_kwh       = clamp(min(sc_direct_user, sc_direct_realistic), 0.0, sc_overlap_cap)
+    sc_direct_realistic = min(PV, DAYTIME_LOAD_FRAC * V)            # fysieke schatting als invoer ontbreekt
+
+    # De door de klant ingevoerde teruglevering is GEMETEN grondwaarheid (jaarrekening) en is
+    # LEIDEND: export_kwh_zonder = T, dus direct zelfverbruik = PV − T. Alleen wanneer er geen
+    # teruglevering is opgegeven (T = 0) valt het model terug op de fysieke schatting (≈45% overlap).
+    # Een fysiek onmogelijke export (< PV − verbruik) wordt door de cap naar die ondergrens gebracht.
+    if T > 0.0:
+        sc_direct_kwh = clamp(PV - T, 0.0, sc_overlap_cap)
+    else:
+        sc_direct_kwh = clamp(sc_direct_realistic, 0.0, sc_overlap_cap)
 
     grid_import_without = max(0.0, V - sc_direct_kwh)
     export_kwh_zonder   = max(0.0, PV - sc_direct_kwh)
