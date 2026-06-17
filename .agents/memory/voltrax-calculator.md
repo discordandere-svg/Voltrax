@@ -36,18 +36,24 @@ Past breakage came from treating them carelessly:
 - `t_input` returned to the frontend = `export_kwh_zonder` (the modeled, consistent export), so the
   "UW SITUATIE" tile matches the rest of the report. For realistic inputs this ≈ what the user typed;
   impossible inputs are silently corrected to the consistent value.
-- **BeforeAfter teruglevering rows are DISPLAY-anchored to the user's entered `teruglevering`, NOT
-  `t_input`/`export_kwh_zonder`.** Owner directive (juni 2026): the "Huidig" (voor-batterij) card must
-  ALWAYS show exactly what the customer entered (their jaarrekening figure), even when physically
-  impossible. Display-only mapping in `ResultsPage.BeforeAfter`: `exportInput = input.teruglevering`;
-  `modelShift = export_kwh_zonder − export_kwh_with`; `storedKwh = min(modelShift, exportInput)`;
-  `exportResidual = max(0, exportInput − storedKwh)` → keeps `exportInput = storedKwh + exportResidual`
-  so Huidig, the "Resterende netinjectie" row (renamed from "Teruglevering aan net" on the battery side
-  only, key `baNetInjectie`) and its breakdown (`baNetInjectieSub`) stay coherent. €/jr = value × `pT_used`.
-  **Why:** showing the modeled 3780 when the customer's bill says 1300 reads as a bug to them.
-  **Backend math is untouched** — the headline savings still come from the engine; this divergence
-  between display export and engine export is an accepted, explicit owner trade-off. A step-3 warning
-  fires when `teruglevering < zonneproductie − jaarverbruik` (true physical floor) to flag the mismatch.
+- **Teruglevering is a MODEL OUTPUT, never an input constraint.** Final owner ruling (juni 2026,
+  after first trying the opposite): *"De jaarrekening is een resultaat van het oude systeem, niet een
+  input voor het nieuwe systeem."* The model is driven only by PV-opwek, totaal verbruik,
+  zelfverbruik-ratio en batterijlogica; the user's entered `teruglevering` must NOT constrain
+  self-consumption or battery flows. When the entered value is inconsistent with the PV/verbruik
+  balance, the report shows the **recomputed** export (`t_input = export_kwh_zonder`, e.g. ~3780 for
+  5400/3600/1300), NOT the typed value.
+  - **Why:** anchoring the "Huidig" teruglevering display to the typed value (a brief experiment) made
+    it contradict every other battery-side number (Batterij opslag 1683, Netstroom inkoop ↓1683,
+    voordeel) which all derive from the ~3780 surplus → page told two stories. Owner reverted it.
+  - **How to apply:** in `ResultsPage.BeforeAfter` the teruglevering row uses `r.t_input` /
+    `r.export_revenue_without`; the "Resterende netinjectie" row (`baNetInjectie`, renamed from
+    "Teruglevering aan net" on the battery side only) uses `r.export_kwh_with`, breakdown
+    `baNetInjectieSub(export_kwh_zonder, export_kwh_zonder−export_kwh_with, export_kwh_with)`.
+    Do **not** re-introduce `input.teruglevering` into these rows.
+  - Minor expected gap: "Batterij opslag" (`sc_battery_kwh`, usable) is ~5% below the breakdown's
+    "opgeslagen" (`export_kwh_zonder−export_kwh_with` = battery_charge, gross diverted from export) —
+    that delta is round-trip efficiency (BATT_EFF 0.95), not a bug.
 
 ## Known modeling limitation (intentional, not a bug)
 Self-consumption shift cycles (≤ SOLAR_MAX) and EMS arbitrage cycles (EMS_CYC) are **separate value
