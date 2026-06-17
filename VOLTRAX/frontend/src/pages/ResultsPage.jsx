@@ -155,7 +155,7 @@ function BeforeAfter({ r, res, input }) {
     { label: res.baSolarOutput,   main: `${fmt(r.pv_input)} kWh`,        sub: res.solarEqualSub },
     { label: res.baSelfConsump,   main: `${fmt(r.sc_pct_zonder, 0)}% → ${fmt(r.sc_pct_met, 0)}%`, sub: res.baSelfConsumpSubR, delta: `↑ ${selfPctDelta}%`, deltaGreen: true },
     { label: res.baBatStorage,    main: `${fmt(r.sc_battery_kwh)} kWh`,  sub: res.baBatStorageSub, delta: `↑ ${fmt(r.sc_battery_kwh)} kWh`, deltaGreen: true },
-    { label: res.baTeruglevering, main: `${fmt(r.export_kwh_with)} kWh / € ${fmt(exportRevWith)}/jr`, sub: res.baTerugSubR, delta: `↓ ${fmt(exportRevDelta)} kWh`, deltaGreen: true },
+    { label: res.baTeruglevering, main: `${fmt(r.export_kwh_with)} kWh / € ${fmt(exportRevWith)}/jr`, sub: res.baSelfUsedNotExported(fmt(exportRevDelta)), delta: `↓ ${fmt(exportRevDelta)} kWh`, deltaGreen: true },
     { label: res.baNetDep,        main: `${fmt(100 - netNaPct, 0)}%`,    sub: res.baNetDepSubR, delta: netDepDelta > 0 ? `↑ ${netDepDelta}%` : null, deltaGreen: true },
     { label: res.baGridImport,    main: `${fmt(r.grid_import_with)} kWh`, sub: res.baGridImportSubR, delta: `↓ ${fmt(importDelta)} kWh`, deltaGreen: true },
     { label: res.baMarktOpt,      main: `€ ${fmt(r.smart_annual_low)}–${fmt(r.smart_annual_high)}/jr`, sub: res.baMarktSubR, delta: '↑', deltaGreen: true },
