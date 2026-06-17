@@ -288,17 +288,6 @@ def calculate_battery_savings(
     ems_kwh_low  = bat_kWh * EMS_CYC_LOW  * BATT_EFF
     ems_kwh_high = bat_kWh * EMS_CYC_HIGH * BATT_EFF
 
-    # EMS-arbitrage plafond per batterijgrootte (max kWh/jaar arbitrage-doorzet).
-    # Grote batterijen schalen niet lineair: er is onvoldoende dagelijks spread-volume
-    # om alle cycli van een grote bank rendabel te benutten. Plafond = (max_kWh, ceiling).
-    EMS_CEILINGS = [
-        (46.5, 2200),
-        (float('inf'), 3500),
-    ]
-    ems_ceiling  = next(cap for thr, cap in EMS_CEILINGS if bat_kWh <= thr)
-    ems_kwh_low  = min(ems_kwh_low,  ems_ceiling)
-    ems_kwh_high = min(ems_kwh_high, ems_ceiling)
-
     # Interactie-multiplier direct in EMS opgenomen: arbitrage profiteert van cascade-effect
     # (grid ↓ + export ↓ + zelfverbruik ↑ werken samen), self-consumption is exacte fysica.
     # Door multiplier in EMS op te nemen kloppen alle breakdown-regels optelbaar tot het totaal.
