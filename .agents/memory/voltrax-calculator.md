@@ -36,6 +36,18 @@ Past breakage came from treating them carelessly:
 - `t_input` returned to the frontend = `export_kwh_zonder` (the modeled, consistent export), so the
   "UW SITUATIE" tile matches the rest of the report. For realistic inputs this ≈ what the user typed;
   impossible inputs are silently corrected to the consistent value.
+- **BeforeAfter teruglevering rows are DISPLAY-anchored to the user's entered `teruglevering`, NOT
+  `t_input`/`export_kwh_zonder`.** Owner directive (juni 2026): the "Huidig" (voor-batterij) card must
+  ALWAYS show exactly what the customer entered (their jaarrekening figure), even when physically
+  impossible. Display-only mapping in `ResultsPage.BeforeAfter`: `exportInput = input.teruglevering`;
+  `modelShift = export_kwh_zonder − export_kwh_with`; `storedKwh = min(modelShift, exportInput)`;
+  `exportResidual = max(0, exportInput − storedKwh)` → keeps `exportInput = storedKwh + exportResidual`
+  so Huidig, the "Resterende netinjectie" row (renamed from "Teruglevering aan net" on the battery side
+  only, key `baNetInjectie`) and its breakdown (`baNetInjectieSub`) stay coherent. €/jr = value × `pT_used`.
+  **Why:** showing the modeled 3780 when the customer's bill says 1300 reads as a bug to them.
+  **Backend math is untouched** — the headline savings still come from the engine; this divergence
+  between display export and engine export is an accepted, explicit owner trade-off. A step-3 warning
+  fires when `teruglevering < zonneproductie − jaarverbruik` (true physical floor) to flag the mismatch.
 
 ## Known modeling limitation (intentional, not a bug)
 Self-consumption shift cycles (≤ SOLAR_MAX) and EMS arbitrage cycles (EMS_CYC) are **separate value
