@@ -320,6 +320,8 @@ export default function CalculatorPage() {
                   {(() => {
                     const tv = parseNum(formData.teruglevering)
                     const pv = parseNum(formData.zonneproductie)
+                    const vb = parseNum(formData.jaarverbruik)
+                    const floor = (pv !== null && vb !== null) ? pv - vb : null
                     if (tv !== null && pv !== null && pv > 0 && tv >= pv * 0.95) {
                       return (
                         <div className="flex items-start gap-2 rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-800">
@@ -328,6 +330,19 @@ export default function CalculatorPage() {
                             {lang === 'nl'
                               ? `Uw teruglevering (${Math.round(tv).toLocaleString('nl-NL')} kWh) is bijna gelijk aan uw productie (${Math.round(pv).toLocaleString('nl-NL')} kWh). Klopt dit? Teruglevering is alleen het deel dat u terugstuurt naar het net — niet uw totale zonneopbrengst.`
                               : `Your grid export (${Math.round(tv).toLocaleString('nl-NL')} kWh) is nearly equal to your production (${Math.round(pv).toLocaleString('nl-NL')} kWh). Is this correct? Grid export is only the portion sent back to the grid — not your total solar yield.`
+                            }
+                          </span>
+                        </div>
+                      )
+                    }
+                    if (tv !== null && floor !== null && floor > 0 && tv < floor) {
+                      return (
+                        <div className="flex items-start gap-2 rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-800">
+                          <span className="mt-0.5 text-base leading-none">⚠️</span>
+                          <span>
+                            {lang === 'nl'
+                              ? `Met een productie van ${Math.round(pv).toLocaleString('nl-NL')} kWh en een jaarverbruik van ${Math.round(vb).toLocaleString('nl-NL')} kWh is de teruglevering altijd minstens ${Math.round(floor).toLocaleString('nl-NL')} kWh — minder kan fysiek niet. Controleer of u uw tótale jaarverbruik heeft ingevuld en niet alleen de netafname van uw jaarrekening.`
+                              : `With a production of ${Math.round(pv).toLocaleString('nl-NL')} kWh and annual consumption of ${Math.round(vb).toLocaleString('nl-NL')} kWh, grid export is always at least ${Math.round(floor).toLocaleString('nl-NL')} kWh — anything lower is physically impossible. Check whether you entered your total annual consumption, not only the grid offtake from your annual statement.`
                             }
                           </span>
                         </div>
