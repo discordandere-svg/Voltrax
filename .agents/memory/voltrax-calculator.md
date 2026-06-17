@@ -62,8 +62,9 @@ cycles×spread×interaction. It is a per-day €/day benefit looked up by batter
 `EMS_DAY_TABLE` in `server.py`, then `annual = daily × 365`. Helper `ems_daily_trade(bat_kWh)`:
 piecewise-linear interpolation between table points; below 9.3 kWh scales proportionally from the
 origin; above 55.6 kWh extrapolates with the last segment's slope.
-- Table (€/day low–high): 9.3→1.50–2.80 (owner bumped up from 1.20–2.20), 18.6→2.20–4.50,
-  27.9→3.50–7.00, 37.2→4.80–9.00, 46.5→6.00–11.50, 55.6→7.00–14.00.
+- Table (€/day low–high, owner-tuned juni 2026): 9.3→2.30–2.70, 18.6→3.10–3.90, 27.9→4.40–5.60,
+  37.2→5.70–7.00, 46.5→6.90–8.50, 55.6→8.10–10.40. (Earlier draft 1.50–2.80…7.00–14.00 was wider;
+  owner narrowed the bands — higher floors, lower ceilings — and kept 9.3 highest €/kWh as entry lure.)
 - **`spread_low/high`, `ems_cycli`, `EMS_CYC_*`, `INTERACTION_*` are now LEGACY**: still computed
   and returned for background, but do NOT drive the stap-2 amount. `dynamic_contract` currently only
   changes the (now-unused) spread outputs — it does NOT change stap-2 benefit. PDF stap-2 breakdown
