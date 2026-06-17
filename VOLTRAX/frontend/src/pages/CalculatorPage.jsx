@@ -194,7 +194,7 @@ export default function CalculatorPage() {
         jaarverbruik: parseNum(formData.jaarverbruik) || 0,
         teruglevering: parseNum(formData.teruglevering) || 0,
         prijsInkoop: parseNum(formData.prijsInkoop) || 0.28,
-        prijsTeruglevering: parseNum(formData.prijsTeruglevering) || 0.07,
+        prijsTeruglevering: parseNum(formData.prijsTeruglevering) ?? 0.07,
         terugleververgoeding_value: parseNum(formData.terugleververgoeding_value) || 0,
         terugleververgoeding_unit: formData.terugleververgoeding_unit,
         terugleverkosten_value: parseNum(formData.terugleverkosten_value) || 0,

@@ -370,13 +370,13 @@ export function PDFReport({ results: rv, input }) {
                 },
                 {
                   lbl: 'Stap 3 — Energieprijsstijging',
-                  sub: 'CBS-prognose +5%/jr energieprijs, 10-jaar gemiddelde',
-                  val: `+${EUR} ${fmt(rv.escalation_eur_low)} ${DASH} ${EUR} ${fmt(rv.escalation_eur_high)}`, col: 'g',
+                  sub: 'Informatieve prognose — niet in basislijn · CBS +5%/jr',
+                  val: `${EUR} ${fmt(rv.escalation_eur_low)} ${DASH} ${EUR} ${fmt(rv.escalation_eur_high)}`,
                 },
                 {
                   lbl: 'Stap 4 — Salderingsbescherming',
-                  sub: 'Afbouw saldering 2027–2031 opgevangen door zelfverbruik',
-                  val: `+${EUR} ${fmt(rv.sald_protection_eur)}`, col: 'g',
+                  sub: 'Informatieve prognose — niet in basislijn · afbouw 2027–2031',
+                  val: `${EUR} ${fmt(rv.sald_protection_eur)}`,
                 },
                 ...((rv.garantie_bonus || 0) > 0 ? [{
                   lbl: 'Stap 5 — VOLTRAX Prestatiegarantie',

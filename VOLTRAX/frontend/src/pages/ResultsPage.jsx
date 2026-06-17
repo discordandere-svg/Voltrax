@@ -110,7 +110,7 @@ function InlineDetail({ label, children }) {
   )
 }
 
-function DetailRow({ label, value, sub, green, red, step }) {
+function DetailRow({ label, value, sub, green, red, step, info }) {
   return (
     <div className="flex items-start justify-between gap-4 py-3 border-b border-black/[0.06] last:border-b-0">
       <div className="flex items-start gap-3 min-w-0">
@@ -122,9 +122,10 @@ function DetailRow({ label, value, sub, green, red, step }) {
         <div className="min-w-0">
           <span className="text-xs font-semibold text-black/70">{label}</span>
           {sub && <span className="block text-[11px] text-black/45 mt-0.5 leading-relaxed">{sub}</span>}
+          {info && <span className="inline-block mt-1 text-[10px] font-semibold text-black/40 bg-black/[0.04] rounded px-1.5 py-0.5">{info}</span>}
         </div>
       </div>
-      <span className={`text-xs font-bold flex-shrink-0 ${green ? 'text-[#22a55d]' : red ? 'text-rose-500' : 'text-black/70'}`}>
+      <span className={`text-xs font-bold flex-shrink-0 ${green ? 'text-[#22a55d]' : red ? 'text-rose-500' : 'text-black/40'}`}>
         {value}
       </span>
     </div>
@@ -289,7 +290,7 @@ export default function ResultsPage() {
     if (i) {
       setInput(JSON.parse(i))
     } else if (import.meta.env.DEV && new URLSearchParams(window.location.search).get('preview') === '1') {
-      const devR = {"smart_daily_low":0.9,"smart_daily_high":1.42,"smart_annual_low":329,"smart_annual_high":520,"bill_savings_annual":420,"bill_savings_monthly":35,"total_annual_low":1099,"total_annual_high":1352,"total_daily_low":3.01,"total_daily_high":3.7,"payback_low":5.9,"payback_high":7.3,"zelfverbruik_voor":71.9,"zelfverbruik_na":90.4,"netonafhankelijkheid":39.5,"teruglevering_voor":28.1,"teruglevering_na":8.0,"bat_shift_kwh":592,"saved_terugleverkosten":286,"lost_terugleververgoeding":0,"grid_import_without":1500,"grid_cost_without":420,"export_revenue_without":45,"net_annual_cost_without":775,"grid_cost_with":254,"export_kwh_with":256,"sc_direct_kwh":2300,"sc_battery_kwh":592,"sc_pct_zonder":71.9,"sc_pct_met":90.4,"grid_import_with":908,"grid_import_besparing_kwh":592,"grid_import_besparing_eur":166,"export_kwh_zonder":900,"export_shift_kwh":592,"export_revenue_loss_eur":32,"battery_arbitrage_eur":0,"net_energy_saving_eur":420,"pE_used":0.28,"pT_used":0.05,"pv_input":3200,"v_input":3800,"t_input":900,"batterySelfConsumption":592,"totalSelfConsumption":2892,"ems_solar_cycles":97,"ems_total_cycles":417,"ems_cycli":320,"spread_low":0.12,"spread_high":0.19,"dynamic_contract":false,"garantie_bonus":0,"escalation_eur_low":240,"escalation_eur_high":301,"sald_protection_eur":111,"ems_physics_low":329,"ems_physics_high":520,"battery_charge_kwh":644,"shift_pct":72,"net_voor_pct":39.5,"net_na_pct":23.9}
+      const devR = {"smart_daily_low":0.9,"smart_daily_high":1.42,"smart_annual_low":329,"smart_annual_high":520,"bill_savings_annual":420,"bill_savings_monthly":35,"total_annual_low":749,"total_annual_high":940,"total_daily_low":3.01,"total_daily_high":3.7,"payback_low":5.9,"payback_high":7.3,"zelfverbruik_voor":71.9,"zelfverbruik_na":90.4,"netonafhankelijkheid":39.5,"teruglevering_voor":28.1,"teruglevering_na":8.0,"bat_shift_kwh":592,"saved_terugleverkosten":286,"lost_terugleververgoeding":0,"grid_import_without":1500,"grid_cost_without":420,"export_revenue_without":45,"net_annual_cost_without":775,"grid_cost_with":254,"export_kwh_with":256,"sc_direct_kwh":2300,"sc_battery_kwh":592,"sc_pct_zonder":71.9,"sc_pct_met":90.4,"grid_import_with":908,"grid_import_besparing_kwh":592,"grid_import_besparing_eur":166,"export_kwh_zonder":900,"export_shift_kwh":592,"export_revenue_loss_eur":32,"battery_arbitrage_eur":0,"net_energy_saving_eur":420,"pE_used":0.28,"pT_used":0.05,"pv_input":3200,"v_input":3800,"t_input":900,"batterySelfConsumption":592,"totalSelfConsumption":2892,"ems_solar_cycles":97,"ems_total_cycles":417,"ems_cycli":320,"spread_low":0.12,"spread_high":0.19,"dynamic_contract":false,"garantie_bonus":0,"escalation_eur_low":240,"escalation_eur_high":301,"sald_protection_eur":111,"ems_physics_low":329,"ems_physics_high":520,"battery_charge_kwh":644,"shift_pct":72,"net_voor_pct":39.5,"net_na_pct":23.9}
       const devI = {"battery_kWh":9.3,"battery_price":8000,"terugleverkosten_value":400,"terugleverkosten_unit":"jaar"}
       setResults(devR); setInput(devI)
     } else {
@@ -475,15 +476,15 @@ export default function ResultsPage() {
               step="3"
               label={res.step3Uplift}
               sub={res.step3UpliftSub}
-              value={`+ € ${fmt(results.escalation_eur_low)} – € ${fmt(results.escalation_eur_high)}`}
-              green
+              value={`€ ${fmt(results.escalation_eur_low)} – € ${fmt(results.escalation_eur_high)}`}
+              info={res.infoNotBaseline}
             />
             <DetailRow
               step="4"
               label={res.step4Bonus}
               sub={res.step4BonusSub}
-              value={`+ € ${fmt(results.sald_protection_eur)}`}
-              green
+              value={`€ ${fmt(results.sald_protection_eur)}`}
+              info={res.infoNotBaseline}
             />
             <p className="text-xs text-black/45 leading-relaxed mt-3">{res.calcDisclaimer}</p>
           </InlineDetail>

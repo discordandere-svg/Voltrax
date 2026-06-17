@@ -295,9 +295,10 @@ def calculate_battery_savings(
     ems_hi = ems_kwh_high * spread_high * INTERACTION_HIGH
 
     # ================================================================
-    # STAP 5 — TOTAAL: zelfconsumptie + arbitrage + escalatie + saldering
-    # raw = sc (exacte fysica) + EMS (incl. interactie-uplift)
-    # Alle onderdelen zijn optelbaar en transparant weergegeven in breakdown.
+    # STAP 5 — BASISLIJN: zelfconsumptie (stap 1) + EPEX-arbitrage (stap 2)
+    # raw = sc (exacte fysica) + EMS (incl. interactie-uplift).
+    # Escalatie (stap 3) en saldering (stap 4) worden hieronder apart berekend
+    # als INFORMATIEVE prognoses en tellen NIET mee in het jaartotaal.
     # ================================================================
     raw_low  = net_sc_saving + ems_lo
     raw_high = net_sc_saving + ems_hi
@@ -306,11 +307,11 @@ def calculate_battery_savings(
     _sald_spread       = max(0.0, pE - pT)
     sald_protection_eur = round(_export_shift * _sald_spread * SALD_AVG_FACTOR)
 
-    # Realistische bovengrens voor kleine systemen (≤20 kWh): jaartotaal gecapt op €10.000.
-    # We schalen raw (en dus ems) terug i.p.v. alleen het totaal, zodat ALLE breakdown-regels
-    # optelbaar blijven tot het totaal:  total = raw × escalation_factor + saldering.
+    # Realistische bovengrens voor kleine systemen (≤20 kWh): basislijn (stap 1 + stap 2)
+    # gecapt op €10.000. We schalen raw (en dus ems) terug, zodat de breakdown blijft kloppen.
     if bat_kWh <= 20.0:
-        max_raw = max(0.0, (10000.0 - sald_protection_eur) / escalation_factor)
+        # Totaal = stap 1 + stap 2 (escalatie/saldering tellen NIET mee), dus cap raw direct op €10.000.
+        max_raw = 10000.0
         if raw_high > max_raw:
             raw_high = max(net_sc_saving, max_raw)
             ems_hi   = max(0.0, raw_high - net_sc_saving)
@@ -321,22 +322,29 @@ def calculate_battery_savings(
     escalation_eur_low  = round(raw_low  * (escalation_factor - 1))
     escalation_eur_high = round(raw_high * (escalation_factor - 1))
 
-    total_annual_low  = round(raw_low  + escalation_eur_low  + sald_protection_eur)
-    total_annual_high = round(raw_high + escalation_eur_high + sald_protection_eur)
-
-    if total_annual_low > total_annual_high:
-        total_annual_low, total_annual_high = total_annual_high, total_annual_low
+    # Defensieve normalisatie van de volgorde (laag ≤ hoog).
+    if raw_low > raw_high:
+        raw_low, raw_high = raw_high, raw_low
         ems_lo, ems_hi = ems_hi, ems_lo
         escalation_eur_low, escalation_eur_high = escalation_eur_high, escalation_eur_low
-
-    total_daily_low  = total_annual_low  / 365.0
-    total_daily_high = total_annual_high / 365.0
 
     ems_display_low  = round(ems_lo, 0)
     ems_display_high = round(ems_hi, 0)
 
     bill_savings_annual  = net_energy_saving
     bill_savings_monthly = bill_savings_annual / 12.0
+
+    # ================================================================
+    # BASISLIJN-TOTAAL = STAP 1 (zelfconsumptie) + STAP 2 (EPEX-arbitrage).
+    # Stap 3 (energieprijsstijging) en stap 4 (salderingsbescherming) zijn
+    # INFORMATIEVE prognoses: ze worden apart teruggegeven maar NIET opgeteld
+    # in total_annual, de terugverdientijd of het netto-resultaat na 10 jaar.
+    # ================================================================
+    total_annual_low  = round(bill_savings_annual) + ems_display_low
+    total_annual_high = round(bill_savings_annual) + ems_display_high
+
+    total_daily_low  = total_annual_low  / 365.0
+    total_daily_high = total_annual_high / 365.0
 
     # ================================================================
     # STAP 6 — TERUGVERDIENTIJD

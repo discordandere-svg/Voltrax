@@ -63,16 +63,29 @@ invariant and was out of scope for the "make the numbers consistent" task. If as
 more conservative, unify the cycle budget first.
 
 ## Financial breakdown — the durable invariant
-4 additive steps, identical on web (ResultsPage Block 2) AND PDF (page 1 row + page 2 list):
+Breakdown shows 4 steps on web (ResultsPage Block 2) AND PDF (page 2 list), but only the first
+two are the BASELINE; steps 3 & 4 are informative-only:
 1. `net_energy_saving_eur` (NOT `grid_import_besparing_eur` — that's gross, doesn't net export loss)
 2. `ems_physics_low/high` (EPEX arbitrage)
-3. `escalation_eur_low/high` (price escalation)
-4. `sald_protection_eur` (net-metering phase-out protection)
-- **Invariant** (verify after any change, 3000-run stress test): step1+step2+step3+step4 ==
-  total_annual (±€3 rounding). The interaction/cascade multiplier is absorbed **into EMS only**
-  (`ems = ems_kwh × spread × INTERACTION`); applying it to (sc+ems) together breaks the sum.
+3. `escalation_eur_low/high` (price escalation) — **INFORMATIVE, not summed**
+4. `sald_protection_eur` (net-metering phase-out protection) — **INFORMATIVE, not summed**
+- **Baseline rule (owner ruling, juni 2026 — overrode the old "all 4 sum to total" invariant):**
+  `total_annual_{low,high} = round(bill_savings_annual) + ems_display_{low,high}` = STAP 1 + STAP 2
+  ONLY. Escalation (stap 3) and saldering (stap 4) are still returned as `escalation_eur_*` /
+  `sald_protection_eur` but **must NOT be added** into `total_annual`, `payback`, or net-after-10-years.
+  - **Why:** owner wants a defensible baseline driven purely by current-market physics; price-rise
+    and net-metering phase-out are projections, so they're shown ("Informatieve prognose — niet in
+    basislijn") but never inflate the headline total / ROI.
+  - **How to apply:** payback & winst10 derive from `total_annual`, so they auto-follow — don't add
+    stap3/4 anywhere downstream. PDF (`PDFReport.jsx`) + web (`ResultsPage` DetailRow `info` prop,
+    bilingual key `infoNotBaseline`) render stap3/4 neutral, no `+` prefix.
+- The interaction/cascade multiplier is absorbed **into EMS only**
+  (`ems = ems_kwh × spread × INTERACTION`).
 - `net_sc_saving = battery_used×pE − battery_charge×pT + saved_tk − lost_tv` (two-term, no double count).
-- €10k cap for ≤20 kWh systems back-solves through `raw_high`/`ems_hi` so the breakdown still sums.
+- €10k cap for ≤20 kWh systems caps `raw_high`/`ems_hi` at `max_raw=10000` (no longer back-solved
+  through escalation_factor, since total = raw now).
+- **teruglevertarief=0 must be respected**: frontend payload uses `parseNum(...) ?? 0.07` (NOT `|| 0.07`)
+  so an explicit 0 isn't treated as falsy and overwritten by the 0.07 default.
 
 ## Validated behaviour (juni 2026)
 3000 random runs, 0 issues: balance closes (±2 kWh), import & export never increase with a battery,
