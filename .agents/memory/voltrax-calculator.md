@@ -49,13 +49,12 @@ Past breakage came from treating them carelessly:
     a typed 1300 is clamped UP to 1800. Explain this to the user — it's physics, not a bug. Side
     effect: very low teruglevering → grid import ≈ 0 → battery self-consumption benefit collapses
     (this is the honest consequence of honoring the input; do NOT re-add the 0.45 cap to hide it).
-  - **How to apply:** `ResultsPage.BeforeAfter` left teruglevering row uses `r.t_input` (= input).
-    The battery-side `baBatStorage` row was reframed to **"Zelf gebruikt i.p.v. teruggeleverd"**
-    (main = `sc_battery_kwh`) per explicit user demand — keep that self-used framing, not a
-    "teruggeleverd/netinjectie" framing, as the headline of the battery column.
-  - Minor expected gap: "Zelf gebruikt" (`sc_battery_kwh`, usable) is ~5% below the breakdown's
-    "opgeslagen" (`export_kwh_zonder−export_kwh_with` = battery_charge, gross diverted from export) —
-    that delta is round-trip efficiency (BATT_EFF 0.95), not a bug.
+  - **How to apply:** `ResultsPage.BeforeAfter` — the teruglevering row must pair, on ONE grid row,
+    left `baTeruglevering` "Teruglevering aan net" (`r.t_input` kWh, = user input) ↔ right `baBatStorage`
+    **"Zelf gebruikt i.p.v. teruggeleverd"** (`storedKwh = export_kwh_zonder − export_kwh_with` kWh, ↑).
+    The user explicitly wants this exact before→after pairing and a kWh-only value (no €/jr) on this row.
+    Keep self-used framing, not "Resterende netinjectie/teruggeleverd". The `baSelfDirect` "Direct
+    zelfverbruik" row is mirrored unchanged on both sides. `baNetInjectie*` keys are now unused.
 
 ## Known modeling limitation (intentional, not a bug)
 Self-consumption shift cycles (≤ SOLAR_MAX) and EMS arbitrage cycles (EMS_CYC) are **separate value

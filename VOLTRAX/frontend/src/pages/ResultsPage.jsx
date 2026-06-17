@@ -139,16 +139,14 @@ function BeforeAfter({ r, res, input }) {
   const netDepDelta     = Math.round((100 - netNaPct) - (100 - netVoorPct))
   const selfPctDelta    = Math.round((r.sc_pct_met || 0) - (r.sc_pct_zonder || 0))
   const importDelta     = r.grid_import_besparing_kwh
-  const exportRevDelta  = Math.round((r.t_input || 0) - (r.export_kwh_with || 0))
-  const exportRevWith   = Math.round((r.export_kwh_with || 0) * (r.pT_used || 0))
-  const exportZonder    = r.export_kwh_zonder ?? r.t_input ?? 0                   // model-output teruglevering (geen invoer-constraint)
-  const storedKwh       = Math.max(0, exportZonder - (r.export_kwh_with || 0))
+  const exportZonder    = r.export_kwh_zonder ?? r.t_input ?? 0                   // = klant-invoer teruglevering
+  const storedKwh       = Math.max(0, exportZonder - (r.export_kwh_with || 0))    // kWh nu zelf gebruikt i.p.v. teruggeleverd
 
   const leftRows = [
     { label: res.baSolarOutput,   main: `${fmt(r.pv_input)} kWh`,        sub: res.baSolarOutputSub },
     { label: res.baSelfConsump,   main: `${fmt(r.sc_pct_zonder, 0)}%`,   sub: res.baSelfConsumpSubL },
     { label: res.baSelfDirect,    main: `${fmt(r.sc_direct_kwh)} kWh`,   sub: res.baSelfDirectSubFull },
-    { label: res.baTeruglevering, main: `${fmt(r.t_input)} kWh / € ${fmt(r.export_revenue_without)}/jr`, sub: res.baTerugSubL },
+    { label: res.baTeruglevering, main: `${fmt(r.t_input)} kWh`,         sub: res.baTerugSubL },
     { label: res.baNetDep,        main: `${fmt(100 - netVoorPct, 0)}%`,   sub: res.baNetDepSubL },
     { label: res.baGridImport,    main: `${fmt(r.grid_import_without)} kWh`, sub: res.baGridImportSubL },
     { label: res.baMarktOpt,      main: `€ 0/jr`,                          sub: res.baMarktSubL },
@@ -157,8 +155,8 @@ function BeforeAfter({ r, res, input }) {
   const rightRows = [
     { label: res.baSolarOutput,   main: `${fmt(r.pv_input)} kWh`,        sub: res.solarEqualSub },
     { label: res.baSelfConsump,   main: `${fmt(r.sc_pct_zonder, 0)}% → ${fmt(r.sc_pct_met, 0)}%`, sub: res.baSelfConsumpSubR, delta: `↑ ${selfPctDelta}%`, deltaGreen: true },
-    { label: res.baBatStorage,    main: `${fmt(r.sc_battery_kwh)} kWh`,  sub: res.baBatStorageSub, delta: `↑ ${fmt(r.sc_battery_kwh)} kWh`, deltaGreen: true },
-    { label: res.baNetInjectie, main: `${fmt(r.export_kwh_with)} kWh / € ${fmt(exportRevWith)}/jr`, sub: res.baNetInjectieSub(fmt(exportZonder), fmt(storedKwh), fmt(r.export_kwh_with)), delta: `↓ ${fmt(exportRevDelta)} kWh`, deltaGreen: true },
+    { label: res.baSelfDirect,    main: `${fmt(r.sc_direct_kwh)} kWh`,   sub: res.baSelfDirectSubFull },
+    { label: res.baBatStorage,    main: `${fmt(storedKwh)} kWh`,         sub: res.baBatStorageSub, delta: `↑ ${fmt(storedKwh)} kWh`, deltaGreen: true },
     { label: res.baNetDep,        main: `${fmt(100 - netNaPct, 0)}%`,    sub: res.baNetDepSubR, delta: netDepDelta > 0 ? `↑ ${netDepDelta}%` : null, deltaGreen: true },
     { label: res.baGridImport,    main: `${fmt(r.grid_import_with)} kWh`, sub: res.baGridImportSubR, delta: `↓ ${fmt(importDelta)} kWh`, deltaGreen: true },
     { label: res.baMarktOpt,      main: `€ ${fmt(r.smart_annual_low)}–${fmt(r.smart_annual_high)}/jr`, sub: res.baMarktSubR, delta: '↑', deltaGreen: true },
