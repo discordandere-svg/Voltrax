@@ -141,6 +141,9 @@ function BeforeAfter({ r, res, input }) {
   const importDelta     = r.grid_import_besparing_kwh
   const exportZonder    = r.export_kwh_zonder ?? r.t_input ?? 0                   // = klant-invoer teruglevering
   const storedKwh       = Math.max(0, exportZonder - (r.export_kwh_with || 0))    // kWh nu zelf gebruikt i.p.v. teruggeleverd
+  const tkJaar          = r.terugleverkosten_jaar ?? 0                            // ingevoerde terugleverkosten (€/jr)
+  const tkSaved         = r.saved_terugleverkosten ?? 0                           // vermeden terugleverkosten met batterij
+  const tkRemaining     = Math.max(0, tkJaar - tkSaved)                           // resterende terugleverkosten met batterij
 
   const leftRows = [
     { label: res.baSolarOutput,   main: `${fmt(r.pv_input)} kWh`,        sub: res.baSolarOutputSub },
@@ -150,7 +153,7 @@ function BeforeAfter({ r, res, input }) {
     { label: res.baNetDep,        main: `${fmt(100 - netVoorPct, 0)}%`,   sub: res.baNetDepSubL },
     { label: res.baGridImport,    main: `${fmt(r.grid_import_without)} kWh`, sub: res.baGridImportSubL },
     { label: res.baMarktOpt,      main: `€ 0/jr`,                          sub: res.baMarktSubL },
-    { label: res.feedinCosts,     main: `—`,                              sub: res.baFeedinSubL },
+    { label: res.feedinCosts,     main: tkJaar > 0 ? `€ ${fmt(tkJaar)}/jr` : `—`, sub: tkJaar > 0 ? res.baFeedinActiveSubL : res.baFeedinSubL },
   ]
   const rightRows = [
     { label: res.baSolarOutput,   main: `${fmt(r.pv_input)} kWh`,        sub: res.solarEqualSub },
@@ -160,7 +163,7 @@ function BeforeAfter({ r, res, input }) {
     { label: res.baNetDep,        main: `${fmt(100 - netNaPct, 0)}%`,    sub: res.baNetDepSubR, delta: netDepDelta > 0 ? `↑ ${netDepDelta}%` : null, deltaGreen: true },
     { label: res.baGridImport,    main: `${fmt(r.grid_import_with)} kWh`, sub: res.baGridImportSubR, delta: `↓ ${fmt(importDelta)} kWh`, deltaGreen: true },
     { label: res.baMarktOpt,      main: `€ ${fmt(r.smart_annual_low)}–${fmt(r.smart_annual_high)}/jr`, sub: res.baMarktSubR, delta: '↑', deltaGreen: true },
-    { label: res.feedinCosts,     main: `—`,                              sub: res.baFeedinSubR },
+    { label: res.feedinCosts,     main: tkJaar > 0 ? `€ ${fmt(tkRemaining)}/jr` : `—`, sub: tkJaar > 0 ? res.baFeedinActiveSubR : res.baFeedinSubR, delta: (tkJaar > 0 && tkSaved > 0) ? `↓ € ${fmt(tkSaved)}/jr` : null, deltaGreen: true },
   ]
 
   const MetricRow = ({ label, main, sub, delta, deltaGreen }) => (

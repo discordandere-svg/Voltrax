@@ -49,6 +49,7 @@ class CalculationResult(BaseModel):
     teruglevering_na: float
     bat_shift_kwh: float
     saved_terugleverkosten: float
+    terugleverkosten_jaar: Optional[float] = None
     lost_terugleververgoeding: float
     grid_import_without: float
     grid_cost_without: float
@@ -98,6 +99,41 @@ def clamp(value: float, lo: float, hi: float) -> float:
     return max(lo, min(hi, value))
 
 
+# ================================================================
+# DAGELIJKSE HANDEL OP DE ENERGIEMARKT — dagvoordeel (€/dag) per
+# batterijcapaciteit (AlphaESS-moduletrappen). Jaarvoordeel = €/dag × 365.
+# Tussenliggende capaciteiten worden lineair geïnterpoleerd; daarbuiten
+# proportioneel (onder 9,3 kWh) of geëxtrapoleerd (boven 55,6 kWh).
+# ================================================================
+EMS_DAY_TABLE = [
+    (9.3,  1.50,  2.80),
+    (18.6, 2.20,  4.50),
+    (27.9, 3.50,  7.00),
+    (37.2, 4.80,  9.00),
+    (46.5, 6.00, 11.50),
+    (55.6, 7.00, 14.00),
+]
+
+
+def ems_daily_trade(bat_kWh: float) -> tuple:
+    """Dagvoordeel (laag, hoog) in €/dag voor de gegeven batterijcapaciteit."""
+    tbl = EMS_DAY_TABLE
+    b = max(bat_kWh, 0.0)
+    if b <= tbl[0][0]:
+        f = b / tbl[0][0]
+        return tbl[0][1] * f, tbl[0][2] * f
+    if b >= tbl[-1][0]:
+        (x0, l0, h0), (x1, l1, h1) = tbl[-2], tbl[-1]
+        sl = (l1 - l0) / (x1 - x0)
+        sh = (h1 - h0) / (x1 - x0)
+        return l1 + sl * (b - x1), h1 + sh * (b - x1)
+    for (x0, l0, h0), (x1, l1, h1) in zip(tbl, tbl[1:]):
+        if x0 <= b <= x1:
+            f = (b - x0) / (x1 - x0)
+            return l0 + (l1 - l0) * f, h0 + (h1 - h0) * f
+    return tbl[-1][1], tbl[-1][2]
+
+
 def calculate_battery_savings(
     zonneproductie: float,
     jaarverbruik: float,
@@ -116,14 +152,14 @@ def calculate_battery_savings(
     VOLTRAX v9 — Max-ROI energiemodel met systeem-interactie.
 
     Component 1: Vermeden netimport   (battery_used × pE − battery_charge × pT)
-    Component 2: EPEX-arbitrage       (300–340 cycli × dynamische spread 60–72% van pE)
-    Interactie:  ×1.25 (laag) / ×1.33 (hoog) — cascade-effect van gecombineerd systeem
-    Component 3: Escalatie            (CBS 5%/jr, 10-jaar horizon, factor 1.3207)
-    Component 4: Salderings-bescherming (export-shift × prijsverschil × 0.75)
+    Component 2: Dagelijkse markthandel (dagvoordeel per capaciteit uit EMS_DAY_TABLE × 365)
+    Component 3: Escalatie            (CBS 5%/jr, 10-jaar horizon, factor 1.3207) — informatief
+    Component 4: Salderings-bescherming (export-shift × prijsverschil × 0.75) — informatief
 
-    Alle parameters staan op de bovenkant van hun reële, onderbouwde bandbreedte zodat de
-    ROI maximaal maar verdedigbaar is. Spreads zijn afgeleid van de invoer-energieprijs;
-    EMS-cycli 300–340/jr = 0.82–0.93 cycli/dag (AlphaESS G3, bovenkant dagelijkse arbitrage).
+    Stap 2 schaalt met de batterijcapaciteit volgens EMS_DAY_TABLE (AlphaESS-moduletrappen
+    9,3 → 55,6 kWh); jaarvoordeel = dagvoordeel × 365. De velden spread_low/high, ems_cycli
+    en de INTERACTION/EMS_CYC-constanten zijn LEGACY: ze worden nog teruggegeven voor
+    achtergrond maar sturen het stap-2-bedrag niet meer aan.
     """
 
     PV = max(zonneproductie, 1.0)
@@ -286,20 +322,16 @@ def calculate_battery_savings(
     grid_besparing_eur = grid_besparing_kwh * pE
 
     # ================================================================
-    # STAP 4 — COMPONENT 3: DYNAMISCHE EPEX-ARBITRAGE (180–260 cycli)
+    # STAP 4 — DAGELIJKSE HANDEL OP DE ENERGIEMARKT
     #
-    # Laag scenario:  180 cycli × laag-spread (conservatief marktjaar)
-    # Hoog scenario:  260 cycli × hoog-spread (optimaal EMS + piekseizoen)
-    # Spreads zijn afgeleid van pE (zie boven), niet vast.
+    # Het EMS handelt dagelijks op de spotmarkt: laden bij lage uurprijzen,
+    # inzetten/terugleveren bij hoge marktprijzen. Het dagvoordeel schaalt met
+    # de batterijcapaciteit (AlphaESS-moduletrappen 9,3 → 55,6 kWh, zie
+    # EMS_DAY_TABLE). Jaarvoordeel = dagvoordeel × 365.
     # ================================================================
-    ems_kwh_low  = bat_kWh * EMS_CYC_LOW  * BATT_EFF
-    ems_kwh_high = bat_kWh * EMS_CYC_HIGH * BATT_EFF
-
-    # Interactie-multiplier direct in EMS opgenomen: arbitrage profiteert van cascade-effect
-    # (grid ↓ + export ↓ + zelfverbruik ↑ werken samen), self-consumption is exacte fysica.
-    # Door multiplier in EMS op te nemen kloppen alle breakdown-regels optelbaar tot het totaal.
-    ems_lo = ems_kwh_low  * spread_low  * INTERACTION_LOW
-    ems_hi = ems_kwh_high * spread_high * INTERACTION_HIGH
+    ems_day_low, ems_day_high = ems_daily_trade(bat_kWh)
+    ems_lo = ems_day_low  * 365.0
+    ems_hi = ems_day_high * 365.0
 
     # ================================================================
     # STAP 5 — BASISLIJN: zelfconsumptie (stap 1) + EPEX-arbitrage (stap 2)
@@ -397,6 +429,7 @@ def calculate_battery_savings(
         "teruglevering_na":            round(teruglevering_pct_na,        1),
         "bat_shift_kwh":               round(sc_battery_kwh,              0),
         "saved_terugleverkosten":      round(saved_tk,                    0),
+        "terugleverkosten_jaar":       round(tk_jaar,                     0),
         "lost_terugleververgoeding":   round(lost_tv,                     0),
         "grid_import_without":         round(grid_import_without,         0),
         "grid_cost_without":           round(grid_cost_without,           0),

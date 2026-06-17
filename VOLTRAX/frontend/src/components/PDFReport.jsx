@@ -362,10 +362,10 @@ export function PDFReport({ results: rv, input }) {
                   val: `+${EUR} ${fmt(rv.net_energy_saving_eur)}`, col: 'g',
                 },
                 {
-                  lbl: 'Stap 2 — EPEX marktarbitrage',
-                  sub: rv.ems_cycli
-                    ? `${fmt(rv.ems_cycli)} EPEX-cycli ${TIMES} ${kWhLbl} ${TIMES} ${EUR}${fmt(rv.spread_low, 2)}${DASH}${EUR}${fmt(rv.spread_high, 2)}/kWh`
-                    : 'via EPEX SPOT optimalisatie',
+                  lbl: 'Stap 2 — Dagelijkse markthandel',
+                  sub: rv.smart_daily_high
+                    ? `365 dagen ${TIMES} ${EUR}${fmt(rv.smart_daily_low, 2)}${DASH}${EUR}${fmt(rv.smart_daily_high, 2)}/dag handelsvoordeel`
+                    : 'via dagelijkse handel op de energiemarkt',
                   val: `+${EUR} ${fmt(rv.ems_physics_low)} ${DASH} ${EUR} ${fmt(rv.ems_physics_high)}`, col: 'g',
                 },
                 {

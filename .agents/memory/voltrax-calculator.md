@@ -56,12 +56,22 @@ Past breakage came from treating them carelessly:
     Keep self-used framing, not "Resterende netinjectie/teruggeleverd". The `baSelfDirect` "Direct
     zelfverbruik" row is mirrored unchanged on both sides. `baNetInjectie*` keys are now unused.
 
-## Known modeling limitation (intentional, not a bug)
-Self-consumption shift cycles (≤ SOLAR_MAX) and EMS arbitrage cycles (EMS_CYC) are **separate value
-streams**, so combined annual equivalent cycles can exceed ~1/day. A fully unified shared cycle
-budget would be more rigorous but was deliberately *not* built — it risks the breakdown-sum
-invariant and was out of scope for the "make the numbers consistent" task. If asked to make ROI
-more conservative, unify the cycle budget first.
+## STAP 2 is now a daily-trade lookup table (juni 2026 — REPLACED the cycles×spread model)
+Owner ruling: stap 2 ("dagelijkse handel op de energiemarkt") is no longer computed from
+cycles×spread×interaction. It is a per-day €/day benefit looked up by battery capacity from
+`EMS_DAY_TABLE` in `server.py`, then `annual = daily × 365`. Helper `ems_daily_trade(bat_kWh)`:
+piecewise-linear interpolation between table points; below 9.3 kWh scales proportionally from the
+origin; above 55.6 kWh extrapolates with the last segment's slope.
+- Table (€/day low–high): 9.3→1.50–2.80 (owner bumped up from 1.20–2.20), 18.6→2.20–4.50,
+  27.9→3.50–7.00, 37.2→4.80–9.00, 46.5→6.00–11.50, 55.6→7.00–14.00.
+- **`spread_low/high`, `ems_cycli`, `EMS_CYC_*`, `INTERACTION_*` are now LEGACY**: still computed
+  and returned for background, but do NOT drive the stap-2 amount. `dynamic_contract` currently only
+  changes the (now-unused) spread outputs — it does NOT change stap-2 benefit. PDF stap-2 breakdown
+  shows "365 dagen × €{smart_daily_low}–{smart_daily_high}/dag"; web reads `smart_annual_low/high`.
+- **Why:** the external critique flagged the old cycles×spread arbitrage as opaque and self-
+  contradictory (EPEX arbitrage shown under "vast tarief"); owner chose explicit per-day numbers.
+- **Still OPEN (unresolved business fork):** whether EPEX/daily arbitrage should require a dynamic
+  contract (and be €0 / relabeled for fixed-tariff customers). Asked the user; pivoted before answering.
 
 ## Financial breakdown — the durable invariant
 Breakdown shows 4 steps on web (ResultsPage Block 2) AND PDF (page 2 list), but only the first
@@ -93,7 +103,13 @@ two are the BASELINE; steps 3 & 4 are informative-only:
 no negatives, ordering holds, breakdown sums (worst Δ €1), t_input consistent. Typical payback
 ~3.5–4.2 yr (std 9.3 kWh), down to ~2 yr (large/dynamic), up to ~8 yr (small PV).
 
+## Terugleverkosten display (juni 2026 bug fix)
+User-entered terugleverkosten were invisible in the "Huidige situatie" column (the `feedinCosts` row
+was hardcoded to "—"). Backend now returns `terugleverkosten_jaar` (= `tk_jaar`, must also be a field
+on the `CalculationResult` model or FastAPI filters it out). `ResultsPage.BeforeAfter`: left shows
+`€ tkJaar/jr` (active sub `baFeedinActiveSubL`), right shows `€ max(0, tkJaar − saved_terugleverkosten)/jr`
+with a `↓ € saved/jr` delta (active sub `baFeedinActiveSubR`); falls back to "—" when tkJaar=0.
+
 ## Other constants worth keeping
-`BATT_EFF=0.95`, `SOLAR_MAX=200`, `EMS_CYC 300–340`, dynamic spread `pE×0.60 … pE×0.72`
-(dynamic contract ×1.22/1.28), `ESCALATION_RATE 0.05` (factor 1.3207, 10yr), `SALD_AVG_FACTOR 0.75`,
-`SC_MAX 92–96`.
+`BATT_EFF=0.95`, `SOLAR_MAX=200`, `ESCALATION_RATE 0.05` (factor 1.3207, 10yr), `SALD_AVG_FACTOR 0.75`,
+`SC_MAX 92–96`. (LEGACY/unused for stap 2: `EMS_CYC 300–340`, spread `pE×0.60…0.72`, dynamic ×1.22/1.28.)
