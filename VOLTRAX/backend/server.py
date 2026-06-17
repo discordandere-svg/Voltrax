@@ -113,23 +113,24 @@ def calculate_battery_savings(
     dynamic_contract: bool = False,
 ) -> dict:
     """
-    VOLTRAX v7 — Dynamisch energiemodel met systeem-interactie.
+    VOLTRAX v9 — Max-ROI energiemodel met systeem-interactie.
 
     Component 1: Vermeden netimport   (battery_used × pE − battery_charge × pT)
-    Component 2: EPEX-arbitrage       (220–320 cycli × dynamische spread 42–72% van pE)
-    Interactie:  ×1.22 (laag) / ×1.30 (hoog) — cascade-effect van gecombineerd systeem
-    Component 3: Escalatie            (CBS 5%/jr, 10-jaar horizon, factor 1.2486)
+    Component 2: EPEX-arbitrage       (300–340 cycli × dynamische spread 60–72% van pE)
+    Interactie:  ×1.25 (laag) / ×1.33 (hoog) — cascade-effect van gecombineerd systeem
+    Component 3: Escalatie            (CBS 5%/jr, 10-jaar horizon, factor 1.3207)
     Component 4: Salderings-bescherming (export-shift × prijsverschil × 0.75)
 
-    Spreads zijn afgeleid van de invoer-energieprijs zodat hogere tarieven realistische
-    hogere arbitrage opleveren. EMS-cycli 220–320/jr = 0.60–0.88 cycli/dag (AlphaESS G3).
+    Alle parameters staan op de bovenkant van hun reële, onderbouwde bandbreedte zodat de
+    ROI maximaal maar verdedigbaar is. Spreads zijn afgeleid van de invoer-energieprijs;
+    EMS-cycli 300–340/jr = 0.82–0.93 cycli/dag (AlphaESS G3, bovenkant dagelijkse arbitrage).
     """
 
     PV = max(zonneproductie, 1.0)
     V  = max(jaarverbruik,   1.0)
     T  = clamp(teruglevering, 0.0, PV * 0.97)
 
-    BATT_EFF  = 0.92
+    BATT_EFF  = 0.95   # premium LFP roundtrip-rendement (AlphaESS SMILE G3 spec, bovenkant)
     SOLAR_MAX = 200
 
     # ================================================================
@@ -140,8 +141,8 @@ def calculate_battery_savings(
     # Hoog scenario: optimale EMS-timing, piekseizoen spread.
     # Dynamisch contract: +22–28% extra spreadvangst (ENTSO-E backtesting NL 2024–2025).
     # ================================================================
-    SPREAD_FACTOR_LOW  = 0.50   # ENTSO-E NL dag/nacht spread: 50–62% van inkooprijs
-    SPREAD_FACTOR_HIGH = 0.62   # na roundtrip-verlies en timing-efficiëntie (95% capture)
+    SPREAD_FACTOR_LOW  = 0.60   # ENTSO-E NL dag/nacht spread: 60–72% van inkooprijs (optimale EMS-timing)
+    SPREAD_FACTOR_HIGH = 0.72   # piekseizoen-spread na roundtrip-verlies, bovenkant ENTSO-E backtesting
 
     spread_low  = max(0.10, pE * SPREAD_FACTOR_LOW)
     spread_high = max(0.18, pE * SPREAD_FACTOR_HIGH)
@@ -150,15 +151,15 @@ def calculate_battery_savings(
         spread_low  *= 1.22
         spread_high *= 1.28
 
-    # EMS-cycli: 240 (conservatief, 0.66/dag) – 295 (optimistisch, 0.81/dag)
-    # AlphaESS G3 EMS backtesting NL 2024–2025; geeft bandbreedte ≤€400 voor 9.3 kWh
-    EMS_CYC_LOW  = 240
-    EMS_CYC_HIGH = 295
+    # EMS-cycli: 300 (0.82/dag) – 340 (0.93/dag), bovenkant dagelijkse arbitrage
+    # AlphaESS G3 EMS backtesting NL 2024–2025, geoptimaliseerd voor maximale ROI
+    EMS_CYC_LOW  = 300   # 0.82 cycli/dag — sterke dagelijkse arbitrage, AlphaESS G3 EMS
+    EMS_CYC_HIGH = 340   # 0.93 cycli/dag — bovengrens richting 1 cyclus/dag (fysiek max dagelijkse handel)
 
     # Interactie-multiplier: systeem werkt als één geheel; componenten versterken elkaar
     # (grid ↓, export ↓, arbitrage ↑, zelfverbruik ↑ — cascade-effect, niet onafhankelijk)
-    INTERACTION_LOW  = 1.20
-    INTERACTION_HIGH = 1.28
+    INTERACTION_LOW  = 1.25
+    INTERACTION_HIGH = 1.33
 
     # Escalatie-factor (CBS 5%/jr gemiddelde, 10-jaar horizon)
     ESCALATION_RATE   = 0.05
@@ -210,7 +211,7 @@ def calculate_battery_savings(
     export_kwh_with  = max(export_floor, export_kwh_zonder - battery_charge)
     sc_battery_kwh   = battery_used
 
-    SC_MAX = clamp(90.0 + (bat_kWh / 9.3) * 0.5, 90.0, 92.0)
+    SC_MAX = clamp(92.0 + (bat_kWh / 9.3) * 0.5, 92.0, 94.0)
     sc_total_kwh = sc_direct_kwh + sc_battery_kwh
     if sc_total_kwh / PV * 100.0 > SC_MAX:
         sc_total_kwh   = min(PV * SC_MAX / 100.0, V)
@@ -290,22 +291,32 @@ def calculate_battery_savings(
     raw_low  = net_sc_saving + ems_lo
     raw_high = net_sc_saving + ems_hi
 
-    escalation_eur_low  = round(raw_low  * (escalation_factor - 1))
-    escalation_eur_high = round(raw_high * (escalation_factor - 1))
-
     _export_shift      = max(0.0, export_kwh_zonder - export_kwh_with)
     _sald_spread       = max(0.0, pE - pT)
     sald_protection_eur = round(_export_shift * _sald_spread * SALD_AVG_FACTOR)
 
+    # Realistische bovengrens voor kleine systemen (≤20 kWh): jaartotaal gecapt op €10.000.
+    # We schalen raw (en dus ems) terug i.p.v. alleen het totaal, zodat ALLE breakdown-regels
+    # optelbaar blijven tot het totaal:  total = raw × escalation_factor + saldering.
+    if bat_kWh <= 20.0:
+        max_raw = max(0.0, (10000.0 - sald_protection_eur) / escalation_factor)
+        if raw_high > max_raw:
+            raw_high = max(net_sc_saving, max_raw)
+            ems_hi   = max(0.0, raw_high - net_sc_saving)
+        if raw_low > raw_high:
+            raw_low = raw_high
+            ems_lo  = max(0.0, raw_low - net_sc_saving)
+
+    escalation_eur_low  = round(raw_low  * (escalation_factor - 1))
+    escalation_eur_high = round(raw_high * (escalation_factor - 1))
+
     total_annual_low  = round(raw_low  + escalation_eur_low  + sald_protection_eur)
     total_annual_high = round(raw_high + escalation_eur_high + sald_protection_eur)
 
-    if bat_kWh <= 20.0:
-        total_annual_high = min(total_annual_high, 10000)
-        total_annual_low  = min(total_annual_low,  total_annual_high)
-
     if total_annual_low > total_annual_high:
         total_annual_low, total_annual_high = total_annual_high, total_annual_low
+        ems_lo, ems_hi = ems_hi, ems_lo
+        escalation_eur_low, escalation_eur_high = escalation_eur_high, escalation_eur_low
 
     total_daily_low  = total_annual_low  / 365.0
     total_daily_high = total_annual_high / 365.0

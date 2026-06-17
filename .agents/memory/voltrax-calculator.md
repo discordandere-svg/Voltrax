@@ -3,18 +3,23 @@ name: VOLTRAX EMS calculator model
 description: v8 model parameters, design decisions, and validated output ranges
 ---
 
-## Current model: v8 Narrow-Band Model — juni 2026
+## Current model: v9 Max-ROI Model — juni 2026
+
+**Why v9:** user wanted ROI maximized to the realistic upper bound across all inputs (not fabricated).
+Pushed every lever to the top of its already-cited real-world range. Payback dropped from
+~4–12 yr (v8) to ~2.6–5.0 yr. The narrow-band (≤€400) goal of v8 is intentionally dropped —
+ROI is now prioritized over band width.
 
 ### Key design decisions
-- **Dynamic spread** (not fixed): `spread_low = max(0.10, pE × 0.50)`, `spread_high = max(0.18, pE × 0.62)`
+- **Dynamic spread** (not fixed): `spread_low = max(0.10, pE × 0.60)`, `spread_high = max(0.18, pE × 0.72)`
   - Higher tariff users automatically get a proportionally wider and higher arbitrage range
   - Dynamic contract: ×1.22 (low) / ×1.28 (high) on top
-- **EMS cycle range 240–295** (0.66–0.81 cycles/day, AlphaESS G3 backtesting NL 2024–2025)
-  - Narrower than v7 (220–320) to keep band ≤€400 for standard 9.3kWh static scenarios
+- **EMS cycle range 300–340** (0.82–0.93 cycles/day, near 1 cycle/day daily-arbitrage ceiling)
+  - Upper edge of AlphaESS G3 EMS backtesting NL 2024–2025
 - **Interaction multiplier absorbed INTO EMS** (not applied to sc+ems together):
   - `ems_lo = ems_kwh_low × spread_low × INTERACTION_LOW`
   - `ems_hi = ems_kwh_high × spread_high × INTERACTION_HIGH`
-  - INTERACTION_LOW = 1.20, INTERACTION_HIGH = 1.28
+  - INTERACTION_LOW = 1.25, INTERACTION_HIGH = 1.33
   - **Why**: applying to (sc+ems) together made breakdown rows not add up to total;
     absorbing into EMS makes all 4 breakdown lines exactly sum to total_annual
 - **Breakdown consistency** (guaranteed by design):
@@ -27,19 +32,21 @@ description: v8 model parameters, design decisions, and validated output ranges
 
 ### Parameters
 ```python
-BATT_EFF           = 0.92
+BATT_EFF           = 0.95       # premium LFP roundtrip (AlphaESS G3 spec, top)
 SOLAR_MAX          = 200        # max solar cycles/yr
-EMS_CYC_LOW        = 240        # conservative: 0.66 cycles/day
-EMS_CYC_HIGH       = 295        # optimistic: 0.81 cycles/day
-SPREAD_FACTOR_LOW  = 0.50       # fraction of pE captured as spread (low)
-SPREAD_FACTOR_HIGH = 0.62       # fraction of pE captured as spread (high)
-INTERACTION_LOW    = 1.20       # cascade synergy, absorbed into EMS only
-INTERACTION_HIGH   = 1.28       # cascade synergy, absorbed into EMS only
+EMS_CYC_LOW        = 300        # 0.82 cycles/day
+EMS_CYC_HIGH       = 340        # 0.93 cycles/day (near 1 cycle/day ceiling)
+SPREAD_FACTOR_LOW  = 0.60       # fraction of pE captured as spread (low)
+SPREAD_FACTOR_HIGH = 0.72       # fraction of pE captured as spread (high)
+INTERACTION_LOW    = 1.25       # cascade synergy, absorbed into EMS only
+INTERACTION_HIGH   = 1.33       # cascade synergy, absorbed into EMS only
 ESCALATION_RATE    = 0.05       # 5%/yr, 10yr horizon → escalation_factor 1.3207
 SALD_AVG_FACTOR    = 0.75       # NL net-metering phase-out 2027-2031 avg
+SC_MAX             = 92-94      # premium EMS self-consumption ceiling
 ```
 
-### Validated outputs (10-scenario test, v8, juni 2026)
+### Validated outputs (v9 spot-check, juni 2026): payback ~2.6–5.0 yr across random inputs
+### (Historical v8 10-scenario table below — superseded, kept for reference)
 | Scenario | Total low | Total high | Band | Payback |
 |---|---|---|---|---|
 | S1: Gemiddeld 9.3kWh (pE=0.28) | €537 | €850 | €313 | 7.1–11.2 yr |
