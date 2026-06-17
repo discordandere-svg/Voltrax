@@ -171,11 +171,29 @@ def calculate_battery_savings(
     SALD_AVG_FACTOR = 0.75
 
     # ================================================================
-    # STAP 1 — SITUATIE ZONDER BATTERIJ
+    # STAP 1 — SITUATIE ZONDER BATTERIJ  (sluitende energiebalans)
+    #
+    # Direct zelfverbruik = zon die op het opwek-moment wordt gebruikt (tijds-overlap).
+    # Fysiek begrensd door de SCHAARSTE van twee zaken: (a) de opwek zelf, en (b) het
+    # verbruik dat overdag plaatsvindt (DAYTIME_LOAD_FRAC × verbruik). Voor een normaal
+    # NL-huis (opwek ≈ 1,5× verbruik) levert dit ~30% van de opwek direct verbruik op —
+    # de gangbare NL-norm — en voor een klein PV-systeem ~100% (alles wordt direct benut).
+    # De teruglevering-invoer wordt gehonoreerd zolang die fysiek kan; een te lage/
+    # onmogelijke waarde (zou negatieve netinkoop opleveren) wordt gecorrigeerd. Daardoor
+    # klopt de balans ALTIJD:
+    #     opwek    = direct zelfverbruik + export
+    #     verbruik = direct zelfverbruik + netinkoop
+    #     export   − netinkoop = opwek − verbruik
     # ================================================================
-    sc_direct_kwh       = clamp(PV - T, 0.0, V)
-    export_kwh_zonder   = T
+    DAYTIME_LOAD_FRAC = 0.45    # fractie van het verbruik dat samenvalt met zon-opwek
+
+    sc_overlap_cap      = min(PV, V)
+    sc_direct_realistic = min(PV, DAYTIME_LOAD_FRAC * V)            # fysieke bovengrens direct
+    sc_direct_user      = clamp(PV - T, 0.0, sc_overlap_cap)        # impliciet uit klant-export
+    sc_direct_kwh       = clamp(min(sc_direct_user, sc_direct_realistic), 0.0, sc_overlap_cap)
+
     grid_import_without = max(0.0, V - sc_direct_kwh)
+    export_kwh_zonder   = max(0.0, PV - sc_direct_kwh)
     sc_pct_zonder       = sc_direct_kwh / PV * 100.0
 
     effective_tk_value = 0.0 if (dynamic_contract and terugleverkosten_unit == "kWh") else terugleverkosten_value
@@ -194,45 +212,38 @@ def calculate_battery_savings(
 
     # ================================================================
     # STAP 2 — ENERGIEFLOW MET BATTERIJ
-    # Batterij verlaagt ZOWEL netimport ALS zonne-export tegelijk.
-    # Interactie-effecten zijn inbegrepen: PV + batterij + net als één systeem.
+    # Batterij laadt overdag het surplus (export) en ontlaadt 's avonds/'s nachts om
+    # netinkoop te vermijden. Begrensd door: (1) beschikbaar surplus, (2) vermijdbare
+    # inkoop, (3) fysieke jaardoorzet (capaciteit × cycli × rendement). Er blijft een
+    # realistische restinkoop over (winter: zon < vraag), dus inkoop wordt nooit 0.
     # ================================================================
-    solar_cycli = clamp(export_kwh_zonder / max(bat_kWh, 1.0), 0.0, float(SOLAR_MAX))
+    RESIDUAL_FRAC = 0.15    # min. 15% van de oorspronkelijke inkoop blijft (winterimport)
 
-    export_floor     = max(PV * 0.08, max(0.0, PV - V))
-    max_chargeable   = max(0.0, export_kwh_zonder - export_floor)
-    battery_charge   = min(min(export_kwh_zonder, bat_kWh * solar_cycli), max_chargeable)
-    battery_discharge = battery_charge * BATT_EFF
+    # Zelfverbruik-doorzet begrensd op SOLAR_MAX cycli/jaar (consistent v9-budget).
+    battery_throughput = bat_kWh * float(SOLAR_MAX) * BATT_EFF      # max kWh die batterij levert
+    max_shiftable      = grid_import_without * (1.0 - RESIDUAL_FRAC)
+    battery_used       = max(0.0, min(battery_throughput, max_shiftable, export_kwh_zonder * BATT_EFF))
 
-    max_battery_absorption = grid_import_without * 0.95
-    battery_used     = min(battery_discharge, max_battery_absorption)
+    battery_charge     = min(battery_used / BATT_EFF, export_kwh_zonder)
+    battery_used       = battery_charge * BATT_EFF
+    solar_cycli        = clamp(battery_charge / max(bat_kWh, 1.0), 0.0, float(SOLAR_MAX))
 
-    grid_import_with = max(grid_import_without * 0.05, grid_import_without - battery_used)
-    export_kwh_with  = max(export_floor, export_kwh_zonder - battery_charge)
+    grid_import_with = max(0.0, grid_import_without - battery_used)
+    export_kwh_with  = max(0.0, export_kwh_zonder - battery_charge)
     sc_battery_kwh   = battery_used
+    sc_total_kwh     = sc_direct_kwh + sc_battery_kwh
 
-    SC_MAX = clamp(92.0 + (bat_kWh / 9.3) * 0.5, 92.0, 94.0)
-    sc_total_kwh = sc_direct_kwh + sc_battery_kwh
-    if sc_total_kwh / PV * 100.0 > SC_MAX:
-        sc_total_kwh   = min(PV * SC_MAX / 100.0, V)
-        sc_battery_kwh = max(0.0, sc_total_kwh - sc_direct_kwh)
-        battery_used   = sc_battery_kwh
-        grid_import_with = max(0.0, V - sc_total_kwh)
-
-    sc_pct_met = clamp(sc_total_kwh / PV * 100.0, 0.0, SC_MAX)
-
-    # Energiebalans correctie
-    total_kwh_out = sc_direct_kwh + battery_used + export_kwh_with
-    total_kwh_in  = PV + grid_import_with
-    if total_kwh_out > total_kwh_in + 1e-6:
-        surplus        = total_kwh_out - total_kwh_in
-        battery_used   = max(0.0, battery_used - surplus)
-        sc_battery_kwh = battery_used
-        sc_total_kwh   = sc_direct_kwh + sc_battery_kwh
+    SC_MAX = clamp(92.0 + (bat_kWh / 9.3) * 0.5, 92.0, 96.0)
+    sc_cap_kwh = min(PV * SC_MAX / 100.0, V)
+    if sc_total_kwh > sc_cap_kwh:
+        # Begrens alleen de batterijbijdrage; nooit onder het directe zelfverbruik zakken.
+        sc_total_kwh     = max(sc_direct_kwh, sc_cap_kwh)
+        sc_battery_kwh   = max(0.0, sc_total_kwh - sc_direct_kwh)
+        battery_used     = sc_battery_kwh
+        battery_charge   = min(export_kwh_zonder, battery_used / BATT_EFF)
         grid_import_with = max(0.0, grid_import_without - battery_used)
         export_kwh_with  = max(0.0, export_kwh_zonder - battery_charge)
-        sc_pct_met       = clamp(sc_total_kwh / PV * 100.0, 0.0, SC_MAX)
-        logging.warning("VOLTRAX energy balance corrected: surplus=%.4f", surplus)
+    sc_pct_met = clamp(sc_total_kwh / PV * 100.0, 0.0, 100.0)
 
     # ================================================================
     # STAP 3 — ZELFCONSUMPTIE-BESPARING (correcte fysica, geen dubbeloptelling)
@@ -397,7 +408,7 @@ def calculate_battery_savings(
         "pT_used":                     round(pT,                          4),
         "pv_input":                    round(PV,                          0),
         "v_input":                     round(V,                           0),
-        "t_input":                     round(T,                           0),
+        "t_input":                     round(export_kwh_zonder,           0),
         "batterySelfConsumption":      round(sc_battery_kwh,              0),
         "totalSelfConsumption":        round(sc_total_kwh,                0),
         "ems_solar_cycles":            round(solar_cycli,                 0),

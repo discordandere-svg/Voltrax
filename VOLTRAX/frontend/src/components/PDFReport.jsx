@@ -318,7 +318,7 @@ export function PDFReport({ results: rv, input }) {
               <DR style={s.drG} lbl="Totaal zelfverbruik"   val={`${fmt(rv.totalSelfConsumption)} kWh`}     sub={`${fmt(rv.sc_direct_kwh)} direct + ${fmt(rv.batterySelfConsumption)} batterij`} g />
               <DR style={s.drG} lbl="Nog teruggeleverd"     val={`${fmt(rv.export_kwh_with)} kWh`}          sub={`${fmt(rv.export_kwh_zonder - rv.export_kwh_with)} kWh minder naar net`} />
               <DR style={s.drG} lbl="Inkoop van net"        val={`${fmt(rv.grid_import_with)} kWh`}         sub={`${fmt(rv.grid_import_besparing_kwh)} kWh minder dan nu`} g />
-              <DR style={s.drG} lbl="Energiebesparing"      val={`+${EUR} ${fmt(rv.grid_import_besparing_eur)}/jr`} sub="inkoop besparing excl. EPEX" g />
+              <DR style={s.drG} lbl="Energiebesparing"      val={`+${EUR} ${fmt(rv.net_energy_saving_eur)}/jr`} sub="netto zelfverbruik, excl. EPEX" g />
               <DR style={s.drG} lbl="EMS marktoptimalisatie" val={`+${EUR} ${fmt(rv.smart_annual_low)}${DASH}${EUR}${fmt(rv.smart_annual_high)}/jr`} sub="EPEX SPOT dag-piek arbitrage" g />
             </View>
           </View>
@@ -358,8 +358,8 @@ export function PDFReport({ results: rv, input }) {
               {[
                 {
                   lbl: 'Stap 1 — Basis energiebesparing',
-                  sub: `${fmt(rv.grid_import_besparing_kwh)} kWh vermeden inkoop ${TIMES} ${EUR}${fmt(rv.pE_used, 2)}${rv.saved_terugleverkosten > 0 ? ` + ${EUR}${fmt(rv.saved_terugleverkosten)} TK bespaard` : ''}`,
-                  val: `+${EUR} ${fmt(rv.grid_import_besparing_eur)}`, col: 'g',
+                  sub: `${fmt(rv.grid_import_besparing_kwh)} kWh vermeden inkoop ${MIN} gemiste exportopbrengst${rv.saved_terugleverkosten > 0 ? ` + ${EUR}${fmt(rv.saved_terugleverkosten)} TK` : ''}`,
+                  val: `+${EUR} ${fmt(rv.net_energy_saving_eur)}`, col: 'g',
                 },
                 {
                   lbl: 'Stap 2 — EPEX marktarbitrage',
@@ -369,12 +369,17 @@ export function PDFReport({ results: rv, input }) {
                   val: `+${EUR} ${fmt(rv.ems_physics_low)} ${DASH} ${EUR} ${fmt(rv.ems_physics_high)}`, col: 'g',
                 },
                 {
-                  lbl: 'Stap 3 — Prijsstijging + saldering',
-                  sub: 'Piekdemping, levensduur, monitoring, gedragsoptimalisatie',
-                  val: `${EUR} ${fmt((rv.total_annual_low || 0) - (rv.garantie_bonus || 0))} ${DASH} ${EUR} ${fmt((rv.total_annual_high || 0) - (rv.garantie_bonus || 0))}`, bold: true,
+                  lbl: 'Stap 3 — Energieprijsstijging',
+                  sub: 'CBS-prognose +5%/jr energieprijs, 10-jaar gemiddelde',
+                  val: `+${EUR} ${fmt(rv.escalation_eur_low)} ${DASH} ${EUR} ${fmt(rv.escalation_eur_high)}`, col: 'g',
+                },
+                {
+                  lbl: 'Stap 4 — Salderingsbescherming',
+                  sub: 'Afbouw saldering 2027–2031 opgevangen door zelfverbruik',
+                  val: `+${EUR} ${fmt(rv.sald_protection_eur)}`, col: 'g',
                 },
                 ...((rv.garantie_bonus || 0) > 0 ? [{
-                  lbl: 'Stap 4 — VOLTRAX Prestatiegarantie',
+                  lbl: 'Stap 5 — VOLTRAX Prestatiegarantie',
                   sub: 'Op basis van capaciteit en historisch AlphaESS systeemrendement',
                   val: `+${EUR} ${fmt(rv.garantie_bonus)}`, col: 'g',
                 }] : []),
