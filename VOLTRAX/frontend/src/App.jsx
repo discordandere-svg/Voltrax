@@ -10,6 +10,7 @@ import AlphaESSPage from './pages/AlphaESSPage.jsx'
 import WarmtefondsPage from './pages/WarmtefondsPage.jsx'
 import WaaromVoltraxPage from './pages/WaaromVoltraxPage.jsx'
 import FAQPage from './pages/FAQPage.jsx'
+import VideoTemplate from './components/video/VideoTemplate'
 import { LanguageProvider } from './context/LanguageContext'
 
 function ScrollToTop() {
@@ -24,16 +25,17 @@ function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route path="/"             element={<HomePage />} />
-          <Route path="/hoe-werkt-het" element={<HoeWerktHetPage />} />
-          <Route path="/aanbod"       element={<AanbodPage />} />
-          <Route path="/over-ons"     element={<OverOnsPage />} />
-          <Route path="/alphaess"     element={<AlphaESSPage />} />
+          <Route path="/"               element={<HomePage />} />
+          <Route path="/hoe-werkt-het"  element={<HoeWerktHetPage />} />
+          <Route path="/aanbod"         element={<AanbodPage />} />
+          <Route path="/over-ons"       element={<OverOnsPage />} />
+          <Route path="/alphaess"       element={<AlphaESSPage />} />
           <Route path="/warmtefonds"    element={<WarmtefondsPage />} />
           <Route path="/waarom-voltrax" element={<WaaromVoltraxPage />} />
           <Route path="/faq"            element={<FAQPage />} />
-          <Route path="/calculator"   element={<CalculatorPage />} />
-          <Route path="/results"      element={<ResultsPage />} />
+          <Route path="/calculator"     element={<CalculatorPage />} />
+          <Route path="/results"        element={<ResultsPage />} />
+          <Route path="/video"          element={<VideoTemplate />} />
         </Routes>
       </Router>
     </LanguageProvider>
