@@ -245,11 +245,11 @@ export default function CalculatorPage() {
 
       {/* Step tabs */}
       <div className="px-6 pt-4 pb-0 border-b border-gray-100">
-        <div className="max-w-2xl mx-auto flex gap-1 overflow-x-auto">
+        <div className="max-w-3xl mx-auto flex gap-0.5 overflow-x-auto">
           {STEPS.map((s) => (
             <div
               key={s.id}
-              className={`flex items-center gap-1.5 text-xs whitespace-nowrap px-3 py-2.5 rounded-t-xl transition-all ${
+              className={`flex items-center gap-1.5 text-xs whitespace-nowrap px-2.5 py-2.5 rounded-t-xl transition-all ${
                 s.id === step
                   ? 'bg-white border border-b-white border-gray-100 text-[#131A20] font-bold -mb-px'
                   : s.id < step
