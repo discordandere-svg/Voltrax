@@ -142,8 +142,8 @@ function BatteryPhoto({ level, status, price, nl, compact = false }) {
 
   const W = compact ? 90 : 150
   const H = compact ? 240 : 400
-  const LEFT_FILL = compact ? 33 : 55
-  const RIGHT_FILL = compact ? 5 : 8
+  const LEFT_FILL = compact ? 11 : 18
+  const RIGHT_FILL = compact ? 11 : 18
 
   return (
     <div className={`flex ${compact ? 'flex-row items-center gap-3' : 'flex-row items-center gap-5'} select-none`}>

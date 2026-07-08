@@ -18,6 +18,12 @@ const INSTALL_PHOTOS = [
   { src: '/assets/installaties/install-10.jpg', alt: 'HYXiPower installatie in nis' },
 ]
 
+const PRODUCT_PHOTOS = [
+  { src: '/assets/installaties/solarfast-garage-render.jpg', alt: 'HYXiPower All-in-One in garage, 3D render' },
+  { src: '/assets/installaties/product-exploded.jpg', alt: 'HYXiPower All-in-One onderdelen uiteengezet' },
+  { src: '/assets/installaties/hyxipower-studio-render.png', alt: 'HYXiPower All-in-One studio render' },
+]
+
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (i = 0) => ({
@@ -122,12 +128,12 @@ export default function OverOnsPage() {
             <motion.div
               initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10 aspect-[4/3]"
+              className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10 aspect-square bg-white"
             >
               <img
                 src="/assets/installaties/hyxipower-studio-render.png"
                 alt="HYXiPower All-in-One thuisbatterij"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-[center_30%]"
               />
             </motion.div>
           </div>
@@ -201,6 +207,28 @@ export default function OverOnsPage() {
                   waarna alles direct wordt geactiveerd en getest.
                 </p>
               </div>
+            </div>
+          </Reveal>
+
+          <Reveal className="mt-14">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-extrabold mb-3">Het HYXiPower product</h3>
+              <p className="text-[#131A20]/60 max-w-xl mx-auto">
+                Een blik op het HYXiPower All-in-One systeem zelf: compact, modulair en ontworpen
+                voor een naadloze plek in huis.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {PRODUCT_PHOTOS.map((photo, i) => (
+                <div key={i} className="rounded-2xl overflow-hidden aspect-square bg-[#F9F7F4]">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>

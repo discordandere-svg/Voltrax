@@ -190,9 +190,6 @@ export default function WaaromSolarFastPage() {
     { src: '/assets/installaties/install-10.jpg', alt: 'HYXiPower installatie buiten' },
     { src: '/assets/installaties/install-05.jpg', alt: 'HYXiPower installatie' },
     { src: '/assets/installaties/install-detail.jpg', alt: 'HYXiPower installatie kelder' },
-    { src: '/assets/installaties/solarfast-garage-render.jpg', alt: 'HYXiPower installatie' },
-    { src: '/assets/installaties/product-exploded.jpg', alt: 'HYXiPower installatie' },
-    { src: '/assets/installaties/hyxipower-studio-render.png', alt: 'HYXiPower installatie' },
   ]
 
   return (

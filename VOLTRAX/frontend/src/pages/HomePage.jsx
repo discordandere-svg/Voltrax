@@ -141,19 +141,18 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.96, x: 24 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="relative"
+              className="relative flex items-center justify-center py-6 overflow-hidden"
             >
-              <div className="rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-black/10">
-                <img
-                  src="/assets/hyxipower-front.png"
-                  alt="HYXiPower All-in-One thuisbatterij"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <div className="absolute w-[70%] aspect-square rounded-full bg-[#22a55d]/8 blur-2xl" />
+              <img
+                src="/assets/hyxipower-battery-3d.png"
+                alt="HYXiPower All-in-One thuisbatterij"
+                className="relative w-[62%] sm:w-[55%] max-w-xs mx-auto drop-shadow-2xl"
+              />
               <motion.div
                 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.55, duration: 0.55 }}
-                className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl shadow-black/8 px-5 py-4 flex items-center gap-3 border border-white"
+                className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-white rounded-2xl shadow-xl shadow-black/8 px-5 py-4 flex items-center gap-3 border border-white"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#22a55d]/10 flex items-center justify-center">
                   <Battery className="w-5 h-5 text-[#22a55d]" />
