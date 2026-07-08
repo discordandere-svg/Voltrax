@@ -292,7 +292,7 @@ export default function ResultsPage() {
       setInput(JSON.parse(i))
     } else if (import.meta.env.DEV && new URLSearchParams(window.location.search).get('preview') === '1') {
       const devR = {"smart_daily_low":0.9,"smart_daily_high":1.42,"smart_annual_low":329,"smart_annual_high":520,"bill_savings_annual":420,"bill_savings_monthly":35,"total_annual_low":749,"total_annual_high":940,"total_daily_low":3.01,"total_daily_high":3.7,"payback_low":5.9,"payback_high":7.3,"zelfverbruik_voor":71.9,"zelfverbruik_na":90.4,"netonafhankelijkheid":39.5,"teruglevering_voor":28.1,"teruglevering_na":8.0,"bat_shift_kwh":592,"saved_terugleverkosten":286,"lost_terugleververgoeding":0,"grid_import_without":1500,"grid_cost_without":420,"export_revenue_without":45,"net_annual_cost_without":775,"grid_cost_with":254,"export_kwh_with":256,"sc_direct_kwh":2300,"sc_battery_kwh":592,"sc_pct_zonder":71.9,"sc_pct_met":90.4,"grid_import_with":908,"grid_import_besparing_kwh":592,"grid_import_besparing_eur":166,"export_kwh_zonder":900,"export_shift_kwh":592,"export_revenue_loss_eur":32,"battery_arbitrage_eur":0,"net_energy_saving_eur":420,"pE_used":0.28,"pT_used":0.05,"pv_input":3200,"v_input":3800,"t_input":900,"batterySelfConsumption":592,"totalSelfConsumption":2892,"ems_solar_cycles":97,"ems_total_cycles":417,"ems_cycli":320,"spread_low":0.12,"spread_high":0.19,"dynamic_contract":false,"garantie_bonus":0,"escalation_eur_low":240,"escalation_eur_high":301,"sald_protection_eur":111,"ems_physics_low":329,"ems_physics_high":520,"battery_charge_kwh":644,"shift_pct":72,"net_voor_pct":39.5,"net_na_pct":23.9}
-      const devI = {"battery_kWh":9.3,"battery_price":8000,"terugleverkosten_value":400,"terugleverkosten_unit":"jaar"}
+      const devI = {"battery_kWh":10.6,"battery_price":8000,"terugleverkosten_value":400,"terugleverkosten_unit":"jaar"}
       setResults(devR); setInput(devI)
     } else {
       navigate('/calculator', { state: { step: 6 } })
@@ -306,7 +306,7 @@ export default function ResultsPage() {
   )
 
   const battery_price = input?.battery_price || 9000
-  const battery_kWh   = input?.battery_kWh   || 18.6
+  const battery_kWh   = input?.battery_kWh   || 15.9
   const isDynamic     = results?.dynamic_contract || false
   const perMaandLow   = Math.round(results.total_annual_low  / 12)
   const perMaandHigh  = Math.round(results.total_annual_high / 12)

@@ -46,7 +46,8 @@ const WHY_ICONS = [
 
 export default function HomePage() {
   const navigate = useNavigate()
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
+  const nl = lang === 'nl'
   const h = t.home
 
   useEffect(() => {
@@ -289,10 +290,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { label: h.specCapacity, value: '9,3 – 111,3 kWh', icon: <Battery className="w-4 h-4" /> },
+              { label: h.specCapacity, value: '10,6 – 26,5 kWh', icon: <Battery className="w-4 h-4" /> },
               { label: h.specTech,     value: 'LFP-lithium',      icon: <Zap className="w-4 h-4" /> },
-              { label: h.specCycles,   value: '10.000+',           icon: <TrendingUp className="w-4 h-4" /> },
-              { label: h.specWarranty, value: '10 jaar',           icon: <Shield className="w-4 h-4" /> },
+              { label: h.specCycles,   value: nl ? 'Modulair' : 'Modular', icon: <TrendingUp className="w-4 h-4" /> },
+              { label: h.specWarranty, value: nl ? 'Fabrieksgarantie' : 'Factory warranty', icon: <Shield className="w-4 h-4" /> },
             ].map((s, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="text-center p-6 rounded-2xl bg-[#F9F7F4] border border-gray-100">

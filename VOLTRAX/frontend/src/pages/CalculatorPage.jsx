@@ -137,7 +137,7 @@ export default function CalculatorPage() {
     terugleververgoeding_unit: 'kWh',
     terugleverkosten_value: '',
     terugleverkosten_unit: 'jaar',
-    battery_kWh: 18.6,
+    battery_kWh: 15.9,
     battery_price: '',
     dynamic_contract: false,
   })
@@ -469,12 +469,10 @@ export default function CalculatorPage() {
               {step === 5 && (() => {
                 const tv = parseNum(formData.teruglevering) || 0
                 const recommendedKwh =
-                  tv > 6000 ? 111.3 :
-                  tv > 4500 ? 46.5 :
-                  tv > 3500 ? 37.2 :
-                  tv > 2500 ? 27.9 :
-                  tv > 1500 ? 18.6 : 9.3
-                const hasRecommendation = recommendedKwh > 9.3
+                  tv > 5000 ? 26.5 :
+                  tv > 3500 ? 21.2 :
+                  tv > 2000 ? 15.9 : 10.6
+                const hasRecommendation = recommendedKwh > 10.6
                 const recOpt = c.batteries.find(b => b.kWh === recommendedKwh)
                 const recLabel = recOpt ? recOpt.label : `${recommendedKwh} kWh`
                 const tooSmall = hasRecommendation && formData.battery_kWh < recommendedKwh

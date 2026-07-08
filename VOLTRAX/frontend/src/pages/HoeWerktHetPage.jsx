@@ -602,7 +602,7 @@ export default function HoeWerktHetPage() {
                   <div className="space-y-2">
                     {[
                       { label: nl ? 'Marktprijs' : 'Market price', val: '− €0,05/kWh', c: 'text-blue-700' },
-                      { label: nl ? 'Uw batterij laadt' : 'Your battery charges', val: '9,3 kWh', c: 'text-[#22a55d]' },
+                      { label: nl ? 'Uw batterij laadt' : 'Your battery charges', val: '10,6 kWh', c: 'text-[#22a55d]' },
                       { label: nl ? 'Voordeel vs. avondpiek' : 'Advantage vs. evening peak', val: '± €0,35/kWh', c: 'text-[#22a55d] font-extrabold' },
                     ].map((r, i) => (
                       <div key={i} className="flex justify-between items-center text-xs">

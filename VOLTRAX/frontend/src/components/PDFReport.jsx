@@ -194,7 +194,7 @@ function chunkArray(arr, n) {
 
 export function PDFReport({ results: rv, input }) {
   const price   = input?.battery_price || 9000
-  const kWh     = input?.battery_kWh   || 18.6
+  const kWh     = input?.battery_kWh   || 15.9
   const kWhLbl  = `${String(kWh).replace('.', ',')} kWh`
   const mndLow  = Math.round(rv.total_annual_low  / 12)
   const mndHigh = Math.round(rv.total_annual_high / 12)

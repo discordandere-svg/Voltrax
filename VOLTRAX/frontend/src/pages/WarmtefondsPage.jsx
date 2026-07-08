@@ -240,7 +240,7 @@ export default function WarmtefondsPage() {
                   {nl ? 'Voorbeeld berekening' : 'Example calculation'}
                 </div>
                 <div className="text-[#131A20]/45 text-xs mb-5">
-                  {nl ? 'HYXiPower 9,3 kWh, €8.000 investering' : 'HYXiPower 9.3 kWh, €8,000 investment'}
+                  {nl ? 'HYXiPower 10,6 kWh, €8.000 investering' : 'HYXiPower 10.6 kWh, €8,000 investment'}
                 </div>
                 <div className="space-y-4 mb-6">
                   {calcRows.map((row, i) => (

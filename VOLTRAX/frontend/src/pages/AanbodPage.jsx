@@ -34,190 +34,128 @@ export default function AanbodPage() {
 
   const PACKAGES = [
     {
-      kWh: 9.3,
-      label: '9,3 kWh',
+      kWh: 10.6,
+      label: '10,6 kWh',
       subtitle: nl ? 'Starter' : 'Starter',
       popular: false,
       icon: <Home className="w-5 h-5 text-green-600" />,
       iconBg: 'bg-green-50',
       desc: nl
-        ? 'De ideale instap voor koppels of kleine huishoudens die stap voor stap energieonafhankelijk willen worden.'
-        : 'The ideal entry point for couples or small households who want to become energy independent step by step.',
+        ? 'Voor kleinere huishoudens met zonnepanelen en gemiddeld verbruik.'
+        : 'For smaller households with solar panels and average consumption.',
       situatie: nl ? 'Voor wie?' : 'For whom?',
       situatieDesc: nl
-        ? 'Koppels, appartementen of kleine woningen met 6–10 zonnepanelen en een jaarverbruik tot 3.000 kWh.'
-        : 'Couples, apartments or small homes with 6–10 solar panels and annual consumption up to 3,000 kWh.',
+        ? 'Kleinere huishoudens met zonnepanelen en een gemiddeld energieverbruik.'
+        : 'Smaller households with solar panels and average energy consumption.',
       specs: nl ? [
-        '1x HYXiPower EMS batterijmodule',
+        'HYXiPower All-in-One ESS systeem',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 1-fase aansluiting',
         'HYXiPower Cloud app & EMS',
         'Professionele installatie',
-        '10.000+ laadcycli gegarandeerd',
+        'Uitbreidbaar tot 26,5 kWh',
       ] : [
-        '1x HYXiPower EMS battery module',
+        'HYXiPower All-in-One ESS system',
         'Hybrid inverter included',
         'Suitable for single-phase connection',
         'HYXiPower Cloud app & EMS',
         'Professional installation',
-        '10,000+ charge cycles guaranteed',
+        'Expandable up to 26.5 kWh',
       ],
-      highlight: nl ? 'Tot 65% minder van het net' : 'Up to 65% less from the grid',
+      highlight: nl ? 'Ideale eerste stap' : 'Ideal first step',
     },
     {
-      kWh: 18.6,
-      label: '18,6 kWh',
-      subtitle: nl ? 'Meest gekozen' : 'Most chosen',
+      kWh: 15.9,
+      label: '15,9 kWh',
+      subtitle: nl ? 'Comfort' : 'Comfort',
       popular: true,
       icon: <Users className="w-5 h-5 text-white" />,
       iconBg: 'bg-white/20',
       desc: nl
-        ? 'De perfecte balans voor een gezin. Genoeg capaciteit voor een volledige avond op eigen stroom.'
-        : 'The perfect balance for a family. Enough capacity for a full evening on your own power.',
+        ? 'Meest gekozen voor gezinnen met gemiddeld energieverbruik.'
+        : 'Most chosen for families with average energy consumption.',
       situatie: nl ? 'Voor wie?' : 'For whom?',
       situatieDesc: nl
-        ? 'Gezinnen van 3–4 personen met 10–16 zonnepanelen en een jaarverbruik van 3.000–5.000 kWh.'
-        : 'Families of 3–4 people with 10–16 solar panels and annual consumption of 3,000–5,000 kWh.',
+        ? 'Gezinnen met een gemiddeld energieverbruik die dag en avond op eigen stroom willen draaien.'
+        : 'Families with average energy consumption who want to run on their own power during the day and evening.',
       specs: nl ? [
-        '2x HYXiPower EMS batterijmodule',
+        'HYXiPower All-in-One ESS systeem',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 1- en 3-fase',
-        'HYXiPower Cloud app + geavanceerd EMS',
+        'HYXiPower Cloud app + EMS',
         'Professionele installatie',
-        '10.000+ laadcycli gegarandeerd',
+        'Uitbreidbaar tot 26,5 kWh',
       ] : [
-        '2x HYXiPower EMS battery module',
+        'HYXiPower All-in-One ESS system',
         'Hybrid inverter included',
         'Suitable for 1- and 3-phase',
-        'HYXiPower Cloud app + advanced EMS',
+        'HYXiPower Cloud app + EMS',
         'Professional installation',
-        '10,000+ charge cycles guaranteed',
+        'Expandable up to 26.5 kWh',
       ],
-      highlight: nl ? 'Tot 80% minder van het net' : 'Up to 80% less from the grid',
+      highlight: nl ? 'Meest gekozen door gezinnen' : 'Most chosen by families',
     },
     {
-      kWh: 27.9,
-      label: '27,9 kWh',
-      subtitle: nl ? 'Comfort' : 'Comfort',
+      kWh: 21.2,
+      label: '21,2 kWh',
+      subtitle: nl ? 'Premium' : 'Premium',
       popular: false,
       icon: <Thermometer className="w-5 h-5 text-amber-500" />,
       iconBg: 'bg-amber-50',
       desc: nl
-        ? 'Optimaal voor huishoudens met een warmtepomp. Genoeg buffer voor dag én nacht.'
-        : 'Optimal for households with a heat pump. Enough buffer for day and night.',
+        ? 'Voor woningen met warmtepomp, EV of hoger verbruik.'
+        : 'For homes with a heat pump, EV or higher consumption.',
       situatie: nl ? 'Voor wie?' : 'For whom?',
       situatieDesc: nl
-        ? 'Gezinnen met een warmtepomp of hoog verbruik (5.000–7.000 kWh/jaar) en 16–22 zonnepanelen.'
-        : 'Families with a heat pump or high consumption (5,000–7,000 kWh/year) and 16–22 solar panels.',
+        ? 'Woningen met een warmtepomp, elektrische auto of een hoger energieverbruik.'
+        : 'Homes with a heat pump, electric car or higher energy consumption.',
       specs: nl ? [
-        '3x HYXiPower EMS batterijmodule',
+        'HYXiPower All-in-One ESS systeem',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 3-fase aansluiting',
-        'HYXiPower Cloud app + geavanceerd EMS',
+        'HYXiPower Cloud app + EMS',
         'Professionele installatie',
-        '10.000+ laadcycli gegarandeerd',
+        'Uitbreidbaar tot 26,5 kWh',
       ] : [
-        '3x HYXiPower EMS battery module',
+        'HYXiPower All-in-One ESS system',
         'Hybrid inverter included',
         'Suitable for 3-phase connection',
-        'HYXiPower Cloud app + advanced EMS',
+        'HYXiPower Cloud app + EMS',
         'Professional installation',
-        '10,000+ charge cycles guaranteed',
+        'Expandable up to 26.5 kWh',
       ],
-      highlight: nl ? 'Ideaal met warmtepomp' : 'Ideal with heat pump',
+      highlight: nl ? 'Ideaal met warmtepomp of EV' : 'Ideal with heat pump or EV',
     },
     {
-      kWh: 37.2,
-      label: '37,2 kWh',
-      subtitle: nl ? 'Uitgebreid' : 'Extended',
-      popular: false,
-      icon: <Car className="w-5 h-5 text-blue-500" />,
-      iconBg: 'bg-blue-50',
-      desc: nl
-        ? 'Voor huishoudens die ook een elektrische auto laden. Dag en nacht volledig op eigen energie.'
-        : 'For households who also charge an electric car. Day and night fully on their own energy.',
-      situatie: nl ? 'Voor wie?' : 'For whom?',
-      situatieDesc: nl
-        ? 'Huishoudens met EV-laadpaal, warmtepomp of meerdere energieverbruikers en 20+ panelen.'
-        : 'Households with EV charger, heat pump or multiple energy consumers and 20+ solar panels.',
-      specs: nl ? [
-        '4x HYXiPower EMS batterijmodule',
-        'Hybride omvormer inbegrepen',
-        'Geschikt voor 3-fase aansluiting',
-        'HYXiPower Cloud app + geavanceerd EMS',
-        'Professionele installatie',
-        '10.000+ laadcycli gegarandeerd',
-      ] : [
-        '4x HYXiPower EMS battery module',
-        'Hybrid inverter included',
-        'Suitable for 3-phase connection',
-        'HYXiPower Cloud app + advanced EMS',
-        'Professional installation',
-        '10,000+ charge cycles guaranteed',
-      ],
-      highlight: nl ? 'Perfect voor EV + warmtepomp' : 'Perfect for EV + heat pump',
-    },
-    {
-      kWh: 46.5,
-      label: '46,5 kWh',
-      subtitle: nl ? 'Premium' : 'Premium',
-      popular: false,
-      icon: <Zap className="w-5 h-5 text-amber-500" />,
-      iconBg: 'bg-amber-50',
-      desc: nl
-        ? 'Hoge capaciteit voor energiebewuste huishoudens die maximaal willen profiteren van het EMS-systeem.'
-        : 'High capacity for energy-conscious households who want to maximise benefits from the EMS system.',
-      situatie: nl ? 'Voor wie?' : 'For whom?',
-      situatieDesc: nl
-        ? 'Grote huishoudens of kleine bedrijven met een jaarverbruik boven 7.000 kWh en 22+ panelen.'
-        : 'Large households or small businesses with annual consumption above 7,000 kWh and 22+ panels.',
-      specs: nl ? [
-        '5x HYXiPower EMS batterijmodule',
-        'Hybride omvormer inbegrepen',
-        'Geschikt voor 3-fase aansluiting',
-        'HYXiPower Cloud app + geavanceerd EMS',
-        'Professionele installatie',
-        '10.000+ laadcycli gegarandeerd',
-      ] : [
-        '5x HYXiPower EMS battery module',
-        'Hybrid inverter included',
-        'Suitable for 3-phase connection',
-        'HYXiPower Cloud app + advanced EMS',
-        'Professional installation',
-        '10,000+ charge cycles guaranteed',
-      ],
-      highlight: nl ? 'Maximale EMS-opbrengst' : 'Maximum EMS yield',
-    },
-    {
-      kWh: 111.3,
-      label: '111,3 kWh',
+      kWh: 26.5,
+      label: '26,5 kWh',
       subtitle: nl ? 'Maximum' : 'Maximum',
       popular: false,
       icon: <Award className="w-5 h-5 text-green-600" />,
       iconBg: 'bg-green-50',
       desc: nl
-        ? 'De ultieme configuratie voor volledige energieonafhankelijkheid. Dag, nacht én dagen bewolkt weer.'
-        : 'The ultimate configuration for complete energy independence. Day, night and cloudy days.',
+        ? 'Voor grote huishoudens, hoge opwek of maximale energieoptimalisatie.'
+        : 'For large households, high generation or maximum energy optimisation.',
       situatie: nl ? 'Voor wie?' : 'For whom?',
       situatieDesc: nl
-        ? 'Huishoudens die volledig onafhankelijk van het net willen zijn, met maximale zonneopwekking.'
-        : 'Households who want to be completely independent from the grid, with maximum solar generation.',
+        ? 'Grote huishoudens, een hoge zonneopwek of wie maximaal wil optimaliseren.'
+        : 'Large households, high solar generation or those who want to optimise to the fullest.',
       specs: nl ? [
-        '6x HYXiPower EMS batterijmodule',
+        'HYXiPower All-in-One ESS systeem',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 3-fase aansluiting',
-        'HYXiPower Cloud app + geavanceerd EMS',
+        'HYXiPower Cloud app + EMS',
         'Professionele installatie',
-        '10.000+ laadcycli gegarandeerd',
+        'Hoogste capaciteit in het HYXiPower assortiment',
       ] : [
-        '6x HYXiPower EMS battery module',
+        'HYXiPower All-in-One ESS system',
         'Hybrid inverter included',
         'Suitable for 3-phase connection',
-        'HYXiPower Cloud app + advanced EMS',
+        'HYXiPower Cloud app + EMS',
         'Professional installation',
-        '10,000+ charge cycles guaranteed',
+        'Highest capacity in the HYXiPower range',
       ],
-      highlight: nl ? 'Volledige energieonafhankelijkheid' : 'Complete energy independence',
+      highlight: nl ? 'Maximale energieoptimalisatie' : 'Maximum energy optimisation',
     },
   ]
 
