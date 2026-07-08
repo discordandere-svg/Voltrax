@@ -358,17 +358,17 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <Reveal delay={0} className="col-span-2 md:col-span-1 row-span-2">
               <div className="rounded-3xl overflow-hidden h-full min-h-64">
-                <img src="/assets/install.webp" alt="HYXiPower installatie" className="w-full h-full object-cover" />
+                <img src="/assets/installaties/install-technician.jpg" alt="HYXiPower installatie door monteur" className="w-full h-full object-cover" />
               </div>
             </Reveal>
             <Reveal delay={1}>
               <div className="rounded-3xl overflow-hidden aspect-video">
-                <img src="/assets/hyxipower-front.png" alt="HYXiPower in garage" className="w-full h-full object-cover" />
+                <img src="/assets/installaties/install-09.jpg" alt="HYXiPower in garage" className="w-full h-full object-cover" />
               </div>
             </Reveal>
             <Reveal delay={2}>
               <div className="rounded-3xl overflow-hidden aspect-video">
-                <img src="/assets/hyxipower-front.png" alt="HYXiPower aan de muur" className="w-full h-full object-cover" />
+                <img src="/assets/installaties/install-05.jpg" alt="HYXiPower aan de muur" className="w-full h-full object-cover" />
               </div>
             </Reveal>
           </div>
