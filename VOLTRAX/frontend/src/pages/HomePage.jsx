@@ -146,7 +146,7 @@ export default function HomePage() {
               <div className="rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-black/10">
                 <img
                   src="/assets/hyxipower-front.png"
-                  alt="HYXiPower All-in-One ESS thuisbatterij"
+                  alt="HYXiPower All-in-One thuisbatterij"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -434,7 +434,7 @@ export default function HomePage() {
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />LFP/LiFePO4 celtechnologie</li>
               <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />Slim EMS-beheer</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One ESS</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One</li>
               <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />Modulair uitbreidbaar</li>
             </ul>
           </div>

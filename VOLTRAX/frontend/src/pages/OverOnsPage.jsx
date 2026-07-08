@@ -39,7 +39,7 @@ const WAAROM = [
     icon: <Award className="w-6 h-6 text-amber-500" />,
     bg: 'bg-amber-50',
     title: 'HYXiPower partner',
-    desc: 'Wij werken met de HYXiPower All-in-One ESS: LiFePO4-batterijtechnologie met een slim Energy Management System.',
+    desc: 'Wij werken met de HYXiPower All-in-One: LiFePO4-batterijtechnologie met een slim Energy Management System.',
   },
   {
     icon: <Wrench className="w-6 h-6 text-blue-500" />,
@@ -250,7 +250,7 @@ export default function OverOnsPage() {
           <div className="grid md:grid-cols-2 gap-5 mb-5">
             <Reveal>
               <div className="bg-white rounded-3xl p-7 h-full border border-gray-100">
-                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">HYXiPower All-in-One ESS</div>
+                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">HYXiPower All-in-One</div>
                 <div className="space-y-3">
                   {[
                     { icon: <Battery className="w-4 h-4 text-green-600" />, bg: 'bg-green-50', title: 'LFP / LiFePO4 batterijtechnologie', desc: 'Veilige en duurzame celtechnologie.' },

@@ -35,8 +35,8 @@ export default function WaaromSolarFastPage() {
       icon: <Award className="w-6 h-6 text-[#22a55d]" />,
       title: nl ? 'HYXiPower partner' : 'HYXiPower partner',
       desc: nl
-        ? 'SolarFast is HYXiPower partner in Nederland. Wij installeren en ondersteunen de HYXiPower All-in-One ESS: LiFePO4-batterijtechnologie met een slim Energy Management System.'
-        : 'SolarFast is a HYXiPower partner in the Netherlands. We install and support the HYXiPower All-in-One ESS: LiFePO4 battery technology with a smart Energy Management System.',
+        ? 'SolarFast is HYXiPower partner in Nederland. Wij installeren en ondersteunen de HYXiPower All-in-One: LiFePO4-batterijtechnologie met een slim Energy Management System.'
+        : 'SolarFast is a HYXiPower partner in the Netherlands. We install and support the HYXiPower All-in-One: LiFePO4 battery technology with a smart Energy Management System.',
     },
     {
       icon: <Wrench className="w-6 h-6 text-[#22a55d]" />,
@@ -499,7 +499,7 @@ export default function WaaromSolarFastPage() {
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />LFP/LiFePO4 {nl ? 'celtechnologie' : 'cell technology'}</li>
               <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'Slim EMS-beheer' : 'Smart EMS management'}</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One ESS</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One</li>
               <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'Modulair uitbreidbaar' : 'Modular expandable'}</li>
             </ul>
           </div>

@@ -88,7 +88,7 @@ export default function HYXiPowerPage() {
     { aspect: nl ? 'Technologie' : 'Technology', alpha: nl ? 'LiFePO4, brandveilig en thermisch stabiel' : 'LiFePO4, fire-safe and thermally stable', rest: nl ? 'NMC of oudere chemie' : 'NMC or older chemistry' },
     { aspect: nl ? 'Omvormercompatibiliteit' : 'Inverter compatibility', alpha: nl ? 'Universeel: SolarEdge, Enphase, Huawei, SMA, Growatt' : 'Universal: SolarEdge, Enphase, Huawei, SMA, Growatt', rest: nl ? 'Vaak gebonden aan eigen merk' : 'Often locked to own brand' },
     { aspect: nl ? 'Installatie' : 'Installation', alpha: nl ? 'Meterloos ontwerp, minder onderdelen' : 'Meterless design, fewer parts', rest: nl ? 'Aparte energiemeter vereist' : 'Separate energy meter required' },
-    { aspect: nl ? 'Uitbreidbaarheid' : 'Expandability', alpha: nl ? 'Modulair All-in-One ESS, uitbreidbaar tot 26,5 kWh' : 'Modular All-in-One ESS, expandable up to 26.5 kWh', rest: nl ? 'Vaste capaciteit' : 'Fixed capacity' },
+    { aspect: nl ? 'Uitbreidbaarheid' : 'Expandability', alpha: nl ? 'Modulair All-in-One, uitbreidbaar tot 26,5 kWh' : 'Modular All-in-One, expandable up to 26.5 kWh', rest: nl ? 'Vaste capaciteit' : 'Fixed capacity' },
     { aspect: nl ? 'Veiligheid' : 'Safety', alpha: nl ? 'AFCI-detectie 0,5 sec, actieve drukontlasting' : 'AFCI detection 0.5 sec, active pressure relief', rest: nl ? 'Basisbeveiliging' : 'Basic protection' },
     { aspect: nl ? 'Behuizing' : 'Housing', alpha: 'IP67, C4-zoutneveltest', rest: nl ? 'Variabel per merk' : 'Varies by brand' },
     { aspect: nl ? 'App monitoring' : 'App monitoring', alpha: nl ? 'AI-gestuurd, 24/7 cloudmonitoring' : 'AI-driven, 24/7 cloud monitoring', rest: nl ? 'Vaak alleen basisweergave' : 'Often basic display only' },
@@ -151,7 +151,7 @@ export default function HYXiPowerPage() {
             <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.2, ease }}
               className="relative pb-0">
               <div className="rounded-t-3xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/30">
-                <img src="/hyxipower-battery.png" alt="HYXiPower All-in-One ESS thuisbatterij" className="w-full h-full object-cover" />
+                <img src="/hyxipower-battery.png" alt="HYXiPower All-in-One thuisbatterij" className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </div>
@@ -311,7 +311,7 @@ export default function HYXiPowerPage() {
               {nl ? 'Technische specificaties' : 'Technical specifications'}
             </h2>
             <p className="text-[#131A20]/45 text-base">
-              {nl ? 'HYXiPower All-in-One ESS, de meest populaire reeks' : 'HYXiPower All-in-One ESS, the most popular series'}
+              {nl ? 'HYXiPower All-in-One, de meest populaire reeks' : 'HYXiPower All-in-One, the most popular series'}
             </p>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -348,7 +348,7 @@ export default function HYXiPowerPage() {
 
           <div className="grid md:grid-cols-2 gap-2.5">
             {(nl ? [
-              { icon: '📦', title: 'Modulair uitbreidbaar: 10,6 – 26,5 kWh', desc: 'Eén All-in-One ESS-systeem, capaciteit later uitbreiden zonder nieuwe omvormer' },
+              { icon: '📦', title: 'Modulair uitbreidbaar: 10,6 – 26,5 kWh', desc: 'Eén All-in-One-systeem, capaciteit later uitbreiden zonder nieuwe omvormer' },
               { icon: '🔌', title: 'Meterloos ontwerp', desc: 'Geen aparte energiemeter nodig, eenvoudiger installatieproces' },
               { icon: '🔋', title: 'LiFePO4-celtechnologie', desc: 'A+ grade cellen, thermisch stabiel en brandveilig, bewaakt door automotive-grade BMS' },
               { icon: '🛡️', title: 'AFCI-vlamboogdetectie binnen 0,5 seconde', desc: 'Automatische noodstop bij een gedetecteerde vlamboog' },
@@ -357,7 +357,7 @@ export default function HYXiPowerPage() {
               { icon: '🔧', title: 'Universele omvormercompatibiliteit', desc: 'Werkt samen met SolarEdge, Enphase, Huawei, SMA en Growatt' },
               { icon: '📡', title: 'AI-gestuurd cloudmonitoring', desc: '24/7 realtime inzicht en besturing via de HYXiPower app' },
             ] : [
-              { icon: '📦', title: 'Modular expandable: 10.6 – 26.5 kWh', desc: 'One All-in-One ESS system, expand capacity later without a new inverter' },
+              { icon: '📦', title: 'Modular expandable: 10.6 – 26.5 kWh', desc: 'One All-in-One system, expand capacity later without a new inverter' },
               { icon: '🔌', title: 'Meterless design', desc: 'No separate energy meter needed, simpler installation process' },
               { icon: '🔋', title: 'LiFePO4 cell technology', desc: 'A+ grade cells, thermally stable and fire-safe, monitored by automotive-grade BMS' },
               { icon: '🛡️', title: 'AFCI arc-fault detection within 0.5 seconds', desc: 'Automatic emergency stop when an arc fault is detected' },
@@ -460,13 +460,13 @@ export default function HYXiPowerPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal delay={1}>
               <div className="rounded-3xl overflow-hidden shadow-xl shadow-gray-100">
-                <img src="/assets/hyxipower-lineup.png" alt="HYXiPower All-in-One ESS lineup" className="w-full h-auto" />
+                <img src="/assets/hyxipower-lineup.png" alt="HYXiPower All-in-One lineup" className="w-full h-auto" />
               </div>
             </Reveal>
             <Reveal>
               <div className="inline-flex items-center gap-2 bg-white border border-gray-100 text-[#131A20]/50 text-xs font-semibold px-4 py-2 rounded-full mb-6">
                 <Battery className="w-3.5 h-3.5 text-[#22a55d]" />
-                {nl ? 'All-in-One ESS, de bestseller' : 'All-in-One ESS, the bestseller'}
+                {nl ? 'All-in-One, de bestseller' : 'All-in-One, the bestseller'}
               </div>
               <h2 className="text-4xl font-extrabold leading-tight mb-5 tracking-tight">
                 {nl ? (
@@ -477,8 +477,8 @@ export default function HYXiPowerPage() {
               </h2>
               <p className="text-[#131A20]/55 leading-relaxed mb-7">
                 {nl
-                  ? 'De All-in-One ESS begint bij 10,6 kWh en is modulair uitbreidbaar tot 26,5 kWh. Of u nu alleen uw zonnepaneeloverschot wilt opslaan of volledig onafhankelijk wilt zijn, het systeem groeit met u mee.'
-                  : 'The All-in-One ESS starts at 10.6 kWh and is modularly expandable to 26.5 kWh. Whether you just want to store your solar surplus or become completely independent, the system grows with you.'}
+                  ? 'De All-in-One begint bij 10,6 kWh en is modulair uitbreidbaar tot 26,5 kWh. Of u nu alleen uw zonnepaneeloverschot wilt opslaan of volledig onafhankelijk wilt zijn, het systeem groeit met u mee.'
+                  : 'The All-in-One starts at 10.6 kWh and is modularly expandable to 26.5 kWh. Whether you just want to store your solar surplus or become completely independent, the system grows with you.'}
               </p>
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {[
@@ -568,7 +568,7 @@ export default function HYXiPowerPage() {
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'LiFePO4-celtechnologie' : 'LiFePO4 cell technology'}</li>
               <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'Slim EMS-beheer' : 'Smart EMS management'}</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One ESS</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One</li>
               <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'Modulair uitbreidbaar' : 'Modular expandable'}</li>
             </ul>
           </div>

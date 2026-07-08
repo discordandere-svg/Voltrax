@@ -213,7 +213,7 @@ export function PDFReport({ results: rv, input }) {
     { lbl: 'Teruglevering',          val: fmt(rv.t_input),                 unit: 'kWh/jaar' },
     { lbl: 'Inkoopprijs',            val: `${EUR} ${fmt(rv.pE_used, 2)}`,  unit: 'per kWh' },
     { lbl: 'Teruglevertarief',       val: `${EUR} ${fmt(rv.pT_used, 2)}`,  unit: 'per kWh' },
-    { lbl: 'Gekozen capaciteit',     val: kWhLbl,                          unit: 'HYXiPower All-in-One ESS' },
+    { lbl: 'Gekozen capaciteit',     val: kWhLbl,                          unit: 'HYXiPower All-in-One' },
     { lbl: 'Investering incl. inst.', val: `${EUR} ${fmt(price)}`,         unit: 'totaal' },
     ...(tkJaar > 0 ? [{ lbl: 'Terugleverkosten', val: `${EUR} ${fmt(tkJaar)}`, unit: 'per jaar' }] : []),
   ]
@@ -312,7 +312,7 @@ export function PDFReport({ results: rv, input }) {
 
             {/* Met batterij */}
             <View style={s.cardGreen}>
-              <Text style={s.cardEyeGreen}>MET HYXIPOWER All-in-One ESS</Text>
+              <Text style={s.cardEyeGreen}>MET HYXIPOWER All-in-One</Text>
               <Text style={s.cardTitleDark}>Met batterij</Text>
               <DR style={s.drG} lbl="Zonne-opwek"           val={`${fmt(rv.pv_input)} kWh`}                 sub="gelijk aan huidige situatie" />
               <DR style={s.drG} lbl="Totaal zelfverbruik"   val={`${fmt(rv.totalSelfConsumption)} kWh`}     sub={`${fmt(rv.sc_direct_kwh)} direct + ${fmt(rv.batterySelfConsumption)} batterij`} g />

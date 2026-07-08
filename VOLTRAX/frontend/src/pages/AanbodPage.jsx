@@ -48,14 +48,14 @@ export default function AanbodPage() {
         ? 'Kleinere huishoudens met zonnepanelen en een gemiddeld energieverbruik.'
         : 'Smaller households with solar panels and average energy consumption.',
       specs: nl ? [
-        'HYXiPower All-in-One ESS systeem',
+        'HYXiPower All-in-One systeem',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 1-fase aansluiting',
         'HYXiPower Cloud app & EMS',
         'Professionele installatie',
         'Uitbreidbaar tot 26,5 kWh',
       ] : [
-        'HYXiPower All-in-One ESS system',
+        'HYXiPower All-in-One system',
         'Hybrid inverter included',
         'Suitable for single-phase connection',
         'HYXiPower Cloud app & EMS',
@@ -79,14 +79,14 @@ export default function AanbodPage() {
         ? 'Gezinnen met een gemiddeld energieverbruik die dag en avond op eigen stroom willen draaien.'
         : 'Families with average energy consumption who want to run on their own power during the day and evening.',
       specs: nl ? [
-        'HYXiPower All-in-One ESS systeem',
+        'HYXiPower All-in-One systeem',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 1- en 3-fase',
         'HYXiPower Cloud app + EMS',
         'Professionele installatie',
         'Uitbreidbaar tot 26,5 kWh',
       ] : [
-        'HYXiPower All-in-One ESS system',
+        'HYXiPower All-in-One system',
         'Hybrid inverter included',
         'Suitable for 1- and 3-phase',
         'HYXiPower Cloud app + EMS',
@@ -110,14 +110,14 @@ export default function AanbodPage() {
         ? 'Woningen met een warmtepomp, elektrische auto of een hoger energieverbruik.'
         : 'Homes with a heat pump, electric car or higher energy consumption.',
       specs: nl ? [
-        'HYXiPower All-in-One ESS systeem',
+        'HYXiPower All-in-One systeem',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 3-fase aansluiting',
         'HYXiPower Cloud app + EMS',
         'Professionele installatie',
         'Uitbreidbaar tot 26,5 kWh',
       ] : [
-        'HYXiPower All-in-One ESS system',
+        'HYXiPower All-in-One system',
         'Hybrid inverter included',
         'Suitable for 3-phase connection',
         'HYXiPower Cloud app + EMS',
@@ -141,14 +141,14 @@ export default function AanbodPage() {
         ? 'Grote huishoudens, een hoge zonneopwek of wie maximaal wil optimaliseren.'
         : 'Large households, high solar generation or those who want to optimise to the fullest.',
       specs: nl ? [
-        'HYXiPower All-in-One ESS systeem',
+        'HYXiPower All-in-One systeem',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 3-fase aansluiting',
         'HYXiPower Cloud app + EMS',
         'Professionele installatie',
         'Hoogste capaciteit in het HYXiPower assortiment',
       ] : [
-        'HYXiPower All-in-One ESS system',
+        'HYXiPower All-in-One system',
         'Hybrid inverter included',
         'Suitable for 3-phase connection',
         'HYXiPower Cloud app + EMS',
@@ -162,7 +162,7 @@ export default function AanbodPage() {
   const INCLUDED = [
     {
       icon: <Battery className="w-5 h-5 text-green-600" />, bg: 'bg-green-50',
-      title: 'HYXiPower All-in-One ESS',
+      title: 'HYXiPower All-in-One',
       desc: nl ? 'Batterij, BMS en EMS in één systeem. Uitbreidbaar naar behoefte.' : 'Battery, BMS and EMS in one system. Expandable as needed.',
     },
     {
@@ -252,7 +252,7 @@ export default function AanbodPage() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold px-4 py-2 rounded-full mb-6">
             <Battery className="w-3.5 h-3.5" />
-            {nl ? 'HYXiPower All-in-One ESS, HYXiPower partner' : 'HYXiPower All-in-One ESS, HYXiPower partner'}
+            {nl ? 'HYXiPower All-in-One, HYXiPower partner' : 'HYXiPower All-in-One, HYXiPower partner'}
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl font-extrabold leading-tight mb-5 text-[#131A20]">

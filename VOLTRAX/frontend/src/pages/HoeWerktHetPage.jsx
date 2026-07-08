@@ -155,7 +155,7 @@ function BatteryPhoto({ level, status, price, nl, compact = false }) {
       }}>
         <img
           src="/hyxipower-battery.png"
-          alt="HYXiPower All-in-One ESS"
+          alt="HYXiPower All-in-One"
           draggable={false}
           style={{
             position: 'absolute', inset: 0,
@@ -663,12 +663,12 @@ export default function HoeWerktHetPage() {
               {
                 emoji: '🧩',
                 title: 'Modulair uitbreiden wanneer u wilt',
-                body: 'De HYXiPower All-in-One ESS is modulair opgebouwd. Heeft u later meer opslagcapaciteit nodig? Dan breidt u het systeem uit zonder alles te vervangen.',
+                body: 'De HYXiPower All-in-One is modulair opgebouwd. Heeft u later meer opslagcapaciteit nodig? Dan breidt u het systeem uit zonder alles te vervangen.',
               },
               {
                 emoji: '🔌',
                 title: 'Backup/noodstroom: niet standaard bij elke batterij',
-                body: 'Sommige thuisbatterijen werken alleen als het stroomnet actief is. De HYXiPower All-in-One ESS kan — met de juiste configuratie — ook noodstroom leveren bij een stroomstoring. Handig als u apparaten draaiende wilt houden bij netuitval.',
+                body: 'Sommige thuisbatterijen werken alleen als het stroomnet actief is. De HYXiPower All-in-One kan — met de juiste configuratie — ook noodstroom leveren bij een stroomstoring. Handig als u apparaten draaiende wilt houden bij netuitval.',
               },
             ] : [
               {
@@ -689,12 +689,12 @@ export default function HoeWerktHetPage() {
               {
                 emoji: '🧩',
                 title: 'Expand modularly whenever you want',
-                body: 'The HYXiPower All-in-One ESS is built modularly. Need more storage capacity later? Then you expand the system without replacing everything.',
+                body: 'The HYXiPower All-in-One is built modularly. Need more storage capacity later? Then you expand the system without replacing everything.',
               },
               {
                 emoji: '🔌',
                 title: 'Backup / emergency power: not standard on every battery',
-                body: 'Some home batteries only work when the grid is active. The HYXiPower All-in-One ESS can — with the correct configuration — also supply emergency power during an outage. Useful for keeping appliances running when the grid goes down.',
+                body: 'Some home batteries only work when the grid is active. The HYXiPower All-in-One can — with the correct configuration — also supply emergency power during an outage. Useful for keeping appliances running when the grid goes down.',
               },
             ]).map((item, i) => (
               <Reveal key={i} delay={i * 0.07}>
@@ -777,7 +777,7 @@ export default function HoeWerktHetPage() {
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />LFP/LiFePO4 {nl ? 'celtechnologie' : 'cell technology'}</li>
               <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'Slim EMS-beheer' : 'Smart EMS management'}</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One ESS</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One</li>
               <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'Modulair uitbreidbaar' : 'Modular expandable'}</li>
             </ul>
           </div>

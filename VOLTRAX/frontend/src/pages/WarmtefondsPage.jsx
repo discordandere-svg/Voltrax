@@ -97,7 +97,7 @@ export default function WarmtefondsPage() {
     },
     {
       q: 'Tot hoeveel kan ik lenen voor een HYXiPower batterij?',
-      a: 'Via het Nationaal Warmtefonds kunt u tot € 8.500 lenen specifiek voor energieopslag. Dit dekt doorgaans de volledige installatie van een HYXiPower All-in-One ESS inclusief installatie.',
+      a: 'Via het Nationaal Warmtefonds kunt u tot € 8.500 lenen specifiek voor energieopslag. Dit dekt doorgaans de volledige installatie van een HYXiPower All-in-One inclusief installatie.',
     },
     {
       q: 'Hoe werkt de 0% rente?',
@@ -122,7 +122,7 @@ export default function WarmtefondsPage() {
     },
     {
       q: 'How much can I borrow for an HYXiPower battery?',
-      a: 'Via the National Warmtefonds you can borrow up to €8,500 specifically for energy storage. This typically covers the full installation of an HYXiPower All-in-One ESS including installation.',
+      a: 'Via the National Warmtefonds you can borrow up to €8,500 specifically for energy storage. This typically covers the full installation of an HYXiPower All-in-One including installation.',
     },
     {
       q: 'How does the 0% interest work?',
