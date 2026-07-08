@@ -23,7 +23,7 @@ const Scene1 = forwardRef(function Scene1(props, ref) {
     >
       <motion.div 
         className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-multiply"
-        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}assets/battery-home.webp)` }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}assets/hyxipower-lineup.png)` }}
         animate={{ scale: [1.1, 1] }}
         transition={{ duration: 4, ease: 'easeOut' }}
       />

@@ -96,8 +96,8 @@ export default function WarmtefondsPage() {
       a: 'Eigenaar-bewoners van een eigen woning in Nederland die willen investeren in energiebesparende maatregelen, waaronder thuisbatterijen. U heeft geen uitstekende kredietwaardigheid nodig. Het Warmtefonds kijkt naar de woning, niet alleen naar uw inkomen.',
     },
     {
-      q: 'Tot hoeveel kan ik lenen voor een AlphaESS batterij?',
-      a: 'Via het Nationaal Warmtefonds kunt u tot € 8.500 lenen specifiek voor energieopslag. Dit dekt doorgaans de volledige installatie van een AlphaESS SMILE G3 inclusief installatie.',
+      q: 'Tot hoeveel kan ik lenen voor een HYXiPower batterij?',
+      a: 'Via het Nationaal Warmtefonds kunt u tot € 8.500 lenen specifiek voor energieopslag. Dit dekt doorgaans de volledige installatie van een HYXiPower All-in-One ESS inclusief installatie.',
     },
     {
       q: 'Hoe werkt de 0% rente?',
@@ -121,8 +121,8 @@ export default function WarmtefondsPage() {
       a: 'Owner-occupiers of their own home in the Netherlands who want to invest in energy-saving measures, including home batteries. You do not need an excellent credit rating. The Warmtefonds looks at the property, not just your income.',
     },
     {
-      q: 'How much can I borrow for an AlphaESS battery?',
-      a: 'Via the National Warmtefonds you can borrow up to €8,500 specifically for energy storage. This typically covers the full installation of an AlphaESS SMILE G3 including installation.',
+      q: 'How much can I borrow for an HYXiPower battery?',
+      a: 'Via the National Warmtefonds you can borrow up to €8,500 specifically for energy storage. This typically covers the full installation of an HYXiPower All-in-One ESS including installation.',
     },
     {
       q: 'How does the 0% interest work?',
@@ -203,8 +203,8 @@ export default function WarmtefondsPage() {
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.16 }}
                 className="text-lg text-[#131A20]/55 leading-relaxed mb-8 max-w-md">
                 {nl
-                  ? <>Via onze samenwerking met het Nationaal Warmtefonds kunt u tot € 8.500 lenen voor uw AlphaESS batterij. Bij een inkomen onder € 60.000 betaalt u <strong className="text-[#131A20]">0% rente</strong>. Wij regelen alles voor u.</>
-                  : <>Via our partnership with the National Warmtefonds you can borrow up to €8,500 for your AlphaESS battery. With an income below €60,000 you pay <strong className="text-[#131A20]">0% interest</strong>. We arrange everything for you.</>}
+                  ? <>Via onze samenwerking met het Nationaal Warmtefonds kunt u tot € 8.500 lenen voor uw HYXiPower batterij. Bij een inkomen onder € 60.000 betaalt u <strong className="text-[#131A20]">0% rente</strong>. Wij regelen alles voor u.</>
+                  : <>Via our partnership with the National Warmtefonds you can borrow up to €8,500 for your HYXiPower battery. With an income below €60,000 you pay <strong className="text-[#131A20]">0% interest</strong>. We arrange everything for you.</>}
               </motion.p>
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.22 }}
                 className="flex flex-wrap gap-3 mb-10">
@@ -240,7 +240,7 @@ export default function WarmtefondsPage() {
                   {nl ? 'Voorbeeld berekening' : 'Example calculation'}
                 </div>
                 <div className="text-[#131A20]/45 text-xs mb-5">
-                  {nl ? 'AlphaESS 9,3 kWh, €8.000 investering' : 'AlphaESS 9.3 kWh, €8,000 investment'}
+                  {nl ? 'HYXiPower 9,3 kWh, €8.000 investering' : 'HYXiPower 9.3 kWh, €8,000 investment'}
                 </div>
                 <div className="space-y-4 mb-6">
                   {calcRows.map((row, i) => (
@@ -419,7 +419,7 @@ export default function WarmtefondsPage() {
           <div className="flex flex-wrap justify-center items-center gap-10">
             {[
               { name: nl ? 'Nationaal Warmtefonds' : 'National Warmtefonds', icon: <Building2 className="w-5 h-5" /> },
-              { name: 'AlphaESS', icon: <Battery className="w-5 h-5" /> },
+              { name: 'HYXiPower', icon: <Battery className="w-5 h-5" /> },
               { name: 'EPEX SPOT', icon: <Zap className="w-5 h-5" /> },
               { name: 'TÜV Rheinland', icon: <Award className="w-5 h-5" /> },
             ].map((p, i) => (

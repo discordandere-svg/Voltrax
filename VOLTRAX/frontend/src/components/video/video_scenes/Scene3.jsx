@@ -30,7 +30,7 @@ const Scene3 = forwardRef(function Scene3(props, ref) {
           transition={{ duration: 1.2, ease: 'easeOut' }}
         >
           <div className="absolute inset-0 bg-[#F9F7F4] shadow-2xl rounded-2xl overflow-hidden border border-white/50 flex items-center justify-center">
-            <img src={`${import.meta.env.BASE_URL}alphaess-battery.webp`} className="h-[80%] object-contain mix-blend-multiply" alt="AlphaESS Battery" />
+            <img src={`${import.meta.env.BASE_URL}hyxipower-battery.png`} className="h-[80%] object-contain mix-blend-multiply" alt="HYXiPower Battery" />
           </div>
 
           <motion.div
@@ -57,7 +57,7 @@ const Scene3 = forwardRef(function Scene3(props, ref) {
           animate={phase >= 2 ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          AlphaESS Batterij + Zonnepanelen = Onafhankelijkheid
+          HYXiPower Batterij + Zonnepanelen = Onafhankelijkheid
         </motion.p>
       </div>
     </motion.div>

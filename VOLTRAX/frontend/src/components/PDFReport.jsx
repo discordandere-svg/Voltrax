@@ -213,7 +213,7 @@ export function PDFReport({ results: rv, input }) {
     { lbl: 'Teruglevering',          val: fmt(rv.t_input),                 unit: 'kWh/jaar' },
     { lbl: 'Inkoopprijs',            val: `${EUR} ${fmt(rv.pE_used, 2)}`,  unit: 'per kWh' },
     { lbl: 'Teruglevertarief',       val: `${EUR} ${fmt(rv.pT_used, 2)}`,  unit: 'per kWh' },
-    { lbl: 'Gekozen capaciteit',     val: kWhLbl,                          unit: 'AlphaESS SMILE G3' },
+    { lbl: 'Gekozen capaciteit',     val: kWhLbl,                          unit: 'HYXiPower All-in-One ESS' },
     { lbl: 'Investering incl. inst.', val: `${EUR} ${fmt(price)}`,         unit: 'totaal' },
     ...(tkJaar > 0 ? [{ lbl: 'Terugleverkosten', val: `${EUR} ${fmt(tkJaar)}`, unit: 'per jaar' }] : []),
   ]
@@ -223,7 +223,7 @@ export function PDFReport({ results: rv, input }) {
     <Document
       title="VOLTRAX Persoonlijk Energierapport"
       author="VOLTRAX"
-      subject="AlphaESS thuisbatterij berekening"
+      subject="HYXiPower thuisbatterij berekening"
     >
 
       {/* ═══════════════════════════════════════════════════
@@ -236,7 +236,7 @@ export function PDFReport({ results: rv, input }) {
         <View style={s.hdr}>
           <View>
             <Text style={s.hdrLogo}>VOLT<Text style={s.hdrAccent}>RAX</Text></Text>
-            <Text style={s.hdrSub}>AlphaESS {DOT} Officieel partner Nederland</Text>
+            <Text style={s.hdrSub}>HYXiPower {DOT} Officieel partner Nederland</Text>
           </View>
           <View style={s.hdrRight}>
             <Text style={s.hdrLabel}>PERSOONLIJK ENERGIERAPPORT</Text>
@@ -312,7 +312,7 @@ export function PDFReport({ results: rv, input }) {
 
             {/* Met batterij */}
             <View style={s.cardGreen}>
-              <Text style={s.cardEyeGreen}>MET ALPHAESS SMILE G3</Text>
+              <Text style={s.cardEyeGreen}>MET HYXIPOWER All-in-One ESS</Text>
               <Text style={s.cardTitleDark}>Met batterij</Text>
               <DR style={s.drG} lbl="Zonne-opwek"           val={`${fmt(rv.pv_input)} kWh`}                 sub="gelijk aan huidige situatie" />
               <DR style={s.drG} lbl="Totaal zelfverbruik"   val={`${fmt(rv.totalSelfConsumption)} kWh`}     sub={`${fmt(rv.sc_direct_kwh)} direct + ${fmt(rv.batterySelfConsumption)} batterij`} g />
@@ -326,7 +326,7 @@ export function PDFReport({ results: rv, input }) {
 
         {/* Footer P1 */}
         <View style={s.footer}>
-          <Text style={s.fTxt}>www.voltrax.nl {DOT} info@voltrax.nl {DOT} Officieel AlphaESS partner</Text>
+          <Text style={s.fTxt}>www.voltrax.nl {DOT} info@voltrax.nl {DOT} Officieel HYXiPower partner</Text>
           <Text style={s.fBrand}>VOLT<Text style={s.hdrAccent}>RAX</Text>  {DOT}  Pagina 1 van 2</Text>
           <Text style={s.fTxt}>Indicatieve berekening {DASH} vrijblijvend</Text>
         </View>
@@ -380,7 +380,7 @@ export function PDFReport({ results: rv, input }) {
                 },
                 ...((rv.garantie_bonus || 0) > 0 ? [{
                   lbl: 'Stap 5 — VOLTRAX Prestatiegarantie',
-                  sub: 'Op basis van capaciteit en historisch AlphaESS systeemrendement',
+                  sub: 'Op basis van capaciteit en historisch HYXiPower systeemrendement',
                   val: `+${EUR} ${fmt(rv.garantie_bonus)}`, col: 'g',
                 }] : []),
               ].map((row, i) => (
@@ -403,7 +403,7 @@ export function PDFReport({ results: rv, input }) {
                 <View>
                   <Text style={s.totLbl}>Totaal jaarlijks voordeel</Text>
                   <Text style={s.totSub}>
-                    AlphaESS {kWhLbl} {DASH} investering {EUR} {fmt(price)}
+                    HYXiPower {kWhLbl} {DASH} investering {EUR} {fmt(price)}
                   </Text>
                 </View>
                 <Text style={s.totVal}>
@@ -433,7 +433,7 @@ export function PDFReport({ results: rv, input }) {
               <View style={[s.card, { backgroundColor: DARK, borderColor: DARK }]}>
                 <Text style={[s.cardEye, { color: 'rgba(255,255,255,0.35)' }]}>SAMENVATTING</Text>
                 <Text style={[s.cardTitle, { color: WHITE, marginBottom: 14, fontSize: 10.5 }]}>
-                  AlphaESS {kWhLbl}
+                  HYXiPower {kWhLbl}
                 </Text>
                 {[
                   { lbl: 'Contract', val: isDynamic ? 'Dynamisch (EPEX)' : 'Vast tarief' },
@@ -479,7 +479,7 @@ export function PDFReport({ results: rv, input }) {
                 VOLT<Text style={s.hdrAccent}>RAX</Text>
               </Text>
               <Text style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.35)' }}>
-                Officieel AlphaESS partner Nederland
+                Officieel HYXiPower partner Nederland
               </Text>
             </View>
             <View style={{ alignItems: 'center' }}>
@@ -491,7 +491,7 @@ export function PDFReport({ results: rv, input }) {
                 Offerte apart bijgevoegd
               </Text>
               <Text style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.30)', marginTop: 3 }}>
-                AlphaESS boekje meegegeven {DOT} Vrijblijvend
+                HYXiPower boekje meegegeven {DOT} Vrijblijvend
               </Text>
             </View>
           </View>

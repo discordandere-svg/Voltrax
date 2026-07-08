@@ -19,7 +19,7 @@ export default function Nav() {
 
   const LINKS = [
     { to: '/',              label: t.nav.home },
-    { to: '/alphaess',      label: t.nav.alphaess },
+    { to: '/hyxipower',      label: t.nav.alphaess },
     { to: '/warmtefonds',   label: t.nav.warmtefonds },
     { to: '/aanbod',        label: t.nav.aanbod },
     { to: '/hoe-werkt-het', label: t.nav.hoeWerktHet },

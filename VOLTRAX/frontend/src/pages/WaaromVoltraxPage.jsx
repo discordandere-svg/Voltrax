@@ -43,10 +43,10 @@ export default function WaaromVoltraxPage() {
   const reasons = [
     {
       icon: <Award className="w-6 h-6 text-[#22a55d]" />,
-      title: nl ? 'Officieel gecertificeerd AlphaESS dealer' : 'Officially certified AlphaESS dealer',
+      title: nl ? 'Officieel gecertificeerd HYXiPower dealer' : 'Officially certified HYXiPower dealer',
       desc: nl
-        ? 'Voltrax is officieel gecertificeerd AlphaESS dealer in Nederland. Dat betekent directe fabriekssupport, originele onderdelen en de volledige 10 jaar fabrieksgarantie, zoals beloofd.'
-        : 'Voltrax is an officially certified AlphaESS dealer in the Netherlands. That means direct factory support, original parts and the full 10-year manufacturer warranty, as agreed.',
+        ? 'Voltrax is officieel gecertificeerd HYXiPower dealer in Nederland. Dat betekent directe fabriekssupport, originele onderdelen en de volledige 10 jaar fabrieksgarantie, zoals beloofd.'
+        : 'Voltrax is an officially certified HYXiPower dealer in the Netherlands. That means direct factory support, original parts and the full 10-year manufacturer warranty, as agreed.',
     },
     {
       icon: <Wrench className="w-6 h-6 text-[#22a55d]" />,
@@ -74,8 +74,8 @@ export default function WaaromVoltraxPage() {
       icon: <Phone className="w-6 h-6 text-[#22a55d]" />,
       title: nl ? 'Levenslange monitoring & service' : 'Lifetime monitoring & service',
       desc: nl
-        ? 'Na installatie stopt het niet. Wij activeren de AlphaCloud app, leggen alles stap voor stap uit en blijven bereikbaar voor vragen, monitoring en service, jaar na jaar.'
-        : 'We do not stop after installation. We activate the AlphaCloud app, explain everything step by step and remain reachable for questions, monitoring and service, year after year.',
+        ? 'Na installatie stopt het niet. Wij activeren de HYXiPower Cloud app, leggen alles stap voor stap uit en blijven bereikbaar voor vragen, monitoring en service, jaar na jaar.'
+        : 'We do not stop after installation. We activate the HYXiPower Cloud app, explain everything step by step and remain reachable for questions, monitoring and service, year after year.',
     },
     {
       icon: <Shield className="w-6 h-6 text-[#22a55d]" />,
@@ -86,10 +86,10 @@ export default function WaaromVoltraxPage() {
     },
     {
       icon: <Zap className="w-6 h-6 text-[#22a55d]" />,
-      title: nl ? 'Geen softwarekosten, AlphaCloud altijd gratis' : 'No software costs, AlphaCloud always free',
+      title: nl ? 'Geen softwarekosten, HYXiPower Cloud altijd gratis' : 'No software costs, HYXiPower Cloud always free',
       desc: nl
-        ? 'De AlphaCloud-app is permanent gratis. Geen abonnement, geen licentiekosten, geen verborgen softwarekosten. U betaalt eenmalig voor het systeem. Monitoring, updates en EMS-functionaliteit zijn voor altijd inbegrepen.'
-        : 'The AlphaCloud app is permanently free. No subscription, no licence fees, no hidden software costs. You pay once for the system. Monitoring, updates and EMS functionality are included forever.',
+        ? 'De HYXiPower Cloud-app is permanent gratis. Geen abonnement, geen licentiekosten, geen verborgen softwarekosten. U betaalt eenmalig voor het systeem. Monitoring, updates en EMS-functionaliteit zijn voor altijd inbegrepen.'
+        : 'The HYXiPower Cloud app is permanently free. No subscription, no licence fees, no hidden software costs. You pay once for the system. Monitoring, updates and EMS functionality are included forever.',
     },
   ]
 
@@ -131,7 +131,7 @@ export default function WaaromVoltraxPage() {
   const table = [
     {
       crit: nl ? 'Dealer status' : 'Dealer status',
-      voltrax: nl ? 'Officieel gecertificeerd door AlphaESS' : 'Officially certified by AlphaESS',
+      voltrax: nl ? 'Officieel gecertificeerd door HYXiPower' : 'Officially certified by HYXiPower',
       andere: nl ? 'Onbekend of indirect dealer' : 'Unknown or indirect dealer',
     },
     {
@@ -166,7 +166,7 @@ export default function WaaromVoltraxPage() {
     },
     {
       crit: nl ? 'Softwarekosten' : 'Software costs',
-      voltrax: nl ? 'AlphaCloud gratis, geen abonnement' : 'AlphaCloud free, no subscription',
+      voltrax: nl ? 'HYXiPower Cloud gratis, geen abonnement' : 'HYXiPower Cloud free, no subscription',
       andere: nl ? 'Soms abonnement of betaalde app' : 'Sometimes subscription or paid app',
     },
   ]
@@ -201,24 +201,24 @@ export default function WaaromVoltraxPage() {
       name: 'Marc De Schinckel',
       city: 'Rotterdam',
       text: nl
-        ? 'De AlphaESS batterij geeft een mooi rendement. Janette (telefoniste) was direct behulpzaam en Henry (adviseur) heeft alles professioneel afgehandeld. We hebben nu twee batterijen die ons voorzien van de nodige reserve-elektriciteit. Via de app kan je perfect productie en verbruik opvolgen.'
-        : 'The AlphaESS battery gives a great yield. Janette (receptionist) was immediately helpful and Henry (adviser) handled everything professionally from there. We now have two batteries providing our reserve electricity. Via the app you can perfectly track production and consumption.',
+        ? 'De HYXiPower batterij geeft een mooi rendement. Janette (telefoniste) was direct behulpzaam en Henry (adviseur) heeft alles professioneel afgehandeld. We hebben nu twee batterijen die ons voorzien van de nodige reserve-elektriciteit. Via de app kan je perfect productie en verbruik opvolgen.'
+        : 'The HYXiPower battery gives a great yield. Janette (receptionist) was immediately helpful and Henry (adviser) handled everything professionally from there. We now have two batteries providing our reserve electricity. Via the app you can perfectly track production and consumption.',
     },
   ]
 
   const extraPhotos = [
-    { src: '/assets/install-2.webp', alt: 'AlphaESS installatie' },
-    { src: '/assets/install-11.jpeg', alt: 'AlphaESS installatie' },
-    { src: '/assets/install-7.webp', alt: 'AlphaESS installatie' },
-    { src: '/assets/install-20.jpg', alt: 'AlphaESS installatie garage' },
-    { src: '/assets/install-22.jpg', alt: 'AlphaESS installatie zolder' },
-    { src: '/assets/install-24.jpg', alt: 'AlphaESS installatie bijkeuken' },
-    { src: '/assets/install-18.jpg', alt: 'AlphaESS installatie buiten' },
-    { src: '/assets/install-19.jpg', alt: 'AlphaESS installatie' },
-    { src: '/assets/install-15.jpg', alt: 'AlphaESS installatie kelder' },
-    { src: '/assets/install-10.jpeg', alt: 'AlphaESS installatie' },
-    { src: '/assets/install-4.webp', alt: 'AlphaESS installatie' },
-    { src: '/assets/install-8.jpg', alt: 'AlphaESS installatie' },
+    { src: '/assets/install-2.webp', alt: 'HYXiPower installatie' },
+    { src: '/assets/install-11.jpeg', alt: 'HYXiPower installatie' },
+    { src: '/assets/install-7.webp', alt: 'HYXiPower installatie' },
+    { src: '/assets/install-20.jpg', alt: 'HYXiPower installatie garage' },
+    { src: '/assets/install-22.jpg', alt: 'HYXiPower installatie zolder' },
+    { src: '/assets/install-24.jpg', alt: 'HYXiPower installatie bijkeuken' },
+    { src: '/assets/install-18.jpg', alt: 'HYXiPower installatie buiten' },
+    { src: '/assets/install-19.jpg', alt: 'HYXiPower installatie' },
+    { src: '/assets/install-15.jpg', alt: 'HYXiPower installatie kelder' },
+    { src: '/assets/install-10.jpeg', alt: 'HYXiPower installatie' },
+    { src: '/assets/install-4.webp', alt: 'HYXiPower installatie' },
+    { src: '/assets/install-8.jpg', alt: 'HYXiPower installatie' },
   ]
 
   return (
@@ -236,7 +236,7 @@ export default function WaaromVoltraxPage() {
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 bg-[#22a55d]/15 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-8">
               <Battery className="w-3.5 h-3.5" />
-              {nl ? 'Officieel AlphaESS dealer Nederland' : 'Official AlphaESS dealer Netherlands'}
+              {nl ? 'Officieel HYXiPower dealer Nederland' : 'Official HYXiPower dealer Netherlands'}
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }}
               className="text-5xl lg:text-6xl font-extrabold leading-[1.06] tracking-tight mb-6 text-[#131A20]">
@@ -247,8 +247,8 @@ export default function WaaromVoltraxPage() {
             <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.16 }}
               className="text-lg text-[#131A20]/60 leading-relaxed mb-10 max-w-2xl">
               {nl
-                ? 'Voltrax helpt u een duurzamere woning te realiseren. Als officieel AlphaESS dealer begeleiden wij u van energieadvies tot installatie, financiering en jarenlange service. Goed voor uw portemonnee en goed voor het milieu.'
-                : 'Voltrax helps you create a more sustainable home. As an official AlphaESS dealer we guide you from energy advice to installation, financing and years of service. Good for your wallet and for the environment.'}
+                ? 'Voltrax helpt u een duurzamere woning te realiseren. Als officieel HYXiPower dealer begeleiden wij u van energieadvies tot installatie, financiering en jarenlange service. Goed voor uw portemonnee en goed voor het milieu.'
+                : 'Voltrax helps you create a more sustainable home. As an official HYXiPower dealer we guide you from energy advice to installation, financing and years of service. Good for your wallet and for the environment.'}
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.24 }}
               className="flex flex-wrap gap-3">
@@ -268,7 +268,7 @@ export default function WaaromVoltraxPage() {
         <div className="max-w-6xl mx-auto px-6 pb-12 border-t border-[#22a55d]/12 pt-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { val: '0 euro', label: nl ? 'Softwarekosten, AlphaCloud altijd gratis' : 'Software costs, AlphaCloud always free', icon: <Zap className="w-4 h-4 text-[#22a55d]" /> },
+              { val: '0 euro', label: nl ? 'Softwarekosten, HYXiPower Cloud altijd gratis' : 'Software costs, HYXiPower Cloud always free', icon: <Zap className="w-4 h-4 text-[#22a55d]" /> },
               { val: '10 jaar', label: nl ? 'Fabrieksgarantie standaard' : 'Factory warranty standard', icon: <Shield className="w-4 h-4 text-[#22a55d]" /> },
               { val: '0%', label: nl ? 'Rente mogelijk via Warmtefonds' : 'Interest possible via Warmtefonds', icon: <Euro className="w-4 h-4 text-[#22a55d]" /> },
               { val: 'All-in', label: nl ? 'Offerte, geen verborgen kosten' : 'Quote, no hidden costs', icon: <CheckCircle2 className="w-4 h-4 text-[#22a55d]" /> },
@@ -378,7 +378,7 @@ export default function WaaromVoltraxPage() {
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={card.photo}
-                      alt={`AlphaESS installatie bij ${card.name}`}
+                      alt={`HYXiPower installatie bij ${card.name}`}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
@@ -512,14 +512,14 @@ export default function WaaromVoltraxPage() {
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
             <div className="text-xl font-extrabold text-[#131A20] mb-3">VOLT<span className="text-[#22a55d]">RAX</span></div>
-            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'Officieel AlphaESS dealer in Nederland. Uw thuisbatterij specialist.' : 'Official AlphaESS dealer in the Netherlands. Your home battery specialist.'}</p>
+            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'Officieel HYXiPower dealer in Nederland. Uw thuisbatterij specialist.' : 'Official HYXiPower dealer in the Netherlands. Your home battery specialist.'}</p>
             <a href="mailto:info@voltrax.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@voltrax.nl</a>
           </div>
           <div>
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">{nl ? 'Producten' : 'Products'}</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li><button onClick={() => navigate('/aanbod')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Ons aanbod' : 'Our offer'}</button></li>
-              <li><button onClick={() => navigate('/alphaess')} className="hover:text-[#22a55d] transition-colors text-left">Over AlphaESS</button></li>
+              <li><button onClick={() => navigate('/hyxipower')} className="hover:text-[#22a55d] transition-colors text-left">Over HYXiPower</button></li>
               <li><button onClick={() => navigate('/calculator')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Bereken besparing' : 'Calculate savings'}</button></li>
               <li><button onClick={() => navigate('/warmtefonds')} className="hover:text-[#22a55d] transition-colors text-left">Warmtefonds</button></li>
             </ul>
@@ -537,15 +537,15 @@ export default function WaaromVoltraxPage() {
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? '10 jaar fabrieksgarantie' : '10 year factory warranty'}</li>
               <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />NEN1010 &amp; NEN3140</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />AlphaESS {nl ? 'gecertificeerd' : 'certified'}</li>
-              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP55 installatie</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />HYXiPower {nl ? 'gecertificeerd' : 'certified'}</li>
+              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP67 installatie</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · {nl ? 'Officieel AlphaESS dealer Nederland' : 'Official AlphaESS dealer Netherlands'}</p>
-            <p className="text-xs text-[#131A20]/30">AlphaESS Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
+            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · {nl ? 'Officieel HYXiPower dealer Nederland' : 'Official HYXiPower dealer Netherlands'}</p>
+            <p className="text-xs text-[#131A20]/30">HYXiPower Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
           </div>
         </div>
       </footer>

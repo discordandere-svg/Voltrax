@@ -6,7 +6,7 @@ import ResultsPage from './pages/ResultsPage.jsx'
 import HoeWerktHetPage from './pages/HoeWerktHetPage.jsx'
 import AanbodPage from './pages/AanbodPage.jsx'
 import OverOnsPage from './pages/OverOnsPage.jsx'
-import AlphaESSPage from './pages/AlphaESSPage.jsx'
+import HYXiPowerPage from './pages/HyxiPowerPage.jsx'
 import WarmtefondsPage from './pages/WarmtefondsPage.jsx'
 import WaaromVoltraxPage from './pages/WaaromVoltraxPage.jsx'
 import FAQPage from './pages/FAQPage.jsx'
@@ -29,7 +29,7 @@ function App() {
           <Route path="/hoe-werkt-het"  element={<HoeWerktHetPage />} />
           <Route path="/aanbod"         element={<AanbodPage />} />
           <Route path="/over-ons"       element={<OverOnsPage />} />
-          <Route path="/alphaess"       element={<AlphaESSPage />} />
+          <Route path="/hyxipower"       element={<HYXiPowerPage />} />
           <Route path="/warmtefonds"    element={<WarmtefondsPage />} />
           <Route path="/waarom-voltrax" element={<WaaromVoltraxPage />} />
           <Route path="/faq"            element={<FAQPage />} />

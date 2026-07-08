@@ -120,9 +120,9 @@ export default function HomePage() {
                 className="flex items-center gap-0"
               >
                 {[
-                  { val: '92%',      label: h.stat1 },
-                  { val: '200.000+', label: h.stat2 },
-                  { val: '10 jaar',  label: h.stat3 },
+                  { val: '92%',   label: h.stat1 },
+                  { val: '0,5s',  label: h.stat2 },
+                  { val: 'IP67',  label: h.stat3 },
                 ].map((s, i) => (
                   <React.Fragment key={i}>
                     <div className="pr-8">
@@ -144,8 +144,8 @@ export default function HomePage() {
             >
               <div className="rounded-[2rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-black/10">
                 <img
-                  src="/assets/battery-night.webp"
-                  alt="AlphaESS SMILE G3 thuisbatterij"
+                  src="/assets/hyxipower-front.png"
+                  alt="HYXiPower All-in-One ESS thuisbatterij"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -173,8 +173,8 @@ export default function HomePage() {
           className="mt-20 relative overflow-hidden h-72 md:h-[26rem]"
         >
           <img
-            src="/assets/battery-home.webp"
-            alt="AlphaESS thuisbatterij bij moderne woning"
+            src="/assets/hyxipower-lineup.png"
+            alt="HYXiPower thuisbatterij bij moderne woning"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent" />
@@ -194,7 +194,7 @@ export default function HomePage() {
             <div className="hidden md:block w-px h-4 bg-gray-200 flex-shrink-0" />
             <div className="flex items-center gap-1.5 text-[#131A20]/55">
               <Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />
-              <span>Officieel AlphaESS dealer Nederland</span>
+              <span>Officieel HYXiPower dealer Nederland</span>
             </div>
             <div className="hidden md:block w-px h-4 bg-gray-200 flex-shrink-0" />
             <div className="flex items-center gap-1.5 text-[#131A20]/55">
@@ -281,8 +281,8 @@ export default function HomePage() {
             <Reveal delay={1}>
               <div className="rounded-3xl overflow-hidden shadow-xl shadow-gray-100">
                 <img
-                  src="/assets/battery-outdoor.webp"
-                  alt="AlphaESS thuisbatterij buitenopstelling"
+                  src="/assets/hyxipower-lineup.png"
+                  alt="HYXiPower thuisbatterij buitenopstelling"
                   className="w-full h-auto"
                 />
               </div>
@@ -364,17 +364,17 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <Reveal delay={0} className="col-span-2 md:col-span-1 row-span-2">
               <div className="rounded-3xl overflow-hidden h-full min-h-64">
-                <img src="/assets/install.webp" alt="AlphaESS installatie" className="w-full h-full object-cover" />
+                <img src="/assets/install.webp" alt="HYXiPower installatie" className="w-full h-full object-cover" />
               </div>
             </Reveal>
             <Reveal delay={1}>
               <div className="rounded-3xl overflow-hidden aspect-video">
-                <img src="/assets/battery-garage.webp" alt="AlphaESS in garage" className="w-full h-full object-cover" />
+                <img src="/assets/hyxipower-front.png" alt="HYXiPower in garage" className="w-full h-full object-cover" />
               </div>
             </Reveal>
             <Reveal delay={2}>
               <div className="rounded-3xl overflow-hidden aspect-video">
-                <img src="/assets/battery-wall.jpg" alt="AlphaESS aan de muur" className="w-full h-full object-cover" />
+                <img src="/assets/hyxipower-front.png" alt="HYXiPower aan de muur" className="w-full h-full object-cover" />
               </div>
             </Reveal>
           </div>
@@ -415,14 +415,14 @@ export default function HomePage() {
             <div className="text-xl font-extrabold text-[#131A20] mb-3">
               VOLT<span className="text-[#22a55d]">RAX</span>
             </div>
-            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">Officieel AlphaESS dealer in Nederland. Uw thuisbatterij specialist.</p>
+            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">Officieel HYXiPower dealer in Nederland. Uw thuisbatterij specialist.</p>
             <a href="mailto:info@voltrax.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@voltrax.nl</a>
           </div>
           <div>
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">Producten</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li><button onClick={() => navigate('/aanbod')} className="hover:text-[#22a55d] transition-colors text-left">Ons aanbod</button></li>
-              <li><button onClick={() => navigate('/alphaess')} className="hover:text-[#22a55d] transition-colors text-left">Over AlphaESS</button></li>
+              <li><button onClick={() => navigate('/hyxipower')} className="hover:text-[#22a55d] transition-colors text-left">Over HYXiPower</button></li>
               <li><button onClick={() => navigate('/calculator')} className="hover:text-[#22a55d] transition-colors text-left">Bereken besparing</button></li>
               <li><button onClick={() => navigate('/warmtefonds')} className="hover:text-[#22a55d] transition-colors text-left">Warmtefonds</button></li>
             </ul>
@@ -440,15 +440,15 @@ export default function HomePage() {
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />10 jaar fabrieksgarantie</li>
               <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />NEN1010 &amp; NEN3140</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />AlphaESS gecertificeerd</li>
-              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP55 installatie</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />HYXiPower gecertificeerd</li>
+              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP67 installatie</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · Officieel AlphaESS dealer Nederland</p>
-            <p className="text-xs text-[#131A20]/30">AlphaESS Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
+            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · Officieel HYXiPower dealer Nederland</p>
+            <p className="text-xs text-[#131A20]/30">HYXiPower Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
           </div>
         </div>
       </footer>

@@ -26,3 +26,8 @@ description: Color system and button rules for VOLTRAX website
 - Secondary ghost: `border border-gray-200 hover:border-[#22a55d] hover:text-[#22a55d] text-[#131A20]/60`
 
 **Why:** User explicitly requested ONLY eco colors site-wide — no dark/black accents anywhere. Premium look via emerald green CTAs with white buttons, not dark backgrounds.
+
+## Brand facts policy (HYXiPower rebrand, 2026-07-08)
+Only use confirmed HYXiPower product facts: meterloos ontwerp, universele omvormer-compatibiliteit, modulair 2PACK 6kW/10kWh–5PACK 15kW/25kWh, LiFePO4, IP67, AFCI 0.5s, millisecond noodstroom, AI cloudmonitoring.
+**Why:** Prior AlphaESS copy included fabricated corporate history (founding year, country count, install count) and unconfirmed claims (TÜV certification, blanket 10-year warranty) that don't apply to HYXiPower — these must never be invented for a new supplier brand.
+**How to apply:** When rebranding to a new supplier/manufacturer, strip any specific historical/quantitative claims (founded X, N countries, N installations, specific certifications) unless explicitly confirmed by the user; replace with generic or explicitly-provided technical facts only. Calculator-tied kWh capacity numbers (9.3/18.6/27.9/37.2/46.5/111.3) are a separate concern and must never be changed regardless of branding work.

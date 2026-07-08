@@ -154,8 +154,8 @@ function BatteryPhoto({ level, status, price, nl, compact = false }) {
         flexShrink: 0, overflow: 'hidden', borderRadius: 6,
       }}>
         <img
-          src="/alphaess-battery.webp"
-          alt="AlphaESS SMILE G3"
+          src="/hyxipower-battery.png"
+          alt="HYXiPower All-in-One ESS"
           draggable={false}
           style={{
             position: 'absolute', inset: 0,
@@ -166,12 +166,12 @@ function BatteryPhoto({ level, status, price, nl, compact = false }) {
         />
         <div style={{
           position: 'absolute', inset: 0,
-          WebkitMaskImage: 'url(/alphaess-battery.webp)',
+          WebkitMaskImage: 'url(/hyxipower-battery.png)',
           WebkitMaskSize: 'cover',
           WebkitMaskPosition: 'center center',
           WebkitMaskRepeat: 'no-repeat',
           WebkitMaskMode: 'alpha',
-          maskImage: 'url(/alphaess-battery.webp)',
+          maskImage: 'url(/hyxipower-battery.png)',
           maskSize: 'cover',
           maskPosition: 'center center',
           maskRepeat: 'no-repeat',
@@ -480,7 +480,7 @@ export default function HoeWerktHetPage() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 bg-[#22a55d]/15 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-6">
             <Battery className="w-3.5 h-3.5" />
-            {nl ? 'Officieel AlphaESS dealer Nederland' : 'Official AlphaESS dealer Netherlands'}
+            {nl ? 'Officieel HYXiPower dealer Nederland' : 'Official HYXiPower dealer Netherlands'}
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.08 }}
             className="text-5xl sm:text-6xl font-extrabold leading-[1.06] tracking-tight mb-5 text-[#131A20]">
@@ -524,13 +524,13 @@ export default function HoeWerktHetPage() {
                 </h3>
                 <p className="text-[#131A20]/65 text-sm leading-relaxed mb-4">
                   {nl
-                    ? 'De batterij ontlaadt nooit tot nul. Via de AlphaCloud app stelt u een minimale reserve in — standaard tussen 10 en 20%. Zo is er altijd stroom als u laat thuiskomt, of bij bewolkt weer de volgende dag.'
-                    : 'The battery never discharges to zero. Via the AlphaCloud app you set a minimum reserve — typically between 10 and 20%. This ensures there is always power available late at night, or on a cloudy day that follows.'}
+                    ? 'De batterij ontlaadt nooit tot nul. Via de HYXiPower Cloud app stelt u een minimale reserve in — standaard tussen 10 en 20%. Zo is er altijd stroom als u laat thuiskomt, of bij bewolkt weer de volgende dag.'
+                    : 'The battery never discharges to zero. Via the HYXiPower Cloud app you set a minimum reserve — typically between 10 and 20%. This ensures there is always power available late at night, or on a cloudy day that follows.'}
                 </p>
                 <div className="flex flex-wrap gap-2.5">
                   {(nl
-                    ? ['Instelbaar via AlphaCloud app', 'Beschermt de levensduur van de cellen', 'Altijd beschikbaar — ook bij bewolkt weer']
-                    : ['Configurable via AlphaCloud app', 'Protects the lifespan of the cells', 'Always available — even on cloudy days']
+                    ? ['Instelbaar via HYXiPower Cloud app', 'Beschermt de levensduur van de cellen', 'Altijd beschikbaar — ook bij bewolkt weer']
+                    : ['Configurable via HYXiPower Cloud app', 'Protects the lifespan of the cells', 'Always available — even on cloudy days']
                   ).map((item, i) => (
                     <div key={i} className="flex items-center gap-1.5 text-xs font-semibold text-[#131A20]/80 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-full">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d]" />{item}
@@ -660,22 +660,22 @@ export default function HoeWerktHetPage() {
               {
                 emoji: '🏡',
                 title: 'Garantie overdraagbaar bij woningverkoop',
-                body: 'Bij veel merken vervalt de garantie als de woning van eigenaar wisselt. Bij AlphaESS is de garantie overdraagbaar: de nieuwe eigenaar erft de resterende garantieperiode. Dat maakt een batterij ook een verkoopargument voor uw woning.',
+                body: 'Bij veel merken vervalt de garantie als de woning van eigenaar wisselt. Bij HYXiPower is de garantie overdraagbaar: de nieuwe eigenaar erft de resterende garantieperiode. Dat maakt een batterij ook een verkoopargument voor uw woning.',
               },
               {
                 emoji: '📊',
                 title: 'Twee garanties, niet één',
-                body: 'AlphaESS geeft een productgarantie (10 jaar op het apparaat) én een prestatiegarantie (≥ 80% resterende capaciteit na 10 jaar). Dat zijn twee aparte contractuele zekerheden — niet alle fabrikanten bieden beide.',
+                body: 'HYXiPower geeft een productgarantie (10 jaar op het apparaat) én een prestatiegarantie (≥ 80% resterende capaciteit na 10 jaar). Dat zijn twee aparte contractuele zekerheden — niet alle fabrikanten bieden beide.',
               },
               {
                 emoji: '🔌',
                 title: 'Backup/noodstroom: niet standaard bij elke batterij',
-                body: 'Sommige thuisbatterijen werken alleen als het stroomnet actief is. De AlphaESS SMILE G3 kan — met de juiste configuratie — ook noodstroom leveren bij een stroomstoring. Handig als u apparaten draaiende wilt houden bij netuitval.',
+                body: 'Sommige thuisbatterijen werken alleen als het stroomnet actief is. De HYXiPower All-in-One ESS kan — met de juiste configuratie — ook noodstroom leveren bij een stroomstoring. Handig als u apparaten draaiende wilt houden bij netuitval.',
               },
               {
                 emoji: '🏢',
-                title: 'AlphaESS heeft een kantoor en magazijn in Eindhoven',
-                body: 'AlphaESS Benelux B.V. is gevestigd op de High Tech Campus in Eindhoven. Dat betekent lokale ondersteuning, onderdelen op voorraad in Nederland en snellere service dan bij merken zonder Europese aanwezigheid.',
+                title: 'HYXiPower heeft een kantoor en magazijn in Eindhoven',
+                body: 'HYXiPower Benelux B.V. is gevestigd op de High Tech Campus in Eindhoven. Dat betekent lokale ondersteuning, onderdelen op voorraad in Nederland en snellere service dan bij merken zonder Europese aanwezigheid.',
               },
             ] : [
               {
@@ -691,22 +691,22 @@ export default function HoeWerktHetPage() {
               {
                 emoji: '🏡',
                 title: 'Warranty transferable on property sale',
-                body: 'With many brands, the warranty lapses when the property changes owner. With AlphaESS the warranty is transferable: the new owner inherits the remaining warranty period. That also makes a battery a selling point for your home.',
+                body: 'With many brands, the warranty lapses when the property changes owner. With HYXiPower the warranty is transferable: the new owner inherits the remaining warranty period. That also makes a battery a selling point for your home.',
               },
               {
                 emoji: '📊',
                 title: 'Two warranties, not one',
-                body: 'AlphaESS provides a product warranty (10 years on the unit) and a performance warranty (≥ 80% remaining capacity after 10 years). Those are two separate contractual assurances — not all manufacturers offer both.',
+                body: 'HYXiPower provides a product warranty (10 years on the unit) and a performance warranty (≥ 80% remaining capacity after 10 years). Those are two separate contractual assurances — not all manufacturers offer both.',
               },
               {
                 emoji: '🔌',
                 title: 'Backup / emergency power: not standard on every battery',
-                body: 'Some home batteries only work when the grid is active. The AlphaESS SMILE G3 can — with the correct configuration — also supply emergency power during an outage. Useful for keeping appliances running when the grid goes down.',
+                body: 'Some home batteries only work when the grid is active. The HYXiPower All-in-One ESS can — with the correct configuration — also supply emergency power during an outage. Useful for keeping appliances running when the grid goes down.',
               },
               {
                 emoji: '🏢',
-                title: 'AlphaESS has an office and warehouse in Eindhoven',
-                body: 'AlphaESS Benelux B.V. is based at the High Tech Campus in Eindhoven. That means local support, parts in stock in the Netherlands and faster service than brands without a European presence.',
+                title: 'HYXiPower has an office and warehouse in Eindhoven',
+                body: 'HYXiPower Benelux B.V. is based at the High Tech Campus in Eindhoven. That means local support, parts in stock in the Netherlands and faster service than brands without a European presence.',
               },
             ]).map((item, i) => (
               <Reveal key={i} delay={i * 0.07}>
@@ -764,14 +764,14 @@ export default function HoeWerktHetPage() {
             <div className="text-xl font-extrabold text-[#131A20] mb-3">
               VOLT<span className="text-[#22a55d]">RAX</span>
             </div>
-            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'Officieel AlphaESS dealer in Nederland. Uw thuisbatterij specialist.' : 'Official AlphaESS dealer in the Netherlands. Your home battery specialist.'}</p>
+            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'Officieel HYXiPower dealer in Nederland. Uw thuisbatterij specialist.' : 'Official HYXiPower dealer in the Netherlands. Your home battery specialist.'}</p>
             <a href="mailto:info@voltrax.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@voltrax.nl</a>
           </div>
           <div>
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">{nl ? 'Producten' : 'Products'}</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li><button onClick={() => navigate('/aanbod')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Ons aanbod' : 'Our offer'}</button></li>
-              <li><button onClick={() => navigate('/alphaess')} className="hover:text-[#22a55d] transition-colors text-left">Over AlphaESS</button></li>
+              <li><button onClick={() => navigate('/hyxipower')} className="hover:text-[#22a55d] transition-colors text-left">Over HYXiPower</button></li>
               <li><button onClick={() => navigate('/calculator')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Bereken besparing' : 'Calculate savings'}</button></li>
               <li><button onClick={() => navigate('/warmtefonds')} className="hover:text-[#22a55d] transition-colors text-left">Warmtefonds</button></li>
             </ul>
@@ -789,15 +789,15 @@ export default function HoeWerktHetPage() {
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? '10 jaar fabrieksgarantie' : '10 year factory warranty'}</li>
               <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />NEN1010 &amp; NEN3140</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />AlphaESS {nl ? 'gecertificeerd' : 'certified'}</li>
-              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP55 installatie</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />HYXiPower {nl ? 'gecertificeerd' : 'certified'}</li>
+              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP67 installatie</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · {nl ? 'Officieel AlphaESS dealer Nederland' : 'Official AlphaESS dealer Netherlands'}</p>
-            <p className="text-xs text-[#131A20]/30">AlphaESS Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
+            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · {nl ? 'Officieel HYXiPower dealer Nederland' : 'Official HYXiPower dealer Netherlands'}</p>
+            <p className="text-xs text-[#131A20]/30">HYXiPower Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
           </div>
         </div>
       </footer>

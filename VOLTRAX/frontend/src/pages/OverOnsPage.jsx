@@ -40,14 +40,14 @@ const WAAROM = [
   {
     icon: <Award className="w-6 h-6 text-amber-500" />,
     bg: 'bg-amber-50',
-    title: 'Officieel AlphaESS dealer',
-    desc: 'Wij zijn gecertificeerd dealer van AlphaESS voor Nederland. Direct van de fabrikant, met volledige garantie en fabrieksondersteuning.',
+    title: 'Officieel HYXiPower dealer',
+    desc: 'Wij zijn gecertificeerd dealer van HYXiPower voor Nederland. Direct van de fabrikant, met volledige garantie en fabrieksondersteuning.',
   },
   {
     icon: <Wrench className="w-6 h-6 text-blue-500" />,
     bg: 'bg-blue-50',
     title: 'Eigen gecertificeerde monteurs',
-    desc: 'Onze installateurs zijn gecertificeerd en gespecialiseerd in AlphaESS systemen. Geen onderaannemers, geen verassingen.',
+    desc: 'Onze installateurs zijn gecertificeerd en gespecialiseerd in HYXiPower systemen. Geen onderaannemers, geen verassingen.',
   },
   {
     icon: <Shield className="w-6 h-6 text-green-600" />,
@@ -105,7 +105,7 @@ export default function OverOnsPage() {
             className="text-[#131A20]/60 text-lg max-w-2xl mx-auto leading-relaxed"
           >
             VOLTRAX is een team van specialisten in verduurzaming. Wij zijn officieel dealer
-            van AlphaESS in Nederland en begeleiden u van advies tot installatie en nazorg.
+            van HYXiPower in Nederland en begeleiden u van advies tot installatie en nazorg.
           </motion.p>
         </div>
       </section>
@@ -163,7 +163,7 @@ export default function OverOnsPage() {
           <Reveal className="text-center mb-12">
             <h2 className="text-4xl font-extrabold mb-4">VOLTRAX versus de markt</h2>
             <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
-              Waar veel installateurs generiek werken, focust VOLTRAX volledig op AlphaESS.
+              Waar veel installateurs generiek werken, focust VOLTRAX volledig op HYXiPower.
             </p>
           </Reveal>
 
@@ -175,7 +175,7 @@ export default function OverOnsPage() {
             </div>
             <div className="divide-y divide-black/4">
               {[
-                { label: 'Specialisatie in 1 merk (AlphaESS)', voltrax: true, markt: false },
+                { label: 'Specialisatie in 1 merk (HYXiPower)', voltrax: true, markt: false },
                 { label: 'Eigen gecertificeerde monteurs', voltrax: true, markt: 'Soms' },
                 { label: 'Warmtefonds aanvraag inbegrepen', voltrax: true, markt: false },
                 { label: 'Transparante all-in prijzen', voltrax: true, markt: 'Soms' },
@@ -289,18 +289,18 @@ export default function OverOnsPage() {
         <div className="max-w-5xl mx-auto px-6">
           <Reveal className="text-center mb-10">
             <h2 className="text-4xl font-extrabold mb-3">Certificeringen en keurmerken</h2>
-            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">Van VOLTRAX en AlphaESS samen: gedekte garanties en bewezen kwaliteitsnormen.</p>
+            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">Van VOLTRAX en HYXiPower samen: gedekte garanties en bewezen kwaliteitsnormen.</p>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-5 mb-5">
             <Reveal>
               <div className="bg-white rounded-3xl p-7 h-full border border-gray-100">
-                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">AlphaESS productcertificering</div>
+                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">HYXiPower productcertificering</div>
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { code: 'CE', label: 'EU conformiteitsmarkering', color: 'bg-blue-50 text-blue-700' },
                     { code: 'IEC 62619', label: 'Veiligheidsnorm lithium accu', color: 'bg-green-50 text-green-700' },
                     { code: 'VDE', label: 'Duits kwaliteitsinstituut', color: 'bg-amber-50 text-amber-700' },
-                    { code: 'IP55', label: 'Stof- en spatwaterdicht', color: 'bg-teal-50 text-teal-700' },
+                    { code: 'IP67', label: 'Stof- en spatwaterdicht', color: 'bg-teal-50 text-teal-700' },
                     { code: 'UN38.3', label: 'Transportveiligheidsnorm', color: 'bg-purple-50 text-purple-700' },
                     { code: 'IEC 61000', label: 'Elektromagnetische compatibiliteit', color: 'bg-blue-50 text-blue-700' },
                   ].map((cert, i) => (
@@ -317,7 +317,7 @@ export default function OverOnsPage() {
                 <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">VOLTRAX als installatiebedrijf</div>
                 <div className="space-y-3">
                   {[
-                    { icon: <Award className="w-4 h-4 text-amber-500" />, bg: 'bg-amber-50', title: 'Officieel AlphaESS dealer NL', desc: 'Gecertificeerd door AlphaESS voor de Nederlandse markt.' },
+                    { icon: <Award className="w-4 h-4 text-amber-500" />, bg: 'bg-amber-50', title: 'Officieel HYXiPower dealer NL', desc: 'Gecertificeerd door HYXiPower voor de Nederlandse markt.' },
                     { icon: <Shield className="w-4 h-4 text-blue-500" />, bg: 'bg-blue-50', title: 'Erkend Warmtefonds partner', desc: 'Gemachtigd om Energiebespaarleningen te verwerken.' },
                     { icon: <CheckCircle2 className="w-4 h-4 text-green-600" />, bg: 'bg-green-50', title: 'NEN 1010 gecertificeerde elektriciens', desc: 'Elektrische installaties conform de Nederlandse norm.' },
                     { icon: <Wrench className="w-4 h-4 text-[#131A20]/50" />, bg: 'bg-[#F9F7F4]', title: 'Verzekerd en VCA-gecertificeerd', desc: 'Veilig en aansprakelijkheidsverzekerd vakwerk.' },
@@ -377,7 +377,7 @@ export default function OverOnsPage() {
           <span className="text-lg font-extrabold text-[#131A20]">
             VOLT<span style={{ color: '#22a55d' }}>RAX</span>
           </span>
-          <p className="text-sm text-[#131A20]/40">Officieel AlphaESS dealer</p>
+          <p className="text-sm text-[#131A20]/40">Officieel HYXiPower dealer</p>
           <div className="flex items-center gap-2 text-xs text-[#131A20]/40">
             <Shield className="w-3.5 h-3.5 text-[#22a55d]" />
             Warmtefonds partner

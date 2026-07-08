@@ -48,17 +48,17 @@ export default function AanbodPage() {
         ? 'Koppels, appartementen of kleine woningen met 6–10 zonnepanelen en een jaarverbruik tot 3.000 kWh.'
         : 'Couples, apartments or small homes with 6–10 solar panels and annual consumption up to 3,000 kWh.',
       specs: nl ? [
-        '1x AlphaLINX batterijmodule',
+        '1x HYXiPower EMS batterijmodule',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 1-fase aansluiting',
-        'AlphaCloud app & EMS',
+        'HYXiPower Cloud app & EMS',
         'Professionele installatie',
         '10.000+ laadcycli gegarandeerd',
       ] : [
-        '1x AlphaLINX battery module',
+        '1x HYXiPower EMS battery module',
         'Hybrid inverter included',
         'Suitable for single-phase connection',
-        'AlphaCloud app & EMS',
+        'HYXiPower Cloud app & EMS',
         'Professional installation',
         '10,000+ charge cycles guaranteed',
       ],
@@ -79,17 +79,17 @@ export default function AanbodPage() {
         ? 'Gezinnen van 3–4 personen met 10–16 zonnepanelen en een jaarverbruik van 3.000–5.000 kWh.'
         : 'Families of 3–4 people with 10–16 solar panels and annual consumption of 3,000–5,000 kWh.',
       specs: nl ? [
-        '2x AlphaLINX batterijmodule',
+        '2x HYXiPower EMS batterijmodule',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 1- en 3-fase',
-        'AlphaCloud app + geavanceerd EMS',
+        'HYXiPower Cloud app + geavanceerd EMS',
         'Professionele installatie',
         '10.000+ laadcycli gegarandeerd',
       ] : [
-        '2x AlphaLINX battery module',
+        '2x HYXiPower EMS battery module',
         'Hybrid inverter included',
         'Suitable for 1- and 3-phase',
-        'AlphaCloud app + advanced EMS',
+        'HYXiPower Cloud app + advanced EMS',
         'Professional installation',
         '10,000+ charge cycles guaranteed',
       ],
@@ -110,17 +110,17 @@ export default function AanbodPage() {
         ? 'Gezinnen met een warmtepomp of hoog verbruik (5.000–7.000 kWh/jaar) en 16–22 zonnepanelen.'
         : 'Families with a heat pump or high consumption (5,000–7,000 kWh/year) and 16–22 solar panels.',
       specs: nl ? [
-        '3x AlphaLINX batterijmodule',
+        '3x HYXiPower EMS batterijmodule',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 3-fase aansluiting',
-        'AlphaCloud app + geavanceerd EMS',
+        'HYXiPower Cloud app + geavanceerd EMS',
         'Professionele installatie',
         '10.000+ laadcycli gegarandeerd',
       ] : [
-        '3x AlphaLINX battery module',
+        '3x HYXiPower EMS battery module',
         'Hybrid inverter included',
         'Suitable for 3-phase connection',
-        'AlphaCloud app + advanced EMS',
+        'HYXiPower Cloud app + advanced EMS',
         'Professional installation',
         '10,000+ charge cycles guaranteed',
       ],
@@ -141,17 +141,17 @@ export default function AanbodPage() {
         ? 'Huishoudens met EV-laadpaal, warmtepomp of meerdere energieverbruikers en 20+ panelen.'
         : 'Households with EV charger, heat pump or multiple energy consumers and 20+ solar panels.',
       specs: nl ? [
-        '4x AlphaLINX batterijmodule',
+        '4x HYXiPower EMS batterijmodule',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 3-fase aansluiting',
-        'AlphaCloud app + geavanceerd EMS',
+        'HYXiPower Cloud app + geavanceerd EMS',
         'Professionele installatie',
         '10.000+ laadcycli gegarandeerd',
       ] : [
-        '4x AlphaLINX battery module',
+        '4x HYXiPower EMS battery module',
         'Hybrid inverter included',
         'Suitable for 3-phase connection',
-        'AlphaCloud app + advanced EMS',
+        'HYXiPower Cloud app + advanced EMS',
         'Professional installation',
         '10,000+ charge cycles guaranteed',
       ],
@@ -172,17 +172,17 @@ export default function AanbodPage() {
         ? 'Grote huishoudens of kleine bedrijven met een jaarverbruik boven 7.000 kWh en 22+ panelen.'
         : 'Large households or small businesses with annual consumption above 7,000 kWh and 22+ panels.',
       specs: nl ? [
-        '5x AlphaLINX batterijmodule',
+        '5x HYXiPower EMS batterijmodule',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 3-fase aansluiting',
-        'AlphaCloud app + geavanceerd EMS',
+        'HYXiPower Cloud app + geavanceerd EMS',
         'Professionele installatie',
         '10.000+ laadcycli gegarandeerd',
       ] : [
-        '5x AlphaLINX battery module',
+        '5x HYXiPower EMS battery module',
         'Hybrid inverter included',
         'Suitable for 3-phase connection',
-        'AlphaCloud app + advanced EMS',
+        'HYXiPower Cloud app + advanced EMS',
         'Professional installation',
         '10,000+ charge cycles guaranteed',
       ],
@@ -203,17 +203,17 @@ export default function AanbodPage() {
         ? 'Huishoudens die volledig onafhankelijk van het net willen zijn, met maximale zonneopwekking.'
         : 'Households who want to be completely independent from the grid, with maximum solar generation.',
       specs: nl ? [
-        '6x AlphaLINX batterijmodule',
+        '6x HYXiPower EMS batterijmodule',
         'Hybride omvormer inbegrepen',
         'Geschikt voor 3-fase aansluiting',
-        'AlphaCloud app + geavanceerd EMS',
+        'HYXiPower Cloud app + geavanceerd EMS',
         'Professionele installatie',
         '10.000+ laadcycli gegarandeerd',
       ] : [
-        '6x AlphaLINX battery module',
+        '6x HYXiPower EMS battery module',
         'Hybrid inverter included',
         'Suitable for 3-phase connection',
-        'AlphaCloud app + advanced EMS',
+        'HYXiPower Cloud app + advanced EMS',
         'Professional installation',
         '10,000+ charge cycles guaranteed',
       ],
@@ -224,7 +224,7 @@ export default function AanbodPage() {
   const INCLUDED = [
     {
       icon: <Battery className="w-5 h-5 text-green-600" />, bg: 'bg-green-50',
-      title: 'AlphaESS SMILE G3',
+      title: 'HYXiPower All-in-One ESS',
       desc: nl ? 'Batterij, BMS en EMS in één systeem. Uitbreidbaar naar behoefte.' : 'Battery, BMS and EMS in one system. Expandable as needed.',
     },
     {
@@ -244,7 +244,7 @@ export default function AanbodPage() {
     },
     {
       icon: <Star className="w-5 h-5 text-amber-400" />, bg: 'bg-amber-50',
-      title: 'AlphaCloud app',
+      title: 'HYXiPower Cloud app',
       desc: nl ? 'Realtime monitoring, slimme laadschemas en energiehandel.' : 'Real-time monitoring, smart charging schedules and energy trading.',
     },
     {
@@ -257,12 +257,12 @@ export default function AanbodPage() {
   const backupFeatures = nl ? [
     'Automatische overschakeling bij stroomuitval',
     'Kritieke apparaten blijven werken',
-    'Instelbaar via de AlphaCloud app',
+    'Instelbaar via de HYXiPower Cloud app',
     'Geen extra hardware nodig bij de meeste configuraties',
   ] : [
     'Automatic switchover during power outage',
     'Critical devices keep working',
-    'Configurable via the AlphaCloud app',
+    'Configurable via the HYXiPower Cloud app',
     'No additional hardware needed in most configurations',
   ]
 
@@ -314,7 +314,7 @@ export default function AanbodPage() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold px-4 py-2 rounded-full mb-6">
             <Battery className="w-3.5 h-3.5" />
-            {nl ? 'AlphaESS SMILE G3, Officieel dealer' : 'AlphaESS SMILE G3, Official dealer'}
+            {nl ? 'HYXiPower All-in-One ESS, Officieel dealer' : 'HYXiPower All-in-One ESS, Official dealer'}
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl font-extrabold leading-tight mb-5 text-[#131A20]">
@@ -462,8 +462,8 @@ export default function AanbodPage() {
                   </h2>
                   <p className="text-[#131A20]/60 leading-relaxed mb-5">
                     {nl
-                      ? 'De AlphaESS batterij kan optioneel worden ingesteld als noodstroombron. Bij een stroomuitval schakelt het systeem automatisch over zodat uw verlichting, koelkast en router blijven werken. Handig, maar niet noodzakelijk om alle andere voordelen te benutten.'
-                      : 'The AlphaESS battery can optionally be configured as an emergency power source. During a power outage, the system automatically switches over so your lighting, refrigerator and router keep working. Useful, but not necessary to enjoy all other benefits.'}
+                      ? 'De HYXiPower batterij kan optioneel worden ingesteld als noodstroombron. Bij een stroomuitval schakelt het systeem automatisch over zodat uw verlichting, koelkast en router blijven werken. Handig, maar niet noodzakelijk om alle andere voordelen te benutten.'
+                      : 'The HYXiPower battery can optionally be configured as an emergency power source. During a power outage, the system automatically switches over so your lighting, refrigerator and router keep working. Useful, but not necessary to enjoy all other benefits.'}
                   </p>
                   <ul className="space-y-2.5">
                     {backupFeatures.map((item, i) => (
@@ -573,7 +573,7 @@ export default function AanbodPage() {
       <footer className="bg-[#F9F7F4] border-t border-gray-100 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-lg font-extrabold text-[#131A20]">VOLT<span style={{ color: '#22a55d' }}>RAX</span></span>
-          <p className="text-sm text-[#131A20]/40">{nl ? 'Officieel AlphaESS dealer' : 'Official AlphaESS dealer'}</p>
+          <p className="text-sm text-[#131A20]/40">{nl ? 'Officieel HYXiPower dealer' : 'Official HYXiPower dealer'}</p>
           <div className="flex items-center gap-2 text-xs text-[#131A20]/40">
             <Shield className="w-3.5 h-3.5 text-[#22a55d]" />
             {nl ? 'Warmtefonds partner' : 'Warmtefonds partner'}

@@ -25,7 +25,7 @@ function Reveal({ children, className = '', delay = 0 }) {
   )
 }
 
-export default function AlphaESSPage() {
+export default function HYXiPowerPage() {
   const navigate = useNavigate()
   const { lang } = useLanguage()
   const nl = lang === 'nl'
@@ -33,77 +33,75 @@ export default function AlphaESSPage() {
   const voordelen = [
     {
       icon: <Award className="w-5 h-5" />,
-      title: nl ? 'Europese & Duitse kwaliteitsnormen' : 'European & German quality standards',
+      title: nl ? 'Meterloos ontwerp' : 'Meterless design',
       desc: nl
-        ? 'Alle producten zijn TÜV-gecertificeerd en voldoen aan de strengste Europese normen voor veiligheid en betrouwbaarheid. Getest op meer dan 10.000 laadcycli.'
-        : 'All products are TÜV certified and meet the strictest European standards for safety and reliability. Tested for more than 10,000 charge cycles.',
+        ? 'Geen aparte energiemeter nodig bij installatie. Eenvoudiger installatieproces, minder onderdelen die kunnen falen, lagere installatiekosten.'
+        : 'No separate energy meter needed at installation. Simpler installation process, fewer parts that can fail, lower installation costs.',
     },
     {
       icon: <Cpu className="w-5 h-5" />,
-      title: 'AlphaLINX technologie',
+      title: nl ? 'Universele compatibiliteit' : 'Universal compatibility',
       desc: nl
-        ? 'Het slimme Energy Management System optimaliseert realtime uw energiestroom. Koppeling met EPEX Spot zorgt voor automatisch arbitrage op de energiemarkt.'
-        : 'The smart Energy Management System optimises your energy flow in real time. EPEX Spot coupling enables automatic arbitrage on the energy market.',
+        ? 'Werkt samen met de meest gangbare omvormermerken zoals SolarEdge, Enphase, Huawei, SMA en Growatt. Geen dure omvormervervanging nodig.'
+        : 'Works together with the most common inverter brands such as SolarEdge, Enphase, Huawei, SMA and Growatt. No expensive inverter replacement needed.',
     },
     {
       icon: <Battery className="w-5 h-5" />,
-      title: nl ? 'LFP-lithiumtechnologie' : 'LFP lithium technology',
+      title: nl ? 'LiFePO4-celtechnologie' : 'LiFePO4 cell technology',
       desc: nl
-        ? 'Lithium-ijzerfosfaat (LFP) is de veiligste en meest duurzame batterijchemie. Thermisch stabiel, brandveilig en bestand tegen diepe ontlading.'
-        : 'Lithium iron phosphate (LFP) is the safest and most durable battery chemistry. Thermally stable, fire-safe and resistant to deep discharge.',
+        ? 'Lithium-ijzerfosfaat (LiFePO4) A+ cellen zijn thermisch stabiel, brandveilig en bestand tegen diepe ontlading. Automotive-grade BMS bewaakt elke cel.'
+        : 'Lithium iron phosphate (LiFePO4) A+ cells are thermally stable, fire-safe and resistant to deep discharge. Automotive-grade BMS monitors every cell.',
     },
     {
       icon: <Shield className="w-5 h-5" />,
-      title: nl ? 'IP55-gecertificeerd' : 'IP55 certified',
+      title: nl ? 'IP67-gecertificeerd' : 'IP67 certified',
       desc: nl
-        ? 'Geschikt voor installatie binnen én buiten. De robuuste behuizing beschermt tegen stof en waterstralen, ideaal voor garage, bijkeuken of technische ruimte.'
-        : 'Suitable for indoor and outdoor installation. The robust housing protects against dust and water jets, ideal for garage, utility room or technical space.',
+        ? 'Geschikt voor installatie binnen én buiten. De robuuste behuizing doorstaat een C4-zoutneveltest en beschermt tegen stof en waterstralen.'
+        : 'Suitable for indoor and outdoor installation. The robust housing passes a C4 salt spray test and protects against dust and water jets.',
     },
     {
       icon: <Wifi className="w-5 h-5" />,
-      title: 'AlphaCloud monitoring',
+      title: nl ? 'AI-gestuurd cloudmonitoring' : 'AI-driven cloud monitoring',
       desc: nl
-        ? 'Realtime inzicht via de gratis app op uw smartphone. Bekijk productie, verbruik en batterijstatus op elk moment. Updates automatisch via de cloud.'
-        : 'Real-time insight via the free app on your smartphone. View production, consumption and battery status at any time. Updates automatically via the cloud.',
+        ? '24/7 realtime inzicht via de app op uw smartphone. Bekijk productie, verbruik en batterijstatus, en stuur laadpaal of warmtepomp direct aan.'
+        : '24/7 real-time insight via the app on your smartphone. View production, consumption and battery status, and control your EV charger or heat pump directly.',
     },
     {
       icon: <Globe className="w-5 h-5" />,
-      title: nl ? '200.000+ installaties wereldwijd' : '200,000+ installations worldwide',
+      title: nl ? 'Millisecondesnelle noodstroom' : 'Millisecond backup power',
       desc: nl
-        ? 'AlphaESS is actief in meer dan 110 landen en heeft meer dan 200.000 thuisbatterijen geïnstalleerd. Een van de meest betrouwbare merken ter wereld.'
-        : 'AlphaESS is active in more than 110 countries and has installed more than 200,000 home batteries. One of the most trusted brands worldwide.',
+        ? 'Bij een stroomstoring schakelt het systeem in milliseconden over op noodstroom. Uw huishouden merkt vrijwel niets van een storing op het net.'
+        : 'In the event of a power outage, the system switches to backup power in milliseconds. Your household barely notices a grid disruption.',
     },
   ]
 
   const specs = [
-    { label: nl ? 'Capaciteit' : 'Capacity', value: '9,3–111,3 kWh', sub: nl ? 'Modulair uitbreidbaar' : 'Modular expandable' },
-    { label: nl ? 'Laadcycli' : 'Charge cycles', value: '10.000+', sub: nl ? 'LFP-technologie' : 'LFP technology' },
-    { label: nl ? 'Garantie' : 'Warranty', value: nl ? '10 jaar' : '10 years', sub: nl ? 'Fabrieksgarantie' : 'Factory warranty' },
-    { label: nl ? 'IP-klasse' : 'IP class', value: 'IP55', sub: nl ? 'Binnen & buiten' : 'Indoor & outdoor' },
-    { label: nl ? 'Rendement' : 'Efficiency', value: '≥ 92%', sub: nl ? 'Rond-trip efficiency' : 'Round-trip efficiency' },
-    { label: nl ? 'Installaties' : 'Installations', value: '200.000+', sub: nl ? 'Wereldwijd actief' : 'Active worldwide' },
+    { label: nl ? 'Capaciteit' : 'Capacity', value: '10–25 kWh', sub: nl ? 'Modulair uitbreidbaar' : 'Modular expandable' },
+    { label: nl ? 'Vermogen' : 'Power output', value: '6–15 kW', sub: nl ? 'Per PACK-configuratie' : 'Per PACK configuration' },
+    { label: nl ? 'Celtechnologie' : 'Cell technology', value: 'LiFePO4', sub: nl ? 'A+ grade cellen' : 'A+ grade cells' },
+    { label: nl ? 'IP-klasse' : 'IP class', value: 'IP67', sub: nl ? 'Binnen & buiten' : 'Indoor & outdoor' },
+    { label: nl ? 'Noodstroom' : 'Backup power', value: '< 1 ms', sub: nl ? 'Omschakeltijd' : 'Switchover time' },
+    { label: nl ? 'AFCI-detectie' : 'AFCI detection', value: '0,5 sec', sub: nl ? 'Vlamboogbeveiliging' : 'Arc-fault protection' },
   ]
 
   const vergelijking = [
-    { aspect: nl ? 'Technologie' : 'Technology', alpha: nl ? 'LFP, brandveilig en thermisch stabiel' : 'LFP, fire-safe and thermally stable', rest: nl ? 'NMC of oudere chemie' : 'NMC or older chemistry' },
-    { aspect: nl ? 'EMS platform' : 'EMS platform', alpha: nl ? 'AlphaLINX, AI-gestuurd, EPEX Spot' : 'AlphaLINX, AI-driven, EPEX Spot', rest: nl ? 'Basis of geen EMS' : 'Basic or no EMS' },
-    { aspect: nl ? 'Garantie' : 'Warranty', alpha: nl ? '10 jaar fabrieksgarantie' : '10-year factory warranty', rest: nl ? '5–7 jaar gemiddeld' : '5–7 years average' },
-    { aspect: nl ? 'Capaciteitsgarantie' : 'Capacity guarantee', alpha: nl ? '≥ 80% na 10 jaar, op papier' : '≥ 80% after 10 years, in writing', rest: nl ? 'Zelden contractueel vastgelegd' : 'Rarely contractually fixed' },
-    { aspect: nl ? 'Uitbreidbaarheid' : 'Expandability', alpha: nl ? 'Modulair 9,3 t/m 111,3 kWh' : 'Modular 9.3 to 111.3 kWh', rest: nl ? 'Vaste capaciteit' : 'Fixed capacity' },
-    { aspect: nl ? 'Certificering' : 'Certification', alpha: 'TÜV, CE, EMC, IP55, IEC 62619', rest: nl ? 'Variabel per merk' : 'Varies by brand' },
-    { aspect: nl ? 'App monitoring' : 'App monitoring', alpha: nl ? 'Klant + installateur + fabrikant' : 'Customer + installer + manufacturer', rest: nl ? 'Vaak alleen klant' : 'Often customer only' },
-    { aspect: nl ? 'Overdraagbare garantie' : 'Transferable warranty', alpha: nl ? 'Ja, blijft bij de woning' : 'Yes, stays with the property', rest: nl ? 'Zelden geregeld' : 'Rarely arranged' },
-    { aspect: nl ? 'Backup / noodstroom' : 'Backup / emergency power', alpha: nl ? 'Mogelijk, met juiste configuratie' : 'Possible, with correct configuration', rest: nl ? 'Niet altijd beschikbaar' : 'Not always available' },
-    { aspect: nl ? 'Marktintegratie' : 'Market integration', alpha: nl ? 'EPEX Spot koppeling (NL/BE)' : 'EPEX Spot coupling (NL/BE)', rest: nl ? 'Zelden beschikbaar' : 'Rarely available' },
+    { aspect: nl ? 'Technologie' : 'Technology', alpha: nl ? 'LiFePO4, brandveilig en thermisch stabiel' : 'LiFePO4, fire-safe and thermally stable', rest: nl ? 'NMC of oudere chemie' : 'NMC or older chemistry' },
+    { aspect: nl ? 'Omvormercompatibiliteit' : 'Inverter compatibility', alpha: nl ? 'Universeel: SolarEdge, Enphase, Huawei, SMA, Growatt' : 'Universal: SolarEdge, Enphase, Huawei, SMA, Growatt', rest: nl ? 'Vaak gebonden aan eigen merk' : 'Often locked to own brand' },
+    { aspect: nl ? 'Installatie' : 'Installation', alpha: nl ? 'Meterloos ontwerp, minder onderdelen' : 'Meterless design, fewer parts', rest: nl ? 'Aparte energiemeter vereist' : 'Separate energy meter required' },
+    { aspect: nl ? 'Uitbreidbaarheid' : 'Expandability', alpha: nl ? 'Modulair 2PACK t/m 5PACK, 10–25 kWh' : 'Modular 2PACK to 5PACK, 10–25 kWh', rest: nl ? 'Vaste capaciteit' : 'Fixed capacity' },
+    { aspect: nl ? 'Veiligheid' : 'Safety', alpha: nl ? 'AFCI-detectie 0,5 sec, actieve drukontlasting' : 'AFCI detection 0.5 sec, active pressure relief', rest: nl ? 'Basisbeveiliging' : 'Basic protection' },
+    { aspect: nl ? 'Behuizing' : 'Housing', alpha: 'IP67, C4-zoutneveltest', rest: nl ? 'Variabel per merk' : 'Varies by brand' },
+    { aspect: nl ? 'App monitoring' : 'App monitoring', alpha: nl ? 'AI-gestuurd, 24/7 cloudmonitoring' : 'AI-driven, 24/7 cloud monitoring', rest: nl ? 'Vaak alleen basisweergave' : 'Often basic display only' },
+    { aspect: nl ? 'Backup / noodstroom' : 'Backup / emergency power', alpha: nl ? 'Millisecondesnelle omschakeling' : 'Millisecond switchover', rest: nl ? 'Vertraagde of geen omschakeling' : 'Delayed or no switchover' },
   ]
 
   const certs = [
-    { name: 'TÜV Rheinland', desc: nl ? 'Onafhankelijk getest' : 'Independently tested' },
     { name: 'CE-markering', desc: nl ? 'Europese conformiteit' : 'European conformity' },
-    { name: 'IEC 62619', desc: nl ? 'Veiligheidsnorm batterijen' : 'Battery safety standard' },
-    { name: 'IP55', desc: nl ? 'Weerbestendig gecertificeerd' : 'Weather-resistant certified' },
-    { name: 'VDE', desc: nl ? 'Duits elektrotechnisch keurmerk' : 'German electrotechnical mark' },
-    { name: 'MCS', desc: nl ? 'UK en Europees netwerk' : 'UK and European network' },
+    { name: 'IP67', desc: nl ? 'Weerbestendig gecertificeerd' : 'Weather-resistant certified' },
+    { name: 'AFCI', desc: nl ? 'Vlamboogdetectie 0,5 sec' : 'Arc-fault detection 0.5 sec' },
+    { name: 'C4-zoutnevel', desc: nl ? 'Corrosiebestendigheid getest' : 'Corrosion resistance tested' },
+    { name: 'LiFePO4', desc: nl ? 'Veilige celchemie' : 'Safe cell chemistry' },
+    { name: 'BMS', desc: nl ? 'Automotive-grade bewaking' : 'Automotive-grade monitoring' },
   ]
 
   return (
@@ -127,16 +125,16 @@ export default function AlphaESSPage() {
               <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.08 }}
                 className="text-4xl lg:text-5xl font-extrabold leading-[1.08] tracking-tight mb-5 text-[#131A20]">
                 {nl ? (
-                  <>AlphaESS,<br /><span className="text-[#22a55d]">de standaard</span> in<br />thuisenergieopslag</>
+                  <>HYXiPower,<br /><span className="text-[#22a55d]">de standaard</span> in<br />thuisenergieopslag</>
                 ) : (
-                  <>AlphaESS,<br /><span className="text-[#22a55d]">the standard</span> in<br />home energy storage</>
+                  <>HYXiPower,<br /><span className="text-[#22a55d]">the standard</span> in<br />home energy storage</>
                 )}
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.16 }}
                 className="text-lg text-[#131A20]/60 leading-relaxed mb-8 max-w-md">
                 {nl
-                  ? 'Opgericht in 2012 met Duits-Europese ingenieursnormen. Actief in meer dan 110 landen. Marktleider in slimme thuisenergieopslag.'
-                  : 'Founded in 2012 with German-European engineering standards. Active in more than 110 countries. Market leader in smart home energy storage.'}
+                  ? 'Meterloos ontwerp, universele omvormercompatibiliteit en LiFePO4-veiligheid. Modulair uitbreidbaar van 10 tot 25 kWh, met noodstroom binnen milliseconden.'
+                  : 'Meterless design, universal inverter compatibility and LiFePO4 safety. Modularly expandable from 10 to 25 kWh, with backup power within milliseconds.'}
               </motion.p>
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.24 }}
                 className="flex flex-wrap gap-3">
@@ -144,7 +142,7 @@ export default function AlphaESSPage() {
                   className="flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-7 py-3.5 rounded-full transition-all hover:shadow-xl hover:shadow-green-500/25 text-sm">
                   {nl ? 'Bereken mijn besparing' : 'Calculate my savings'} <ArrowRight className="w-4 h-4" />
                 </button>
-                <a href="mailto:info@voltrax.nl?subject=Informatie%20AlphaESS"
+                <a href="mailto:info@voltrax.nl?subject=Informatie%20HYXiPower"
                   className="flex items-center gap-2 border border-gray-200 bg-white text-[#131A20]/60 hover:border-[#22a55d] hover:text-[#22a55d] font-medium px-7 py-3.5 rounded-full transition-all text-sm">
                   {nl ? 'Stel een vraag' : 'Ask a question'}
                 </a>
@@ -153,7 +151,7 @@ export default function AlphaESSPage() {
             <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.2, ease }}
               className="relative pb-0">
               <div className="rounded-t-3xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/30">
-                <img src="/assets/battery-night.webp" alt="AlphaESS SMILE G3 thuisbatterij" className="w-full h-full object-cover" />
+                <img src="/hyxipower-battery.png" alt="HYXiPower All-in-One ESS thuisbatterij" className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </div>
@@ -165,10 +163,10 @@ export default function AlphaESSPage() {
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { val: '2012', label: nl ? 'Opgericht' : 'Founded' },
-              { val: '200.000+', label: nl ? 'Installaties' : 'Installations' },
-              { val: '110+', label: nl ? 'Landen actief' : 'Countries active' },
-              { val: nl ? '10 jaar' : '10 years', label: nl ? 'Garantie' : 'Warranty' },
+              { val: '10–25 kWh', label: nl ? 'Modulaire capaciteit' : 'Modular capacity' },
+              { val: 'IP67', label: nl ? 'Binnen & buiten' : 'Indoor & outdoor' },
+              { val: '< 1 ms', label: nl ? 'Noodstroom omschakeling' : 'Backup switchover' },
+              { val: '0,5 sec', label: nl ? 'AFCI-detectie' : 'AFCI detection' },
             ].map((s, i) => (
               <div key={i} className="text-center">
                 <div className="text-2xl lg:text-3xl font-extrabold text-[#131A20] mb-1">{s.val}</div>
@@ -185,7 +183,7 @@ export default function AlphaESSPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
               <div className="inline-flex items-center gap-2 bg-[#22a55d]/10 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-6">
-                <Cpu className="w-3.5 h-3.5" /> AlphaLINX technologie
+                <Cpu className="w-3.5 h-3.5" /> {nl ? 'HYXiPower cloudmonitoring' : 'HYXiPower cloud monitoring'}
               </div>
               <h2 className="text-4xl font-extrabold leading-tight mb-5 tracking-tight">
                 {nl ? (
@@ -196,22 +194,22 @@ export default function AlphaESSPage() {
               </h2>
               <p className="text-[#131A20]/55 leading-relaxed mb-6 text-lg">
                 {nl
-                  ? 'AlphaLINX is het AI-gedreven Energy Management System dat realtime beslist wanneer uw batterij laadt, ontlaadt, en op de markt handelt. Het systeem verbindt uw zonnepanelen, batterij, thuisverbruik en het Europese energienet.'
-                  : 'AlphaLINX is the AI-driven Energy Management System that decides in real time when your battery charges, discharges and trades on the market. It connects your solar panels, battery, home consumption and the European energy grid.'}
+                  ? 'De AI-gestuurde cloudmonitoring van HYXiPower houdt uw systeem 24/7 in de gaten en optimaliseert wanneer uw batterij laadt en ontlaadt op basis van dynamische energieprijzen. Via de scenario-app stuurt u ook uw laadpaal of warmtepomp aan.'
+                  : "HYXiPower's AI-driven cloud monitoring watches your system 24/7 and optimises when your battery charges and discharges based on dynamic energy prices. The scenario app also lets you control your EV charger or heat pump."}
               </p>
               <ul className="space-y-3.5 mb-8">
                 {(nl ? [
-                  'EPEX Spot koppeling, profiteert automatisch van uurprijzen',
-                  'Selflearning algoritme past zich aan uw verbruikspatroon aan',
-                  'Realtime monitoring via gratis AlphaCloud app',
-                  'OTA-updates, systeem verbetert automatisch in de tijd',
-                  'API-integratie met slimme meter en laadpaal',
+                  'Optimalisatie op basis van dynamische energieprijzen',
+                  'Scenario-app stuurt laadpaal en warmtepomp aan',
+                  '24/7 realtime monitoring via de HYXiPower app',
+                  'AFCI-vlamboogdetectie binnen 0,5 seconde',
+                  'Millisecondesnelle omschakeling naar noodstroom',
                 ] : [
-                  'EPEX Spot coupling, automatically profits from hourly price differences',
-                  'Self-learning algorithm adapts to your consumption pattern',
-                  'Real-time monitoring via free AlphaCloud app',
-                  'OTA updates, system improves automatically over time',
-                  'API integration with smart meter and EV charger',
+                  'Optimisation based on dynamic energy prices',
+                  'Scenario app controls EV charger and heat pump',
+                  '24/7 real-time monitoring via the HYXiPower app',
+                  'AFCI arc-fault detection within 0.5 seconds',
+                  'Millisecond switchover to backup power',
                 ]).map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-[#131A20]/70">
                     <CheckCircle2 className="w-4 h-4 text-[#22a55d] flex-shrink-0 mt-0.5" />
@@ -228,7 +226,7 @@ export default function AlphaESSPage() {
                   </div>
                   <div>
                     <div className="text-xs text-[#131A20]/40 font-semibold uppercase tracking-widest">Live dashboard</div>
-                    <div className="text-sm font-bold text-[#131A20]">AlphaCloud monitor</div>
+                    <div className="text-sm font-bold text-[#131A20]">HYXiPower Cloud monitor</div>
                   </div>
                 </div>
                 {[
@@ -278,15 +276,15 @@ export default function AlphaESSPage() {
           <Reveal className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-white text-[#131A20]/50 text-xs font-semibold px-4 py-2 rounded-full mb-5 border border-gray-100">
               <Star className="w-3.5 h-3.5 text-[#22a55d]" />
-              {nl ? 'Waarom AlphaESS' : 'Why AlphaESS'}
+              {nl ? 'Waarom HYXiPower' : 'Why HYXiPower'}
             </div>
             <h2 className="text-4xl font-extrabold mb-4 tracking-tight">
-              {nl ? 'Wat maakt AlphaESS anders?' : 'What makes AlphaESS different?'}
+              {nl ? 'Wat maakt HYXiPower anders?' : 'What makes HYXiPower different?'}
             </h2>
             <p className="text-[#131A20]/55 text-lg max-w-2xl mx-auto leading-relaxed">
               {nl
-                ? 'AlphaESS bouwt al meer dan tien jaar thuisbatterijen. Dit zijn de kenmerken die u kunt controleren en vergelijken.'
-                : 'AlphaESS has been building home batteries for over ten years. These are the features you can verify and compare.'}
+                ? 'HYXiPower bouwt al meer dan tien jaar thuisbatterijen. Dit zijn de kenmerken die u kunt controleren en vergelijken.'
+                : 'HYXiPower has been building home batteries for over ten years. These are the features you can verify and compare.'}
             </p>
           </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -313,7 +311,7 @@ export default function AlphaESSPage() {
               {nl ? 'Technische specificaties' : 'Technical specifications'}
             </h2>
             <p className="text-[#131A20]/45 text-base">
-              {nl ? 'AlphaESS SMILE G3, de meest populaire reeks' : 'AlphaESS SMILE G3, the most popular series'}
+              {nl ? 'HYXiPower All-in-One ESS, de meest populaire reeks' : 'HYXiPower All-in-One ESS, the most popular series'}
             </p>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -350,27 +348,23 @@ export default function AlphaESSPage() {
 
           <div className="grid md:grid-cols-2 gap-2.5">
             {(nl ? [
-              { icon: '🏷️', title: '10 jaar fabrieksgarantie', desc: 'Vastgelegd in het contract — niet mondeling toegezegd' },
-              { icon: '📊', title: '80% resterende capaciteit na 10 jaar', desc: 'Prestatiegarantie naast de productgarantie — twee aparte zekerheden' },
-              { icon: '🔋', title: 'LFP-technologie', desc: 'Lithium-ijzerfosfaat — thermisch stabiel, brandveilig en slijtvaster dan NMC-chemie' },
-              { icon: '📦', title: 'Modulair uitbreidbaar: 9,3 – 111,3 kWh', desc: 'Capaciteit later uitbreiden binnen hetzelfde systeem en ecosysteem' },
-              { icon: '📡', title: 'Monitoring op drie niveaus', desc: 'Klant, installateur én fabrikant kunnen meekijken via AlphaCloud' },
-              { icon: '🏡', title: 'Overdraagbare garantie', desc: 'Bij verkoop van uw woning gaat de garantie automatisch mee naar de nieuwe eigenaar' },
-              { icon: '🛡️', title: 'CE, EMC, TÜV, IEC 62619', desc: 'Onafhankelijk getest en gecertificeerd op Europese veiligheidsnormen' },
-              { icon: '⚙️', title: 'Eén fabrikant', desc: 'Batterij, BMS, software en omvormer uit hetzelfde ecosysteem — geen lappendeken' },
-              { icon: '🔌', title: 'Backup / noodstroom mogelijk', desc: 'Werkt door bij stroomuitval op het net — met de juiste configuratie en accessoires' },
-              { icon: '🏢', title: 'Europees kantoor & magazijn in Nederland', desc: 'AlphaESS Benelux B.V. — High Tech Campus 41, Eindhoven. Onderdelen snel beschikbaar.' },
+              { icon: '📦', title: 'Modulair uitbreidbaar: 10 – 25 kWh', desc: 'Van 2PACK tot 5PACK — capaciteit later uitbreiden binnen hetzelfde systeem' },
+              { icon: '🔌', title: 'Meterloos ontwerp', desc: 'Geen aparte energiemeter nodig, eenvoudiger installatieproces' },
+              { icon: '🔋', title: 'LiFePO4-celtechnologie', desc: 'A+ grade cellen, thermisch stabiel en brandveilig, bewaakt door automotive-grade BMS' },
+              { icon: '🛡️', title: 'AFCI-vlamboogdetectie binnen 0,5 seconde', desc: 'Automatische noodstop bij een gedetecteerde vlamboog' },
+              { icon: '⚡', title: 'Millisecondesnelle noodstroom', desc: 'Schakelt bij stroomuitval binnen milliseconden over op backup' },
+              { icon: '🌦️', title: 'IP67, C4-zoutneveltest', desc: 'Geschikt voor installatie binnen én buiten, ook in kustgebieden' },
+              { icon: '🔧', title: 'Universele omvormercompatibiliteit', desc: 'Werkt samen met SolarEdge, Enphase, Huawei, SMA en Growatt' },
+              { icon: '📡', title: 'AI-gestuurd cloudmonitoring', desc: '24/7 realtime inzicht en besturing via de HYXiPower app' },
             ] : [
-              { icon: '🏷️', title: '10-year factory warranty', desc: 'Contractually agreed — not a verbal promise' },
-              { icon: '📊', title: '80% remaining capacity after 10 years', desc: 'Performance guarantee separate from product warranty — two distinct assurances' },
-              { icon: '🔋', title: 'LFP technology', desc: 'Lithium iron phosphate — thermally stable, fire-safe and longer-lasting than NMC chemistry' },
-              { icon: '📦', title: 'Modular expandable: 9.3 – 111.3 kWh', desc: 'Expand capacity later within the same system and ecosystem' },
-              { icon: '📡', title: 'Three-level monitoring', desc: 'Customer, installer and manufacturer can all monitor via AlphaCloud' },
-              { icon: '🏡', title: 'Transferable warranty', desc: 'When you sell your home, the warranty automatically transfers to the new owner' },
-              { icon: '🛡️', title: 'CE, EMC, TÜV, IEC 62619', desc: 'Independently tested and certified against European safety standards' },
-              { icon: '⚙️', title: 'One manufacturer', desc: 'Battery, BMS, software and inverter from the same ecosystem — no patchwork' },
-              { icon: '🔌', title: 'Backup / emergency power possible', desc: 'Continues operating during a grid outage — with the correct configuration and accessories' },
-              { icon: '🏢', title: 'European office & warehouse in the Netherlands', desc: 'AlphaESS Benelux B.V. — High Tech Campus 41, Eindhoven. Parts available quickly.' },
+              { icon: '📦', title: 'Modular expandable: 10 – 25 kWh', desc: 'From 2PACK to 5PACK — expand capacity later within the same system' },
+              { icon: '🔌', title: 'Meterless design', desc: 'No separate energy meter needed, simpler installation process' },
+              { icon: '🔋', title: 'LiFePO4 cell technology', desc: 'A+ grade cells, thermally stable and fire-safe, monitored by automotive-grade BMS' },
+              { icon: '🛡️', title: 'AFCI arc-fault detection within 0.5 seconds', desc: 'Automatic emergency stop when an arc fault is detected' },
+              { icon: '⚡', title: 'Millisecond backup power', desc: 'Switches to backup within milliseconds during a power outage' },
+              { icon: '🌦️', title: 'IP67, C4 salt spray tested', desc: 'Suitable for indoor and outdoor installation, even in coastal areas' },
+              { icon: '🔧', title: 'Universal inverter compatibility', desc: 'Works together with SolarEdge, Enphase, Huawei, SMA and Growatt' },
+              { icon: '📡', title: 'AI-driven cloud monitoring', desc: '24/7 real-time insight and control via the HYXiPower app' },
             ]).map((item, i) => (
               <Reveal key={i} delay={i * 0.04}>
                 <div className="flex items-start gap-3.5 bg-white rounded-2xl p-4 border border-white/80 shadow-sm">
@@ -395,7 +389,7 @@ export default function AlphaESSPage() {
               {nl ? 'Eerlijke vergelijking' : 'Honest comparison'}
             </div>
             <h2 className="text-4xl font-extrabold mb-4 tracking-tight">
-              {nl ? 'AlphaESS vs. de concurrentie' : 'AlphaESS vs. the competition'}
+              {nl ? 'HYXiPower vs. de concurrentie' : 'HYXiPower vs. the competition'}
             </h2>
             <p className="text-[#131A20]/55 max-w-xl mx-auto leading-relaxed">
               {nl
@@ -408,7 +402,7 @@ export default function AlphaESSPage() {
               <div className="grid grid-cols-3 bg-[#F9F7F4] border-b border-gray-100 text-xs font-bold uppercase tracking-widest">
                 <div className="p-4 text-[#131A20]/45">{nl ? 'Aspect' : 'Aspect'}</div>
                 <div className="p-4 text-[#22a55d] flex items-center gap-2">
-                  <Battery className="w-3.5 h-3.5" /> AlphaESS
+                  <Battery className="w-3.5 h-3.5" /> HYXiPower
                 </div>
                 <div className="p-4 text-[#131A20]/45">{nl ? 'Gemiddeld andere merken' : 'Average other brands'}</div>
               </div>
@@ -440,8 +434,8 @@ export default function AlphaESSPage() {
             </h2>
             <p className="text-[#131A20]/45 max-w-lg mx-auto text-base">
               {nl
-                ? 'Elk AlphaESS systeem doorloopt onafhankelijke keuringen door toonaangevende internationale testlaboratoria.'
-                : 'Every AlphaESS system undergoes independent inspections by leading international testing laboratories.'}
+                ? 'Elk HYXiPower systeem doorloopt onafhankelijke keuringen door toonaangevende internationale testlaboratoria.'
+                : 'Every HYXiPower system undergoes independent inspections by leading international testing laboratories.'}
             </p>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -466,32 +460,32 @@ export default function AlphaESSPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal delay={1}>
               <div className="rounded-3xl overflow-hidden shadow-xl shadow-gray-100">
-                <img src="/assets/battery-outdoor.webp" alt="AlphaESS SMILE G3 buiten" className="w-full h-auto" />
+                <img src="/assets/hyxipower-lineup.png" alt="HYXiPower All-in-One ESS lineup" className="w-full h-auto" />
               </div>
             </Reveal>
             <Reveal>
               <div className="inline-flex items-center gap-2 bg-white border border-gray-100 text-[#131A20]/50 text-xs font-semibold px-4 py-2 rounded-full mb-6">
                 <Battery className="w-3.5 h-3.5 text-[#22a55d]" />
-                {nl ? 'SMILE G3, de bestseller' : 'SMILE G3, the bestseller'}
+                {nl ? 'All-in-One ESS, de bestseller' : 'All-in-One ESS, the bestseller'}
               </div>
               <h2 className="text-4xl font-extrabold leading-tight mb-5 tracking-tight">
                 {nl ? (
-                  <>Één systeem,<br /><span className="text-[#22a55d]">oneindig schaalbaar</span></>
+                  <>Één systeem,<br /><span className="text-[#22a55d]">modulair schaalbaar</span></>
                 ) : (
-                  <>One system,<br /><span className="text-[#22a55d]">infinitely scalable</span></>
+                  <>One system,<br /><span className="text-[#22a55d]">modularly scalable</span></>
                 )}
               </h2>
               <p className="text-[#131A20]/55 leading-relaxed mb-7">
                 {nl
-                  ? 'De SMILE G3 begint bij 9,3 kWh en is modulair uitbreidbaar tot 111,3 kWh. Of u nu alleen uw zonnepaneeloverschot wilt opslaan of volledig onafhankelijk wilt zijn, het systeem groeit met u mee.'
-                  : 'The SMILE G3 starts at 9.3 kWh and is modularly expandable to 111.3 kWh. Whether you just want to store your solar surplus or become completely independent, the system grows with you.'}
+                  ? 'De All-in-One ESS begint bij 6 kW / 10 kWh (2PACK) en is modulair uitbreidbaar tot 15 kW / 25 kWh (5PACK). Of u nu alleen uw zonnepaneeloverschot wilt opslaan of volledig onafhankelijk wilt zijn, het systeem groeit met u mee.'
+                  : 'The All-in-One ESS starts at 6 kW / 10 kWh (2PACK) and is modularly expandable to 15 kW / 25 kWh (5PACK). Whether you just want to store your solar surplus or become completely independent, the system grows with you.'}
               </p>
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {[
-                  { cap: '9,3 kWh', desc: nl ? 'Starter pakket' : 'Starter package' },
-                  { cap: '18,6 kWh', desc: nl ? 'Gezinsoptimaal' : 'Family optimal' },
-                  { cap: '27,9 kWh', desc: nl ? 'Met laadpaal' : 'With EV charger' },
-                  { cap: '111,3 kWh', desc: nl ? 'Maximale onafhankelijkheid' : 'Maximum independence' },
+                  { cap: '2PACK · 6kW / 10kWh', desc: nl ? 'Starter pakket' : 'Starter package' },
+                  { cap: '3PACK · 9kW / 15kWh', desc: nl ? 'Gezinsoptimaal' : 'Family optimal' },
+                  { cap: '4PACK · 12kW / 20kWh', desc: nl ? 'Met laadpaal' : 'With EV charger' },
+                  { cap: '5PACK · 15kW / 25kWh', desc: nl ? 'Maximale onafhankelijkheid' : 'Maximum independence' },
                 ].map((p, i) => (
                   <div key={i} className="bg-white rounded-2xl px-4 py-3.5 border border-gray-100">
                     <div className="font-extrabold text-sm text-[#131A20]">{p.cap}</div>
@@ -518,7 +512,7 @@ export default function AlphaESSPage() {
           <Reveal>
             <div className="inline-flex items-center gap-2 bg-white/20 text-white text-xs font-semibold px-4 py-2 rounded-full mb-7">
               <Leaf className="w-3.5 h-3.5" />
-              {nl ? 'Via VOLTRAX, officieel AlphaESS dealer' : 'Via VOLTRAX, official AlphaESS dealer'}
+              {nl ? 'Via VOLTRAX, officieel HYXiPower dealer' : 'Via VOLTRAX, official HYXiPower dealer'}
             </div>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-5 leading-tight tracking-tight">
               {nl ? 'Klaar om de stap te zetten?' : 'Ready to take the step?'}
@@ -533,7 +527,7 @@ export default function AlphaESSPage() {
                 className="inline-flex items-center justify-center gap-3 bg-white hover:bg-green-50 text-[#22a55d] font-bold px-8 py-4 rounded-full transition-all hover:shadow-2xl hover:shadow-black/10 text-base">
                 {nl ? 'Start de berekening' : 'Start the calculation'} <ArrowRight className="w-5 h-5" />
               </button>
-              <a href="mailto:info@voltrax.nl?subject=Offerte%20AlphaESS"
+              <a href="mailto:info@voltrax.nl?subject=Offerte%20HYXiPower"
                 className="inline-flex items-center justify-center gap-3 bg-white/15 hover:bg-white/25 text-white font-semibold px-8 py-4 rounded-full transition-all text-base border border-white/30">
                 {nl ? 'Vraag offerte aan' : 'Request a quote'} <ChevronRight className="w-5 h-5" />
               </a>
@@ -549,14 +543,14 @@ export default function AlphaESSPage() {
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
             <div className="text-xl font-extrabold text-[#131A20] mb-3">VOLT<span className="text-[#22a55d]">RAX</span></div>
-            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'Officieel AlphaESS dealer in Nederland. Uw thuisbatterij specialist.' : 'Official AlphaESS dealer in the Netherlands. Your home battery specialist.'}</p>
+            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'Officieel HYXiPower dealer in Nederland. Uw thuisbatterij specialist.' : 'Official HYXiPower dealer in the Netherlands. Your home battery specialist.'}</p>
             <a href="mailto:info@voltrax.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@voltrax.nl</a>
           </div>
           <div>
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">{nl ? 'Producten' : 'Products'}</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li><button onClick={() => navigate('/aanbod')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Ons aanbod' : 'Our offer'}</button></li>
-              <li><button onClick={() => navigate('/alphaess')} className="hover:text-[#22a55d] transition-colors text-left">Over AlphaESS</button></li>
+              <li><button onClick={() => navigate('/hyxipower')} className="hover:text-[#22a55d] transition-colors text-left">Over HYXiPower</button></li>
               <li><button onClick={() => navigate('/calculator')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Bereken besparing' : 'Calculate savings'}</button></li>
               <li><button onClick={() => navigate('/warmtefonds')} className="hover:text-[#22a55d] transition-colors text-left">Warmtefonds</button></li>
             </ul>
@@ -572,17 +566,16 @@ export default function AlphaESSPage() {
           <div>
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">{nl ? 'Certificeringen' : 'Certifications'}</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
-              <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? '10 jaar fabrieksgarantie' : '10 year factory warranty'}</li>
+              <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'LiFePO4-celtechnologie' : 'LiFePO4 cell technology'}</li>
               <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />NEN1010 &amp; NEN3140</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />AlphaESS {nl ? 'gecertificeerd' : 'certified'}</li>
-              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP55 installatie</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />HYXiPower {nl ? 'gecertificeerd' : 'certified'}</li>
+              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP67 installatie</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · {nl ? 'Officieel AlphaESS dealer Nederland' : 'Official AlphaESS dealer Netherlands'}</p>
-            <p className="text-xs text-[#131A20]/30">AlphaESS Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
+            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · {nl ? 'Officieel HYXiPower dealer Nederland' : 'Official HYXiPower dealer Netherlands'}</p>
           </div>
         </div>
       </footer>
