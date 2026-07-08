@@ -76,8 +76,8 @@ export default function HYXiPowerPage() {
   ]
 
   const specs = [
-    { label: nl ? 'Capaciteit' : 'Capacity', value: '10–25 kWh', sub: nl ? 'Modulair uitbreidbaar' : 'Modular expandable' },
-    { label: nl ? 'Vermogen' : 'Power output', value: '6–15 kW', sub: nl ? 'Per PACK-configuratie' : 'Per PACK configuration' },
+    { label: nl ? 'Capaciteit' : 'Capacity', value: '10,6–26,5 kWh', sub: nl ? 'Modulair uitbreidbaar' : 'Modular expandable' },
+    { label: nl ? 'Vermogen' : 'Power output', value: '6–15 kW', sub: nl ? 'Afhankelijk van configuratie' : 'Depending on configuration' },
     { label: nl ? 'Celtechnologie' : 'Cell technology', value: 'LiFePO4', sub: nl ? 'A+ grade cellen' : 'A+ grade cells' },
     { label: nl ? 'IP-klasse' : 'IP class', value: 'IP67', sub: nl ? 'Binnen & buiten' : 'Indoor & outdoor' },
     { label: nl ? 'Noodstroom' : 'Backup power', value: '< 1 ms', sub: nl ? 'Omschakeltijd' : 'Switchover time' },
@@ -88,7 +88,7 @@ export default function HYXiPowerPage() {
     { aspect: nl ? 'Technologie' : 'Technology', alpha: nl ? 'LiFePO4, brandveilig en thermisch stabiel' : 'LiFePO4, fire-safe and thermally stable', rest: nl ? 'NMC of oudere chemie' : 'NMC or older chemistry' },
     { aspect: nl ? 'Omvormercompatibiliteit' : 'Inverter compatibility', alpha: nl ? 'Universeel: SolarEdge, Enphase, Huawei, SMA, Growatt' : 'Universal: SolarEdge, Enphase, Huawei, SMA, Growatt', rest: nl ? 'Vaak gebonden aan eigen merk' : 'Often locked to own brand' },
     { aspect: nl ? 'Installatie' : 'Installation', alpha: nl ? 'Meterloos ontwerp, minder onderdelen' : 'Meterless design, fewer parts', rest: nl ? 'Aparte energiemeter vereist' : 'Separate energy meter required' },
-    { aspect: nl ? 'Uitbreidbaarheid' : 'Expandability', alpha: nl ? 'Modulair 2PACK t/m 5PACK, 10–25 kWh' : 'Modular 2PACK to 5PACK, 10–25 kWh', rest: nl ? 'Vaste capaciteit' : 'Fixed capacity' },
+    { aspect: nl ? 'Uitbreidbaarheid' : 'Expandability', alpha: nl ? 'Modulair All-in-One ESS, uitbreidbaar tot 26,5 kWh' : 'Modular All-in-One ESS, expandable up to 26.5 kWh', rest: nl ? 'Vaste capaciteit' : 'Fixed capacity' },
     { aspect: nl ? 'Veiligheid' : 'Safety', alpha: nl ? 'AFCI-detectie 0,5 sec, actieve drukontlasting' : 'AFCI detection 0.5 sec, active pressure relief', rest: nl ? 'Basisbeveiliging' : 'Basic protection' },
     { aspect: nl ? 'Behuizing' : 'Housing', alpha: 'IP67, C4-zoutneveltest', rest: nl ? 'Variabel per merk' : 'Varies by brand' },
     { aspect: nl ? 'App monitoring' : 'App monitoring', alpha: nl ? 'AI-gestuurd, 24/7 cloudmonitoring' : 'AI-driven, 24/7 cloud monitoring', rest: nl ? 'Vaak alleen basisweergave' : 'Often basic display only' },
@@ -133,8 +133,8 @@ export default function HYXiPowerPage() {
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.16 }}
                 className="text-lg text-[#131A20]/60 leading-relaxed mb-8 max-w-md">
                 {nl
-                  ? 'Meterloos ontwerp, universele omvormercompatibiliteit en LiFePO4-veiligheid. Modulair uitbreidbaar van 10 tot 25 kWh, met noodstroom binnen milliseconden.'
-                  : 'Meterless design, universal inverter compatibility and LiFePO4 safety. Modularly expandable from 10 to 25 kWh, with backup power within milliseconds.'}
+                  ? 'Meterloos ontwerp, universele omvormercompatibiliteit en LiFePO4-veiligheid. Modulair uitbreidbaar van 10,6 tot 26,5 kWh, met noodstroom binnen milliseconden.'
+                  : 'Meterless design, universal inverter compatibility and LiFePO4 safety. Modularly expandable from 10.6 to 26.5 kWh, with backup power within milliseconds.'}
               </motion.p>
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.24 }}
                 className="flex flex-wrap gap-3">
@@ -163,7 +163,7 @@ export default function HYXiPowerPage() {
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { val: '10–25 kWh', label: nl ? 'Modulaire capaciteit' : 'Modular capacity' },
+              { val: '10,6–26,5 kWh', label: nl ? 'Modulaire capaciteit' : 'Modular capacity' },
               { val: 'IP67', label: nl ? 'Binnen & buiten' : 'Indoor & outdoor' },
               { val: '< 1 ms', label: nl ? 'Noodstroom omschakeling' : 'Backup switchover' },
               { val: '0,5 sec', label: nl ? 'AFCI-detectie' : 'AFCI detection' },
@@ -348,7 +348,7 @@ export default function HYXiPowerPage() {
 
           <div className="grid md:grid-cols-2 gap-2.5">
             {(nl ? [
-              { icon: '📦', title: 'Modulair uitbreidbaar: 10 – 25 kWh', desc: 'Van 2PACK tot 5PACK — capaciteit later uitbreiden binnen hetzelfde systeem' },
+              { icon: '📦', title: 'Modulair uitbreidbaar: 10,6 – 26,5 kWh', desc: 'Eén All-in-One ESS-systeem, capaciteit later uitbreiden zonder nieuwe omvormer' },
               { icon: '🔌', title: 'Meterloos ontwerp', desc: 'Geen aparte energiemeter nodig, eenvoudiger installatieproces' },
               { icon: '🔋', title: 'LiFePO4-celtechnologie', desc: 'A+ grade cellen, thermisch stabiel en brandveilig, bewaakt door automotive-grade BMS' },
               { icon: '🛡️', title: 'AFCI-vlamboogdetectie binnen 0,5 seconde', desc: 'Automatische noodstop bij een gedetecteerde vlamboog' },
@@ -357,7 +357,7 @@ export default function HYXiPowerPage() {
               { icon: '🔧', title: 'Universele omvormercompatibiliteit', desc: 'Werkt samen met SolarEdge, Enphase, Huawei, SMA en Growatt' },
               { icon: '📡', title: 'AI-gestuurd cloudmonitoring', desc: '24/7 realtime inzicht en besturing via de HYXiPower app' },
             ] : [
-              { icon: '📦', title: 'Modular expandable: 10 – 25 kWh', desc: 'From 2PACK to 5PACK — expand capacity later within the same system' },
+              { icon: '📦', title: 'Modular expandable: 10.6 – 26.5 kWh', desc: 'One All-in-One ESS system, expand capacity later without a new inverter' },
               { icon: '🔌', title: 'Meterless design', desc: 'No separate energy meter needed, simpler installation process' },
               { icon: '🔋', title: 'LiFePO4 cell technology', desc: 'A+ grade cells, thermally stable and fire-safe, monitored by automotive-grade BMS' },
               { icon: '🛡️', title: 'AFCI arc-fault detection within 0.5 seconds', desc: 'Automatic emergency stop when an arc fault is detected' },
@@ -477,15 +477,15 @@ export default function HYXiPowerPage() {
               </h2>
               <p className="text-[#131A20]/55 leading-relaxed mb-7">
                 {nl
-                  ? 'De All-in-One ESS begint bij 6 kW / 10 kWh (2PACK) en is modulair uitbreidbaar tot 15 kW / 25 kWh (5PACK). Of u nu alleen uw zonnepaneeloverschot wilt opslaan of volledig onafhankelijk wilt zijn, het systeem groeit met u mee.'
-                  : 'The All-in-One ESS starts at 6 kW / 10 kWh (2PACK) and is modularly expandable to 15 kW / 25 kWh (5PACK). Whether you just want to store your solar surplus or become completely independent, the system grows with you.'}
+                  ? 'De All-in-One ESS begint bij 10,6 kWh en is modulair uitbreidbaar tot 26,5 kWh. Of u nu alleen uw zonnepaneeloverschot wilt opslaan of volledig onafhankelijk wilt zijn, het systeem groeit met u mee.'
+                  : 'The All-in-One ESS starts at 10.6 kWh and is modularly expandable to 26.5 kWh. Whether you just want to store your solar surplus or become completely independent, the system grows with you.'}
               </p>
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {[
-                  { cap: '2PACK · 6kW / 10kWh', desc: nl ? 'Starter pakket' : 'Starter package' },
-                  { cap: '3PACK · 9kW / 15kWh', desc: nl ? 'Gezinsoptimaal' : 'Family optimal' },
-                  { cap: '4PACK · 12kW / 20kWh', desc: nl ? 'Met laadpaal' : 'With EV charger' },
-                  { cap: '5PACK · 15kW / 25kWh', desc: nl ? 'Maximale onafhankelijkheid' : 'Maximum independence' },
+                  { cap: nl ? 'Starter · 10,6 kWh' : 'Starter · 10.6 kWh', desc: nl ? 'Starter pakket' : 'Starter package' },
+                  { cap: nl ? 'Comfort · 15,9 kWh' : 'Comfort · 15.9 kWh', desc: nl ? 'Gezinsoptimaal' : 'Family optimal' },
+                  { cap: nl ? 'Premium · 21,2 kWh' : 'Premium · 21.2 kWh', desc: nl ? 'Met laadpaal' : 'With EV charger' },
+                  { cap: nl ? 'Maximum · 26,5 kWh' : 'Maximum · 26.5 kWh', desc: nl ? 'Maximale onafhankelijkheid' : 'Maximum independence' },
                 ].map((p, i) => (
                   <div key={i} className="bg-white rounded-2xl px-4 py-3.5 border border-gray-100">
                     <div className="font-extrabold text-sm text-[#131A20]">{p.cap}</div>
