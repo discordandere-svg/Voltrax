@@ -203,34 +203,50 @@ export default function WaaromSolarFastPage() {
           <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#22a55d]/4" />
         </div>
         <div className="max-w-6xl mx-auto px-6 pt-14 pb-0 relative">
-          <div className="max-w-3xl pb-16">
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-[#22a55d]/15 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-8">
-              <Battery className="w-3.5 h-3.5" />
-              {nl ? 'HYXiPower partner Nederland' : 'HYXiPower partner Netherlands'}
-            </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }}
-              className="text-5xl lg:text-6xl font-extrabold leading-[1.06] tracking-tight mb-6 text-[#131A20]">
-              {nl
-                ? <> Waarom kiezen voor <span className="text-[#22a55d]">SolarFast</span>? </>
-                : <> Why choose <span className="text-[#22a55d]">SolarFast</span>? </>}
-            </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.16 }}
-              className="text-lg text-[#131A20]/60 leading-relaxed mb-10 max-w-2xl">
-              {nl
-                ? 'SolarFast helpt u een duurzamere woning te realiseren. Als HYXiPower partner begeleiden wij u van energieadvies tot installatie, financiering en jarenlange service. Goed voor uw portemonnee en goed voor het milieu.'
-                : 'SolarFast helps you create a more sustainable home. As a HYXiPower partner we guide you from energy advice to installation, financing and years of service. Good for your wallet and for the environment.'}
-            </motion.p>
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.24 }}
-              className="flex flex-wrap gap-3">
-              <button onClick={() => navigate('/calculator')}
-                className="flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-7 py-3.5 rounded-full transition-all hover:shadow-xl hover:shadow-green-500/25 text-sm">
-                {nl ? 'Bereken mijn besparing' : 'Calculate my savings'} <ArrowRight className="w-4 h-4" />
-              </button>
-              <a href="mailto:info@solarfast.nl?subject=Advies"
-                className="flex items-center gap-2 border border-[#22a55d]/30 text-[#131A20]/70 hover:border-[#22a55d] hover:text-[#22a55d] font-medium px-7 py-3.5 rounded-full transition-all text-sm bg-white">
-                {nl ? 'Stel een vraag' : 'Ask a question'}
-              </a>
+          <div className="grid lg:grid-cols-2 gap-14 items-start pb-16">
+            <div>
+              <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 bg-[#22a55d]/15 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-8">
+                <Battery className="w-3.5 h-3.5" />
+                {nl ? 'HYXiPower partner Nederland' : 'HYXiPower partner Netherlands'}
+              </motion.div>
+              <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }}
+                className="text-5xl lg:text-6xl font-extrabold leading-[1.06] tracking-tight mb-6 text-[#131A20]">
+                {nl
+                  ? <> Waarom kiezen voor <span className="text-[#22a55d]">SolarFast</span>? </>
+                  : <> Why choose <span className="text-[#22a55d]">SolarFast</span>? </>}
+              </motion.h1>
+              <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.16 }}
+                className="text-lg text-[#131A20]/60 leading-relaxed mb-10 max-w-xl">
+                {nl
+                  ? 'SolarFast helpt u een duurzamere woning te realiseren. Als HYXiPower partner begeleiden wij u van energieadvies tot installatie, financiering en jarenlange service. Goed voor uw portemonnee en goed voor het milieu.'
+                  : 'SolarFast helps you create a more sustainable home. As a HYXiPower partner we guide you from energy advice to installation, financing and years of service. Good for your wallet and for the environment.'}
+              </motion.p>
+              <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.24 }}
+                className="flex flex-wrap gap-3">
+                <button onClick={() => navigate('/calculator')}
+                  className="flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-7 py-3.5 rounded-full transition-all hover:shadow-xl hover:shadow-green-500/25 text-sm">
+                  {nl ? 'Bereken mijn besparing' : 'Calculate my savings'} <ArrowRight className="w-4 h-4" />
+                </button>
+                <a href="mailto:info@solarfast.nl?subject=Advies"
+                  className="flex items-center gap-2 border border-[#22a55d]/30 text-[#131A20]/70 hover:border-[#22a55d] hover:text-[#22a55d] font-medium px-7 py-3.5 rounded-full transition-all text-sm bg-white">
+                  {nl ? 'Stel een vraag' : 'Ask a question'}
+                </a>
+              </motion.div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex items-center justify-center py-4"
+            >
+              <div className="absolute w-[65%] aspect-square rounded-full bg-[#22a55d]/14 blur-3xl" />
+              <div className="absolute w-[40%] aspect-square rounded-full bg-[#22a55d]/10 blur-xl" />
+              <img
+                src="/assets/hyxipower-battery-3d.png"
+                alt="HYXiPower All-in-One thuisbatterij"
+                className="relative w-[75%] max-w-[300px] mx-auto"
+                style={{ filter: 'drop-shadow(0 32px 48px rgba(0,0,0,0.18)) drop-shadow(0 8px 16px rgba(34,165,93,0.12))' }}
+              />
             </motion.div>
           </div>
         </div>

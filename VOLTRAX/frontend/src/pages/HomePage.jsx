@@ -141,18 +141,21 @@ export default function HomePage() {
               initial={{ opacity: 0, scale: 0.96, x: 24 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex items-center justify-center py-6 overflow-hidden"
+              className="relative flex items-center justify-center py-4"
             >
-              <div className="absolute w-[70%] aspect-square rounded-full bg-[#22a55d]/8 blur-2xl" />
+              {/* Glow ring */}
+              <div className="absolute w-[65%] aspect-square rounded-full bg-[#22a55d]/14 blur-3xl" />
+              <div className="absolute w-[40%] aspect-square rounded-full bg-[#22a55d]/10 blur-xl" />
               <img
                 src="/assets/hyxipower-battery-3d.png"
                 alt="HYXiPower All-in-One thuisbatterij"
-                className="relative w-[62%] sm:w-[55%] max-w-xs mx-auto drop-shadow-2xl"
+                className="relative w-[75%] max-w-[320px] mx-auto"
+                style={{ filter: 'drop-shadow(0 32px 48px rgba(0,0,0,0.18)) drop-shadow(0 8px 16px rgba(34,165,93,0.12))' }}
               />
               <motion.div
                 initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.55, duration: 0.55 }}
-                className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-white rounded-2xl shadow-xl shadow-black/8 px-5 py-4 flex items-center gap-3 border border-white"
+                className="absolute bottom-4 left-4 bg-white rounded-2xl shadow-xl shadow-black/10 px-5 py-4 flex items-center gap-3 border border-gray-100"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#22a55d]/10 flex items-center justify-center">
                   <Battery className="w-5 h-5 text-[#22a55d]" />

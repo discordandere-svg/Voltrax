@@ -98,9 +98,9 @@ export default function OverOnsPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-[#F9F7F4]">
+      <section className="pt-28 pb-16 bg-[#F9F7F4]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="text-center lg:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}

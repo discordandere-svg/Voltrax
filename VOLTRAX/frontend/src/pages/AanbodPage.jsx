@@ -265,9 +265,28 @@ export default function AanbodPage() {
               : 'From starter to maximum independence: every system includes battery, inverter, installation and factory warranty. Everything included, nothing extra.'}
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.35 }}
-            className="inline-flex items-center gap-2 bg-white border border-green-200 text-green-700 text-xs font-semibold px-4 py-2 rounded-full">
+            className="inline-flex items-center gap-2 bg-white border border-green-200 text-green-700 text-xs font-semibold px-4 py-2 rounded-full mb-10">
             <CheckCircle2 className="w-3.5 h-3.5" />
             {nl ? 'LFP-celtechnologie voor lange levensduur' : 'LFP cell technology for long lifespan'}
+          </motion.div>
+
+          {/* Product visual */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex items-center justify-center"
+          >
+            <div className="absolute w-[40%] aspect-square rounded-full bg-[#22a55d]/12 blur-3xl" />
+            <img
+              src="/assets/hyxipower-battery-3d.png"
+              alt="HYXiPower All-in-One thuisbatterij"
+              className="relative mx-auto"
+              style={{
+                height: 260,
+                width: 'auto',
+                filter: 'drop-shadow(0 24px 40px rgba(0,0,0,0.16)) drop-shadow(0 6px 12px rgba(34,165,93,0.1))',
+              }}
+            />
           </motion.div>
         </div>
       </section>
