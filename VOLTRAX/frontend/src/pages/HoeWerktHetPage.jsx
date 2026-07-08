@@ -196,8 +196,6 @@ function BatteryPhoto({ level, status, price, nl, compact = false }) {
             height: 2,
             background: 'rgba(255,255,255,0.92)',
             boxShadow: '0 0 5px rgba(0,0,0,0.5)',
-            transform: 'rotate(-2.5deg)',
-            transformOrigin: 'left center',
           }} />
         </div>
       </div>
