@@ -151,28 +151,28 @@ export default function WaaromSolarFastPage() {
 
   const reviewCards = [
     {
-      photo: '/assets/install-21.jpg',
+      photo: '/assets/installaties/install-01.jpg',
       title: nl ? 'Persoonlijk energieadvies' : 'Personal energy advice',
       text: nl
         ? 'Wij analyseren uw energieverbruik en adviseren de batterijcapaciteit die het beste bij uw situatie past. Geen standaardpakket, geen verkoopdruk.'
         : 'We analyse your energy usage and advise the battery capacity that best fits your situation. No standard packages, no sales pressure.',
     },
     {
-      photo: '/assets/install-16.jpg',
+      photo: '/assets/installaties/install-02.jpg',
       title: nl ? 'Realtime inzicht via de app' : 'Real-time insight via the app',
       text: nl
         ? 'De app is gemakkelijk te gebruiken en zeer duidelijk. U weet direct hoeveel procent er nog in de batterij aanwezig is, hoeveel uw zonnepanelen opbrengen en hoeveel u van het net moet nemen.'
         : 'The app is easy to use and very clear. You immediately know how much charge is in the battery, how much your solar panels are generating and how much you need from the grid.',
     },
     {
-      photo: '/assets/install-25.jpg',
+      photo: '/assets/installaties/install-technician.jpg',
       title: nl ? 'Vakkundige installatie' : 'Expert installation',
       text: nl
         ? 'Onze eigen gecertificeerde monteurs plaatsen uw systeem vakkundig en beantwoorden geduldig al uw vragen tijdens de installatie.'
         : 'Our own certified technicians install your system expertly and patiently answer all your questions during installation.',
     },
     {
-      photo: '/assets/install-23.jpg',
+      photo: '/assets/installaties/install-03.jpg',
       title: nl ? 'Ondersteuning na installatie' : 'Support after installation',
       text: nl
         ? 'Ook na oplevering blijven wij bereikbaar voor vragen over uw systeem of de app. Via de app kunt u perfect uw productie en verbruik opvolgen.'
@@ -181,18 +181,18 @@ export default function WaaromSolarFastPage() {
   ]
 
   const extraPhotos = [
-    { src: '/assets/install-2.webp', alt: 'HYXiPower installatie' },
-    { src: '/assets/install-11.jpeg', alt: 'HYXiPower installatie' },
-    { src: '/assets/install-7.webp', alt: 'HYXiPower installatie' },
-    { src: '/assets/install-20.jpg', alt: 'HYXiPower installatie garage' },
-    { src: '/assets/install-22.jpg', alt: 'HYXiPower installatie zolder' },
-    { src: '/assets/install-24.jpg', alt: 'HYXiPower installatie bijkeuken' },
-    { src: '/assets/install-18.jpg', alt: 'HYXiPower installatie buiten' },
-    { src: '/assets/install-19.jpg', alt: 'HYXiPower installatie' },
-    { src: '/assets/install-15.jpg', alt: 'HYXiPower installatie kelder' },
-    { src: '/assets/install-10.jpeg', alt: 'HYXiPower installatie' },
-    { src: '/assets/install-4.webp', alt: 'HYXiPower installatie' },
-    { src: '/assets/install-8.jpg', alt: 'HYXiPower installatie' },
+    { src: '/assets/installaties/install-04.jpg', alt: 'HYXiPower installatie' },
+    { src: '/assets/installaties/install-11.jpg', alt: 'HYXiPower installatie' },
+    { src: '/assets/installaties/install-06.jpg', alt: 'HYXiPower installatie' },
+    { src: '/assets/installaties/install-07.jpg', alt: 'HYXiPower installatie garage' },
+    { src: '/assets/installaties/install-08.jpg', alt: 'HYXiPower installatie zolder' },
+    { src: '/assets/installaties/install-09.jpg', alt: 'HYXiPower installatie bijkeuken' },
+    { src: '/assets/installaties/install-10.jpg', alt: 'HYXiPower installatie buiten' },
+    { src: '/assets/installaties/install-05.jpg', alt: 'HYXiPower installatie' },
+    { src: '/assets/installaties/install-detail.jpg', alt: 'HYXiPower installatie kelder' },
+    { src: '/assets/installaties/solarfast-garage-render.jpg', alt: 'HYXiPower installatie' },
+    { src: '/assets/installaties/product-exploded.jpg', alt: 'HYXiPower installatie' },
+    { src: '/assets/installaties/hyxipower-studio-render.png', alt: 'HYXiPower installatie' },
   ]
 
   return (
