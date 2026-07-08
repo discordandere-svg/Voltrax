@@ -23,7 +23,7 @@ export default function Nav() {
     { to: '/warmtefonds',   label: t.nav.warmtefonds },
     { to: '/aanbod',        label: t.nav.aanbod },
     { to: '/hoe-werkt-het', label: t.nav.hoeWerktHet },
-    { to: '/waarom-voltrax', label: t.nav.waaromVoltrax },
+    { to: '/waarom-solarfast', label: t.nav.waaromSolarFast },
     { to: '/faq',            label: t.nav.faq },
   ]
 
@@ -54,7 +54,7 @@ export default function Nav() {
     >
       <div className="max-w-6xl mx-auto px-6 py-3.5 flex items-center justify-between">
         <button onClick={() => navigate('/')} className="text-xl font-extrabold tracking-tight text-[#131A20] flex-shrink-0">
-          VOLT<span style={{ color: '#22a55d' }}>RAX</span>
+          SOLAR<span style={{ color: '#22a55d' }}>FAST</span>
         </button>
 
         <div className="hidden lg:flex items-center gap-1">

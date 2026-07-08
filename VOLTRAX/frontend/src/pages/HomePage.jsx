@@ -120,9 +120,9 @@ export default function HomePage() {
                 className="flex items-center gap-0"
               >
                 {[
-                  { val: '92%',   label: h.stat1 },
-                  { val: '0,5s',  label: h.stat2 },
-                  { val: 'IP67',  label: h.stat3 },
+                  { val: '92%',      label: h.stat1 },
+                  { val: 'LFP',      label: h.stat2 },
+                  { val: 'Modulair', label: h.stat3 },
                 ].map((s, i) => (
                   <React.Fragment key={i}>
                     <div className="pr-8">
@@ -185,26 +185,19 @@ export default function HomePage() {
       <section className="py-5 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="flex text-amber-400 text-base leading-none">★★★★★</div>
-              <span className="font-bold text-[#131A20]">4.9</span>
-              <span className="text-[#131A20]/45 hidden sm:inline">·</span>
-              <span className="text-[#131A20]/55 hidden sm:inline">150+ tevreden klanten</span>
-            </div>
-            <div className="hidden md:block w-px h-4 bg-gray-200 flex-shrink-0" />
             <div className="flex items-center gap-1.5 text-[#131A20]/55">
               <Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />
-              <span>Officieel HYXiPower dealer Nederland</span>
+              <span>HYXiPower partner Nederland</span>
             </div>
             <div className="hidden md:block w-px h-4 bg-gray-200 flex-shrink-0" />
             <div className="flex items-center gap-1.5 text-[#131A20]/55">
               <Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />
-              <span>10 jaar fabrieksgarantie</span>
+              <span>LFP/LiFePO4 accutechnologie</span>
             </div>
             <div className="hidden md:block w-px h-4 bg-gray-200 flex-shrink-0" />
             <div className="flex items-center gap-1.5 text-[#131A20]/55">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />
-              <span>NEN1010 &amp; NEN3140 gecertificeerd</span>
+              <span>Modulair uitbreidbaar</span>
             </div>
           </div>
         </div>
@@ -313,7 +306,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WAAROM VOLTRAX USPs */}
+      {/* WAAROM SolarFast USPs */}
       <section className="py-24 bg-[#F9F7F4]">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal className="text-center mb-14">
@@ -343,7 +336,7 @@ export default function HomePage() {
           </div>
           <Reveal className="text-center mt-10">
             <button
-              onClick={() => navigate('/waarom-voltrax')}
+              onClick={() => navigate('/waarom-solarfast')}
               className="inline-flex items-center gap-2 border border-gray-200 hover:border-[#22a55d] hover:text-[#22a55d] text-[#131A20]/60 font-medium px-6 py-3 rounded-full transition-all text-sm"
             >
               {h.whyMore} <ArrowRight className="w-4 h-4" />
@@ -413,10 +406,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
             <div className="text-xl font-extrabold text-[#131A20] mb-3">
-              VOLT<span className="text-[#22a55d]">RAX</span>
+              SOLAR<span className="text-[#22a55d]">FAST</span>
             </div>
-            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">Officieel HYXiPower dealer in Nederland. Uw thuisbatterij specialist.</p>
-            <a href="mailto:info@voltrax.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@voltrax.nl</a>
+            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">HYXiPower partner in Nederland. Uw thuisbatterij specialist.</p>
+            <a href="mailto:info@solarfast.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@solarfast.nl</a>
           </div>
           <div>
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">Producten</div>
@@ -431,24 +424,24 @@ export default function HomePage() {
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">Informatie</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li><button onClick={() => navigate('/hoe-werkt-het')} className="hover:text-[#22a55d] transition-colors text-left">Hoe werkt het?</button></li>
-              <li><button onClick={() => navigate('/waarom-voltrax')} className="hover:text-[#22a55d] transition-colors text-left">Waarom Voltrax</button></li>
+              <li><button onClick={() => navigate('/waarom-solarfast')} className="hover:text-[#22a55d] transition-colors text-left">Waarom SolarFast</button></li>
               <li><button onClick={() => navigate('/faq')} className="hover:text-[#22a55d] transition-colors text-left">Veelgestelde vragen</button></li>
             </ul>
           </div>
           <div>
-            <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">Certificeringen</div>
+            <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">HYXiPower</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
-              <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />10 jaar fabrieksgarantie</li>
-              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />NEN1010 &amp; NEN3140</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />HYXiPower gecertificeerd</li>
-              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP67 installatie</li>
+              <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />LFP/LiFePO4 celtechnologie</li>
+              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />Slim EMS-beheer</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One ESS</li>
+              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />Modulair uitbreidbaar</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · Officieel HYXiPower dealer Nederland</p>
-            <p className="text-xs text-[#131A20]/30">HYXiPower Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
+            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} SolarFast · HYXiPower partner Nederland</p>
+            <p className="text-xs text-[#131A20]/30">info@solarfast.nl</p>
           </div>
         </div>
       </footer>

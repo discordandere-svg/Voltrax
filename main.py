@@ -4,7 +4,7 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"status": "VOLTRAX running"}
+    return {"status": "SolarFast running"}
 
 if __name__ == "__main__":
     import uvicorn

@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import {
   Shield, Award, Users, Zap, CheckCircle2, ArrowRight,
-  Star, Battery, Wrench, MessageCircle, Phone, MapPin
+  Battery, Wrench, MessageCircle, MapPin
 } from 'lucide-react'
 import Nav from '../components/Nav.jsx'
 
@@ -27,21 +27,19 @@ function Reveal({ children, className = '', delay = 0 }) {
 }
 
 
-const REVIEWS = [
-  { name: 'Mark V.', city: 'Amsterdam', stars: 5, text: 'Zeer professioneel en deskundig advies. Binnen een week alles geregeld. De batterij werkt perfect en de app geeft precies het inzicht dat ik zocht.' },
-  { name: 'Sandra K.', city: 'Rotterdam', stars: 5, text: 'Eindelijk een partij die eerlijk advies geeft. Geen verkooppraatjes, gewoon duidelijke uitleg en een scherpe prijs. Topservice van begin tot eind.' },
-  { name: 'Peter D.', city: 'Utrecht', stars: 5, text: 'Van advies tot installatie perfect geregeld. Monteurs waren vriendelijk, stipt en lieten alles schoon achter. Absolute aanrader!' },
-  { name: 'Lisa M.', city: 'Den Haag', stars: 5, text: 'Snel, betrouwbaar en transparant. Precies wat we zochten. De Warmtefonds aanvraag werd volledig voor ons geregeld, dat was een enorme hulp.' },
-  { name: 'Jan B.', city: 'Eindhoven', stars: 5, text: 'Beste keuze die we gemaakt hebben. We besparen nu flink en de app laat precies zien hoeveel. Na 3 maanden al merkbaar verschil op de energierekening.' },
-  { name: 'Emma W.', city: 'Groningen', stars: 5, text: 'Uitstekende service van begin tot eind. De installatie was snel en netjes. Alles werd duidelijk uitgelegd en de naservice is ook prima.' },
+const SERVICE_HIGHLIGHTS = [
+  { title: 'Persoonlijk adviesgesprek', text: 'Wij bespreken uw energieverbruik, woning en wensen voordat we een systeem voorstellen. Geen standaardoplossing, maar advies op maat.' },
+  { title: 'Vakkundige installatie', text: 'Onze eigen gecertificeerde monteurs plaatsen uw systeem en leggen precies uit hoe de app en het systeem werken.' },
+  { title: 'Begeleiding bij de Warmtefondsaanvraag', text: 'Wij helpen u stap voor stap bij het aanvragen van een Energiebespaarlening, zodat u het overzicht houdt.' },
+  { title: 'Bereikbaar na installatie', text: 'Ook na oplevering staan wij klaar voor vragen over uw systeem, de app of uw lening.' },
 ]
 
 const WAAROM = [
   {
     icon: <Award className="w-6 h-6 text-amber-500" />,
     bg: 'bg-amber-50',
-    title: 'Officieel HYXiPower dealer',
-    desc: 'Wij zijn gecertificeerd dealer van HYXiPower voor Nederland. Direct van de fabrikant, met volledige garantie en fabrieksondersteuning.',
+    title: 'HYXiPower partner',
+    desc: 'Wij werken met de HYXiPower All-in-One ESS: LiFePO4-batterijtechnologie met een slim Energy Management System.',
   },
   {
     icon: <Wrench className="w-6 h-6 text-blue-500" />,
@@ -104,8 +102,8 @@ export default function OverOnsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#131A20]/60 text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            VOLTRAX is een team van specialisten in verduurzaming. Wij zijn officieel dealer
-            van HYXiPower in Nederland en begeleiden u van advies tot installatie en nazorg.
+            SolarFast is een team van specialisten in verduurzaming. Wij zijn HYXiPower partner
+            in Nederland en begeleiden u van advies tot installatie en nazorg.
           </motion.p>
         </div>
       </section>
@@ -115,10 +113,10 @@ export default function OverOnsPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { val: '4,9', label: 'Google beoordeling', sub: 'gemiddeld uit alle reviews' },
               { val: '100%', label: 'Vrijblijvend advies', sub: 'geen verplichtingen' },
               { val: '<24u', label: 'Reactietijd', sub: 'na uw aanvraag' },
-              { val: '10 jr', label: 'Garantie', sub: 'op elk systeem' },
+              { val: 'LFP', label: 'Batterijtechnologie', sub: 'LiFePO4-celtechnologie' },
+              { val: 'EMS', label: 'Smart Energy Management', sub: 'automatisch geoptimaliseerd' },
             ].map((s, i) => (
               <Reveal key={i} delay={i * 0.2}>
                 <div className="bg-[#F9F7F4] rounded-3xl p-6 text-center">
@@ -132,11 +130,11 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* Waarom VOLTRAX */}
+      {/* Waarom SolarFast */}
       <section className="py-16 bg-[#F9F7F4]">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4">Waarom VOLTRAX?</h2>
+            <h2 className="text-4xl font-extrabold mb-4">Waarom SolarFast?</h2>
             <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
               Er zijn veel partijen die thuisbatterijen verkopen. Dit onderscheidt ons.
             </p>
@@ -157,48 +155,30 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* VOLTRAX vs anderen */}
+      {/* Wat u van SolarFast mag verwachten */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <Reveal className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4">VOLTRAX versus de markt</h2>
+            <h2 className="text-4xl font-extrabold mb-4">Wat u van SolarFast mag verwachten</h2>
             <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
-              Waar veel installateurs generiek werken, focust VOLTRAX volledig op HYXiPower.
+              SolarFast focust volledig op HYXiPower en begeleidt u van advies tot en met installatie.
             </p>
           </Reveal>
 
           <Reveal className="bg-[#F9F7F4] rounded-3xl overflow-hidden">
-            <div className="grid grid-cols-3 px-8 py-4 border-b border-black/6">
-              <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-wide">Criterium</div>
-              <div className="text-xs font-bold text-[#22a55d] uppercase tracking-wide text-center">VOLTRAX</div>
-              <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-wide text-center">Gemiddeld</div>
-            </div>
             <div className="divide-y divide-black/4">
               {[
-                { label: 'Specialisatie in 1 merk (HYXiPower)', voltrax: true, markt: false },
-                { label: 'Eigen gecertificeerde monteurs', voltrax: true, markt: 'Soms' },
-                { label: 'Warmtefonds aanvraag inbegrepen', voltrax: true, markt: false },
-                { label: 'Transparante all-in prijzen', voltrax: true, markt: 'Soms' },
-                { label: 'Nazorg en langetermijn support', voltrax: true, markt: 'Soms' },
+                { label: 'Specialisatie in 1 merk (HYXiPower)' },
+                { label: 'Eigen gecertificeerde monteurs' },
+                { label: 'Begeleiding bij de Warmtefondsaanvraag' },
+                { label: 'Transparante all-in prijzen' },
+                { label: 'Bereikbaar na installatie' },
               ].map((r, i) => (
-                <div key={i} className="grid grid-cols-3 px-8 py-4 items-center bg-white">
+                <div key={i} className="flex items-center justify-between px-8 py-4 bg-white">
                   <div className="text-sm text-[#131A20]/70 pr-4">{r.label}</div>
-                  <div className="text-center">
-                    <span className="inline-flex items-center gap-1 bg-[#f0fdf4] text-[#22a55d] font-bold text-xs px-3 py-1.5 rounded-full">
-                      <CheckCircle2 className="w-3 h-3" /> Ja
-                    </span>
-                  </div>
-                  <div className="text-center">
-                    {r.markt === true ? (
-                      <span className="inline-flex items-center gap-1 bg-[#f0fdf4] text-[#22a55d] font-bold text-xs px-3 py-1.5 rounded-full">
-                        <CheckCircle2 className="w-3 h-3" /> Ja
-                      </span>
-                    ) : r.markt === false ? (
-                      <span className="text-xs text-[#131A20]/30 font-medium">Zelden</span>
-                    ) : (
-                      <span className="text-xs text-amber-500 font-medium">{r.markt}</span>
-                    )}
-                  </div>
+                  <span className="inline-flex items-center gap-1 bg-[#f0fdf4] text-[#22a55d] font-bold text-xs px-3 py-1.5 rounded-full">
+                    <CheckCircle2 className="w-3 h-3" /> Ja
+                  </span>
                 </div>
               ))}
             </div>
@@ -237,46 +217,22 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* Google reviews */}
+      {/* Service */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal className="text-center mb-4">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
-                ))}
-              </div>
-              <span className="text-2xl font-extrabold text-[#131A20]">4,9</span>
-              <span className="text-[#131A20]/40 text-sm">/ 5 via Google Reviews</span>
-            </div>
-            <h2 className="text-4xl font-extrabold mb-4">Wat onze klanten zeggen</h2>
+            <h2 className="text-4xl font-extrabold mb-4">Wat u van ons kunt verwachten</h2>
             <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
-              Echte klanten, echte ervaringen. Van aanvraag tot installatie.
+              Van aanvraag tot installatie en daarna nog.
             </p>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-            {REVIEWS.map((r, i) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4 mt-10">
+            {SERVICE_HIGHLIGHTS.map((r, i) => (
               <Reveal key={i} delay={i * 0.2}>
                 <div className="bg-[#F9F7F4] rounded-3xl p-6 h-full flex flex-col">
-                  <div className="flex items-center gap-0.5 mb-4">
-                    {[...Array(r.stars)].map((_, j) => (
-                      <Star key={j} className="w-4 h-4 text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
+                  <h3 className="font-bold text-lg mb-2">{r.title}</h3>
                   <p className="text-sm text-[#131A20]/70 leading-relaxed flex-1">{r.text}</p>
-                  <div className="mt-4 pt-4 border-t border-gray-200 flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-[#131A20]/60">
-                      {r.name.charAt(0)}
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-[#131A20]">{r.name}</div>
-                      <div className="text-xs text-[#131A20]/40 flex items-center gap-1">
-                        <MapPin className="w-2.5 h-2.5" /> {r.city}
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </Reveal>
             ))}
@@ -288,25 +244,28 @@ export default function OverOnsPage() {
       <section className="py-16 bg-[#F9F7F4]">
         <div className="max-w-5xl mx-auto px-6">
           <Reveal className="text-center mb-10">
-            <h2 className="text-4xl font-extrabold mb-3">Certificeringen en keurmerken</h2>
-            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">Van VOLTRAX en HYXiPower samen: gedekte garanties en bewezen kwaliteitsnormen.</p>
+            <h2 className="text-4xl font-extrabold mb-3">SolarFast en HYXiPower</h2>
+            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">Wat u van onze partnership en onze werkwijze mag verwachten.</p>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-5 mb-5">
             <Reveal>
               <div className="bg-white rounded-3xl p-7 h-full border border-gray-100">
-                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">HYXiPower productcertificering</div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">HYXiPower All-in-One ESS</div>
+                <div className="space-y-3">
                   {[
-                    { code: 'CE', label: 'EU conformiteitsmarkering', color: 'bg-blue-50 text-blue-700' },
-                    { code: 'IEC 62619', label: 'Veiligheidsnorm lithium accu', color: 'bg-green-50 text-green-700' },
-                    { code: 'VDE', label: 'Duits kwaliteitsinstituut', color: 'bg-amber-50 text-amber-700' },
-                    { code: 'IP67', label: 'Stof- en spatwaterdicht', color: 'bg-teal-50 text-teal-700' },
-                    { code: 'UN38.3', label: 'Transportveiligheidsnorm', color: 'bg-purple-50 text-purple-700' },
-                    { code: 'IEC 61000', label: 'Elektromagnetische compatibiliteit', color: 'bg-blue-50 text-blue-700' },
-                  ].map((cert, i) => (
-                    <div key={i} className={`${cert.color} rounded-2xl px-3 py-3`}>
-                      <div className="text-sm font-extrabold mb-0.5">{cert.code}</div>
-                      <div className="text-xs opacity-70 leading-tight">{cert.label}</div>
+                    { icon: <Battery className="w-4 h-4 text-green-600" />, bg: 'bg-green-50', title: 'LFP / LiFePO4 batterijtechnologie', desc: 'Veilige en duurzame celtechnologie.' },
+                    { icon: <Zap className="w-4 h-4 text-amber-500" />, bg: 'bg-amber-50', title: 'Slim Energy Management System', desc: 'Automatische aansturing van laden en ontladen.' },
+                    { icon: <MessageCircle className="w-4 h-4 text-blue-500" />, bg: 'bg-blue-50', title: 'Realtime monitoring via app', desc: 'Altijd inzicht in productie, opslag en verbruik.' },
+                    { icon: <Wrench className="w-4 h-4 text-[#131A20]/50" />, bg: 'bg-[#F9F7F4]', title: 'Modulair uitbreidbaar', desc: 'Eenvoudig op te schalen naarmate uw behoefte groeit.' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className={`w-8 h-8 rounded-xl ${item.bg} flex items-center justify-center flex-shrink-0`}>
+                        {item.icon}
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-[#131A20]">{item.title}</div>
+                        <div className="text-xs text-[#131A20]/50 leading-relaxed">{item.desc}</div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -314,13 +273,12 @@ export default function OverOnsPage() {
             </Reveal>
             <Reveal delay={1}>
               <div className="bg-white rounded-3xl p-7 h-full border border-gray-100">
-                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">VOLTRAX als installatiebedrijf</div>
+                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">SolarFast als installatiebedrijf</div>
                 <div className="space-y-3">
                   {[
-                    { icon: <Award className="w-4 h-4 text-amber-500" />, bg: 'bg-amber-50', title: 'Officieel HYXiPower dealer NL', desc: 'Gecertificeerd door HYXiPower voor de Nederlandse markt.' },
-                    { icon: <Shield className="w-4 h-4 text-blue-500" />, bg: 'bg-blue-50', title: 'Erkend Warmtefonds partner', desc: 'Gemachtigd om Energiebespaarleningen te verwerken.' },
-                    { icon: <CheckCircle2 className="w-4 h-4 text-green-600" />, bg: 'bg-green-50', title: 'NEN 1010 gecertificeerde elektriciens', desc: 'Elektrische installaties conform de Nederlandse norm.' },
-                    { icon: <Wrench className="w-4 h-4 text-[#131A20]/50" />, bg: 'bg-[#F9F7F4]', title: 'Verzekerd en VCA-gecertificeerd', desc: 'Veilig en aansprakelijkheidsverzekerd vakwerk.' },
+                    { icon: <Award className="w-4 h-4 text-amber-500" />, bg: 'bg-amber-50', title: 'HYXiPower partner', desc: 'Wij installeren en ondersteunen HYXiPower thuisbatterijen.' },
+                    { icon: <Shield className="w-4 h-4 text-blue-500" />, bg: 'bg-blue-50', title: 'Begeleiding bij Warmtefondsaanvraag', desc: 'Wij helpen u met de aanvraag van een Energiebespaarlening.' },
+                    { icon: <CheckCircle2 className="w-4 h-4 text-green-600" />, bg: 'bg-green-50', title: 'Eigen gecertificeerde monteurs', desc: 'Geen onderaannemers, vakkundige installatie.' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <div className={`w-8 h-8 rounded-xl ${item.bg} flex items-center justify-center flex-shrink-0`}>
@@ -347,7 +305,7 @@ export default function OverOnsPage() {
               Persoonlijk advies, 100% vrijblijvend
             </h2>
             <p className="text-[#131A20]/60 text-lg mb-8 leading-relaxed">
-              Bel, mail of gebruik de calculator. Wij reageren altijd binnen 1 werkdag.
+              Mail ons of gebruik de calculator. Wij reageren altijd binnen 1 werkdag.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
               <button
@@ -357,15 +315,14 @@ export default function OverOnsPage() {
                 Bereken mijn besparing <ArrowRight className="w-5 h-5" />
               </button>
               <a
-                href="mailto:info@voltrax.nl"
+                href="mailto:info@solarfast.nl"
                 className="inline-flex items-center justify-center gap-2 border border-gray-200 bg-white hover:border-[#22a55d] text-[#131A20]/70 hover:text-[#22a55d] font-semibold px-8 py-4 rounded-full transition-all text-base"
               >
                 Stuur een e-mail
               </a>
             </div>
             <div className="flex flex-wrap justify-center gap-5 text-sm text-[#131A20]/40">
-              <span className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5" /> +31 (0)6 00 00 00 00</span>
-              <span className="flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> info@voltrax.nl</span>
+              <span className="flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> info@solarfast.nl</span>
               <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> Nederland</span>
             </div>
           </Reveal>
@@ -375,9 +332,9 @@ export default function OverOnsPage() {
       <footer className="bg-[#F9F7F4] border-t border-gray-100 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-lg font-extrabold text-[#131A20]">
-            VOLT<span style={{ color: '#22a55d' }}>RAX</span>
+            SOLAR<span style={{ color: '#22a55d' }}>FAST</span>
           </span>
-          <p className="text-sm text-[#131A20]/40">Officieel HYXiPower dealer</p>
+          <p className="text-sm text-[#131A20]/40">HYXiPower partner</p>
           <div className="flex items-center gap-2 text-xs text-[#131A20]/40">
             <Shield className="w-3.5 h-3.5 text-[#22a55d]" />
             Warmtefonds partner

@@ -149,7 +149,7 @@ def calculate_battery_savings(
     dynamic_contract: bool = False,
 ) -> dict:
     """
-    VOLTRAX v9 — Max-ROI energiemodel met systeem-interactie.
+    SolarFast v9 — Max-ROI energiemodel met systeem-interactie.
 
     Component 1: Vermeden netimport   (battery_used × pE − battery_charge × pT)
     Component 2: Dagelijkse markthandel (dagvoordeel per capaciteit uit EMS_DAY_TABLE × 365)
@@ -478,7 +478,7 @@ def calculate_battery_savings(
 
 @api_router.get("/")
 async def root():
-    return {"message": "VOLTRAX API - AlphaESS Calculator"}
+    return {"message": "SolarFast API - HYXiPower Calculator"}
 
 
 @api_router.post("/calculate", response_model=CalculationResult)

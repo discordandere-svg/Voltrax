@@ -221,8 +221,8 @@ export function PDFReport({ results: rv, input }) {
 
   return (
     <Document
-      title="VOLTRAX Persoonlijk Energierapport"
-      author="VOLTRAX"
+      title="SolarFast Persoonlijk Energierapport"
+      author="SolarFast"
       subject="HYXiPower thuisbatterij berekening"
     >
 
@@ -235,8 +235,8 @@ export function PDFReport({ results: rv, input }) {
         {/* Header */}
         <View style={s.hdr}>
           <View>
-            <Text style={s.hdrLogo}>VOLT<Text style={s.hdrAccent}>RAX</Text></Text>
-            <Text style={s.hdrSub}>HYXiPower {DOT} Officieel partner Nederland</Text>
+            <Text style={s.hdrLogo}>SOLAR<Text style={s.hdrAccent}>FAST</Text></Text>
+            <Text style={s.hdrSub}>HYXiPower {DOT} partner Nederland</Text>
           </View>
           <View style={s.hdrRight}>
             <Text style={s.hdrLabel}>PERSOONLIJK ENERGIERAPPORT</Text>
@@ -326,8 +326,8 @@ export function PDFReport({ results: rv, input }) {
 
         {/* Footer P1 */}
         <View style={s.footer}>
-          <Text style={s.fTxt}>www.voltrax.nl {DOT} info@voltrax.nl {DOT} Officieel HYXiPower partner</Text>
-          <Text style={s.fBrand}>VOLT<Text style={s.hdrAccent}>RAX</Text>  {DOT}  Pagina 1 van 2</Text>
+          <Text style={s.fTxt}>www.solarfast.nl {DOT} info@solarfast.nl {DOT} HYXiPower partner</Text>
+          <Text style={s.fBrand}>SOLAR<Text style={s.hdrAccent}>FAST</Text>  {DOT}  Pagina 1 van 2</Text>
           <Text style={s.fTxt}>Indicatieve berekening {DASH} vrijblijvend</Text>
         </View>
       </Page>
@@ -340,7 +340,7 @@ export function PDFReport({ results: rv, input }) {
 
         {/* Header */}
         <View style={[s.hdr, { paddingVertical: 16 }]}>
-          <Text style={[s.hdrLogo, { fontSize: 18 }]}>VOLT<Text style={s.hdrAccent}>RAX</Text></Text>
+          <Text style={[s.hdrLogo, { fontSize: 18 }]}>SOLAR<Text style={s.hdrAccent}>FAST</Text></Text>
           <View style={{ flexDirection: 'row', gap: 22, alignItems: 'center' }}>
             <Text style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.35)' }}>Financieel overzicht</Text>
             <Text style={{ fontSize: 9, fontFamily: 'Helvetica-Bold', color: 'rgba(255,255,255,0.65)' }}>{today}</Text>
@@ -379,7 +379,7 @@ export function PDFReport({ results: rv, input }) {
                   val: `${EUR} ${fmt(rv.sald_protection_eur)}`,
                 },
                 ...((rv.garantie_bonus || 0) > 0 ? [{
-                  lbl: 'Stap 5 — VOLTRAX Prestatiegarantie',
+                  lbl: 'Stap 5 — SolarFast Prestatiegarantie',
                   sub: 'Op basis van capaciteit en historisch HYXiPower systeemrendement',
                   val: `+${EUR} ${fmt(rv.garantie_bonus)}`, col: 'g',
                 }] : []),
@@ -460,7 +460,7 @@ export function PDFReport({ results: rv, input }) {
                   `Lening tot ${EUR} 8.500 beschikbaar`,
                   `0% rente bij inkomen < ${EUR} 60.000`,
                   'Looptijd tot 120 maanden',
-                  'VOLTRAX regelt de aanvraag',
+                  'SolarFast regelt de aanvraag',
                 ].map((txt, i) => (
                   <View key={i} style={s.bRow}>
                     <View style={s.bDot} />
@@ -476,15 +476,15 @@ export function PDFReport({ results: rv, input }) {
           <View style={s.cBar}>
             <View>
               <Text style={{ fontSize: 15, fontFamily: 'Helvetica-Bold', color: WHITE, marginBottom: 4 }}>
-                VOLT<Text style={s.hdrAccent}>RAX</Text>
+                SOLAR<Text style={s.hdrAccent}>FAST</Text>
               </Text>
               <Text style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.35)' }}>
-                Officieel HYXiPower partner Nederland
+                HYXiPower partner Nederland
               </Text>
             </View>
             <View style={{ alignItems: 'center' }}>
-              <Text style={{ fontSize: 11, fontFamily: 'Helvetica-Bold', color: WHITE }}>info@voltrax.nl</Text>
-              <Text style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.35)', marginTop: 3 }}>www.voltrax.nl</Text>
+              <Text style={{ fontSize: 11, fontFamily: 'Helvetica-Bold', color: WHITE }}>info@solarfast.nl</Text>
+              <Text style={{ fontSize: 7.5, color: 'rgba(255,255,255,0.35)', marginTop: 3 }}>www.solarfast.nl</Text>
             </View>
             <View style={{ alignItems: 'flex-end' }}>
               <Text style={{ fontSize: 9.5, fontFamily: 'Helvetica-Bold', color: 'rgba(255,255,255,0.75)' }}>
@@ -502,7 +502,7 @@ export function PDFReport({ results: rv, input }) {
           <Text style={s.fTxt}>
             Indicatieve berekening {DASH} EPEX SPOT 2023{DASH}2026 {DASH} LFP batterijmodel (95% eff.)
           </Text>
-          <Text style={s.fBrand}>VOLT<Text style={s.hdrAccent}>RAX</Text>  {DOT}  Pagina 2 van 2</Text>
+          <Text style={s.fBrand}>SOLAR<Text style={s.hdrAccent}>FAST</Text>  {DOT}  Pagina 2 van 2</Text>
           <Text style={s.fTxt}>Werkelijke resultaten kunnen afwijken</Text>
         </View>
       </Page>

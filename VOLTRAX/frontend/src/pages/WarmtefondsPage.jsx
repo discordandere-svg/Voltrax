@@ -60,7 +60,7 @@ export default function WarmtefondsPage() {
     {
       num: '02',
       title: 'Warmtefonds aanvraag',
-      desc: 'VOLTRAX begeleidt u bij de aanvraag bij het Nationaal Warmtefonds. Wij regelen het papierwerk en zorgen dat u de maximale lening krijgt.',
+      desc: 'SolarFast begeleidt u bij de aanvraag bij het Nationaal Warmtefonds. Wij regelen het papierwerk en zorgen dat u de maximale lening krijgt.',
       cta: null,
     },
     {
@@ -79,7 +79,7 @@ export default function WarmtefondsPage() {
     {
       num: '02',
       title: 'Warmtefonds application',
-      desc: 'VOLTRAX guides you through the application with the National Warmtefonds. We handle all the paperwork and ensure you get the maximum loan.',
+      desc: 'SolarFast guides you through the application with the National Warmtefonds. We handle all the paperwork and ensure you get the maximum loan.',
       cta: null,
     },
     {
@@ -109,7 +109,7 @@ export default function WarmtefondsPage() {
     },
     {
       q: 'Kan ik ook subsidie combineren met een Warmtefondslenening?',
-      a: 'Ja, u kunt de Warmtefondslenening combineren met subsidies zoals de ISDE (Investeringssubsidie Duurzame Energie). VOLTRAX adviseert u over alle beschikbare regelingen.',
+      a: 'Ja, u kunt de Warmtefondslenening combineren met subsidies zoals de ISDE (Investeringssubsidie Duurzame Energie). SolarFast adviseert u over alle beschikbare regelingen.',
     },
     {
       q: 'Wat als ik mijn woning verkoop?',
@@ -134,7 +134,7 @@ export default function WarmtefondsPage() {
     },
     {
       q: 'Can I also combine subsidies with a Warmtefonds loan?',
-      a: 'Yes, you can combine the Warmtefonds loan with subsidies such as ISDE (Investment Subsidy Sustainable Energy). VOLTRAX advises you on all available schemes.',
+      a: 'Yes, you can combine the Warmtefonds loan with subsidies such as ISDE (Investment Subsidy Sustainable Energy). SolarFast advises you on all available schemes.',
     },
     {
       q: 'What if I sell my home?',
@@ -190,7 +190,7 @@ export default function WarmtefondsPage() {
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 text-xs font-semibold px-4 py-2 rounded-full mb-7">
                 <Building2 className="w-3.5 h-3.5" />
-                {nl ? 'VOLTRAX × Nationaal Warmtefonds' : 'VOLTRAX × National Warmtefonds'}
+                {nl ? 'SolarFast × Nationaal Warmtefonds' : 'SolarFast × National Warmtefonds'}
               </motion.div>
               <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.08 }}
                 className="text-4xl lg:text-5xl font-extrabold leading-[1.08] tracking-tight mb-5">
@@ -212,7 +212,7 @@ export default function WarmtefondsPage() {
                   className="flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-7 py-3.5 rounded-full transition-all hover:shadow-xl hover:shadow-green-500/25 text-sm">
                   {nl ? 'Bereken mijn besparing' : 'Calculate my savings'} <ArrowRight className="w-4 h-4" />
                 </button>
-                <a href="mailto:info@voltrax.nl?subject=Warmtefonds%20aanvraag"
+                <a href="mailto:info@solarfast.nl?subject=Warmtefonds%20aanvraag"
                   className="flex items-center gap-2 border border-gray-200 hover:border-gray-300 text-[#131A20] font-medium px-7 py-3.5 rounded-full transition-all text-sm hover:bg-gray-50">
                   {nl ? 'Direct aanvragen' : 'Apply directly'}
                 </a>
@@ -281,8 +281,8 @@ export default function WarmtefondsPage() {
             </h2>
             <p className="text-[#131A20]/55 text-lg max-w-xl mx-auto">
               {nl
-                ? 'VOLTRAX begeleidt u bij elke stap. U hoeft zelf niets te regelen met het Warmtefonds.'
-                : 'VOLTRAX guides you at every step. You don\'t have to arrange anything with the Warmtefonds yourself.'}
+                ? 'SolarFast begeleidt u bij elke stap. U hoeft zelf niets te regelen met het Warmtefonds.'
+                : 'SolarFast guides you at every step. You don\'t have to arrange anything with the Warmtefonds yourself.'}
             </p>
           </Reveal>
 
@@ -394,8 +394,8 @@ export default function WarmtefondsPage() {
             </h2>
             <p className="text-[#131A20]/55 max-w-xl mx-auto">
               {nl
-                ? 'Alles wat u wilt weten over de Warmtefondslenening via VOLTRAX.'
-                : 'Everything you want to know about the Warmtefonds loan via VOLTRAX.'}
+                ? 'Alles wat u wilt weten over de Warmtefondslenening via SolarFast.'
+                : 'Everything you want to know about the Warmtefonds loan via SolarFast.'}
             </p>
           </Reveal>
           <Reveal>
@@ -457,7 +457,7 @@ export default function WarmtefondsPage() {
                 className="inline-flex items-center justify-center gap-3 bg-[#22a55d] hover:bg-[#1a9050] text-white font-bold px-8 py-4 rounded-full transition-all hover:shadow-2xl hover:shadow-green-500/25 text-base">
                 {nl ? 'Bereken mijn besparing' : 'Calculate my savings'} <ArrowRight className="w-5 h-5" />
               </button>
-              <a href="mailto:info@voltrax.nl?subject=Warmtefonds%20aanvraag"
+              <a href="mailto:info@solarfast.nl?subject=Warmtefonds%20aanvraag"
                 className="inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 text-[#131A20] font-semibold px-8 py-4 rounded-full transition-all text-base border border-gray-200">
                 <Phone className="w-4 h-4" />
                 {nl ? 'Contact opnemen' : 'Contact us'}
@@ -472,7 +472,7 @@ export default function WarmtefondsPage() {
 
       <footer className="bg-[#F9F7F4] border-t border-gray-100 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-lg font-extrabold text-[#131A20]">VOLT<span style={{ color: '#22a55d' }}>RAX</span></span>
+          <span className="text-lg font-extrabold text-[#131A20]">SOLAR<span style={{ color: '#22a55d' }}>FAST</span></span>
           <p className="text-sm text-[#131A20]/40">
             {nl ? 'Partner van het Nationaal Warmtefonds' : 'Partner of the National Warmtefonds'}
           </p>

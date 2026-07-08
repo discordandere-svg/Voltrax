@@ -228,7 +228,7 @@ export default function CalculatorPage() {
           <ChevronLeft className="w-4 h-4" /> {step > 1 ? c.prev : c.back}
         </button>
         <button onClick={() => navigate('/')} className="text-base font-extrabold text-[#131A20]">
-          VOLT<span style={{ color: '#22a55d' }}>RAX</span>
+          SOLAR<span style={{ color: '#22a55d' }}>FAST</span>
         </button>
         <span className="text-sm text-gray-400 font-medium">{c.stepOf(step, 6)}</span>
       </div>

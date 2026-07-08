@@ -480,7 +480,7 @@ export default function HoeWerktHetPage() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 bg-[#22a55d]/15 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-6">
             <Battery className="w-3.5 h-3.5" />
-            {nl ? 'Officieel HYXiPower dealer Nederland' : 'Official HYXiPower dealer Netherlands'}
+            {nl ? 'HYXiPower partner Nederland' : 'HYXiPower partner Netherlands'}
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.08 }}
             className="text-5xl sm:text-6xl font-extrabold leading-[1.06] tracking-tight mb-5 text-[#131A20]">
@@ -498,7 +498,7 @@ export default function HoeWerktHetPage() {
               className="inline-flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-7 py-3.5 rounded-full transition-all hover:shadow-xl hover:shadow-green-500/25 text-sm">
               {nl ? 'Bereken mijn besparing' : 'Calculate my savings'} <ArrowRight className="w-4 h-4" />
             </button>
-            <a href="mailto:info@voltrax.nl"
+            <a href="mailto:info@solarfast.nl"
               className="inline-flex items-center gap-2 border border-gray-200 bg-white text-[#131A20]/60 hover:border-[#22a55d] hover:text-[#22a55d] font-medium px-7 py-3.5 rounded-full transition-all text-sm">
               {nl ? 'Stel een vraag' : 'Ask a question'}
             </a>
@@ -658,24 +658,19 @@ export default function HoeWerktHetPage() {
                 body: 'Er zijn twee veelgebruikte lithiumchemieën: LFP (lithium-ijzerfosfaat) en NMC (nikkel-mangaan-kobalt). LFP is thermisch stabieler, brandveiliger en gaat meer laadcycli mee. Het is ook de keuze van fabrikanten als BYD voor hun thuisbatterijen.',
               },
               {
-                emoji: '🏡',
-                title: 'Garantie overdraagbaar bij woningverkoop',
-                body: 'Bij veel merken vervalt de garantie als de woning van eigenaar wisselt. Bij HYXiPower is de garantie overdraagbaar: de nieuwe eigenaar erft de resterende garantieperiode. Dat maakt een batterij ook een verkoopargument voor uw woning.',
+                emoji: '📱',
+                title: 'Altijd inzicht via de app',
+                body: 'Met de HYXiPower app volgt u in realtime hoeveel stroom uw batterij opslaat en gebruikt. Zo houdt u grip op uw energiehuishouding, waar u ook bent.',
               },
               {
-                emoji: '📊',
-                title: 'Twee garanties, niet één',
-                body: 'HYXiPower geeft een productgarantie (10 jaar op het apparaat) én een prestatiegarantie (≥ 80% resterende capaciteit na 10 jaar). Dat zijn twee aparte contractuele zekerheden — niet alle fabrikanten bieden beide.',
+                emoji: '🧩',
+                title: 'Modulair uitbreiden wanneer u wilt',
+                body: 'De HYXiPower All-in-One ESS is modulair opgebouwd. Heeft u later meer opslagcapaciteit nodig? Dan breidt u het systeem uit zonder alles te vervangen.',
               },
               {
                 emoji: '🔌',
                 title: 'Backup/noodstroom: niet standaard bij elke batterij',
                 body: 'Sommige thuisbatterijen werken alleen als het stroomnet actief is. De HYXiPower All-in-One ESS kan — met de juiste configuratie — ook noodstroom leveren bij een stroomstoring. Handig als u apparaten draaiende wilt houden bij netuitval.',
-              },
-              {
-                emoji: '🏢',
-                title: 'HYXiPower heeft een kantoor en magazijn in Eindhoven',
-                body: 'HYXiPower Benelux B.V. is gevestigd op de High Tech Campus in Eindhoven. Dat betekent lokale ondersteuning, onderdelen op voorraad in Nederland en snellere service dan bij merken zonder Europese aanwezigheid.',
               },
             ] : [
               {
@@ -689,24 +684,19 @@ export default function HoeWerktHetPage() {
                 body: 'There are two common lithium chemistries: LFP (lithium iron phosphate) and NMC (nickel-manganese-cobalt). LFP is thermally more stable, fire-safer and lasts more charge cycles. It is also the choice of manufacturers like BYD for their home batteries.',
               },
               {
-                emoji: '🏡',
-                title: 'Warranty transferable on property sale',
-                body: 'With many brands, the warranty lapses when the property changes owner. With HYXiPower the warranty is transferable: the new owner inherits the remaining warranty period. That also makes a battery a selling point for your home.',
+                emoji: '📱',
+                title: 'Always insight via the app',
+                body: 'With the HYXiPower app you track in real time how much power your battery stores and uses. That keeps you in control of your energy usage, wherever you are.',
               },
               {
-                emoji: '📊',
-                title: 'Two warranties, not one',
-                body: 'HYXiPower provides a product warranty (10 years on the unit) and a performance warranty (≥ 80% remaining capacity after 10 years). Those are two separate contractual assurances — not all manufacturers offer both.',
+                emoji: '🧩',
+                title: 'Expand modularly whenever you want',
+                body: 'The HYXiPower All-in-One ESS is built modularly. Need more storage capacity later? Then you expand the system without replacing everything.',
               },
               {
                 emoji: '🔌',
                 title: 'Backup / emergency power: not standard on every battery',
                 body: 'Some home batteries only work when the grid is active. The HYXiPower All-in-One ESS can — with the correct configuration — also supply emergency power during an outage. Useful for keeping appliances running when the grid goes down.',
-              },
-              {
-                emoji: '🏢',
-                title: 'HYXiPower has an office and warehouse in Eindhoven',
-                body: 'HYXiPower Benelux B.V. is based at the High Tech Campus in Eindhoven. That means local support, parts in stock in the Netherlands and faster service than brands without a European presence.',
               },
             ]).map((item, i) => (
               <Reveal key={i} delay={i * 0.07}>
@@ -746,7 +736,7 @@ export default function HoeWerktHetPage() {
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-green-50 text-[#22a55d] font-bold px-8 py-4 rounded-full transition-all hover:shadow-2xl hover:shadow-black/10 text-base">
                 {nl ? 'Bereken mijn besparing' : 'Calculate my savings'} <ArrowRight className="w-5 h-5" />
               </button>
-              <a href="mailto:info@voltrax.nl"
+              <a href="mailto:info@solarfast.nl"
                 className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-8 py-4 rounded-full transition-all text-base border border-white/30">
                 {nl ? 'Stel een vraag' : 'Ask a question'}
               </a>
@@ -762,10 +752,10 @@ export default function HoeWerktHetPage() {
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
             <div className="text-xl font-extrabold text-[#131A20] mb-3">
-              VOLT<span className="text-[#22a55d]">RAX</span>
+              SOLAR<span className="text-[#22a55d]">FAST</span>
             </div>
-            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'Officieel HYXiPower dealer in Nederland. Uw thuisbatterij specialist.' : 'Official HYXiPower dealer in the Netherlands. Your home battery specialist.'}</p>
-            <a href="mailto:info@voltrax.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@voltrax.nl</a>
+            <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'HYXiPower partner in Nederland. Uw thuisbatterij specialist.' : 'HYXiPower partner in the Netherlands. Your home battery specialist.'}</p>
+            <a href="mailto:info@solarfast.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@solarfast.nl</a>
           </div>
           <div>
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">{nl ? 'Producten' : 'Products'}</div>
@@ -780,24 +770,24 @@ export default function HoeWerktHetPage() {
             <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">{nl ? 'Informatie' : 'Information'}</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
               <li><button onClick={() => navigate('/hoe-werkt-het')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Hoe werkt het?' : 'How it works'}</button></li>
-              <li><button onClick={() => navigate('/waarom-voltrax')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Waarom Voltrax' : 'Why Voltrax'}</button></li>
+              <li><button onClick={() => navigate('/waarom-solarfast')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Waarom SolarFast' : 'Why SolarFast'}</button></li>
               <li><button onClick={() => navigate('/faq')} className="hover:text-[#22a55d] transition-colors text-left">{nl ? 'Veelgestelde vragen' : 'FAQ'}</button></li>
             </ul>
           </div>
           <div>
-            <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">{nl ? 'Certificeringen' : 'Certifications'}</div>
+            <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">HYXiPower</div>
             <ul className="space-y-2.5 text-sm text-[#131A20]/55">
-              <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? '10 jaar fabrieksgarantie' : '10 year factory warranty'}</li>
-              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />NEN1010 &amp; NEN3140</li>
-              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />HYXiPower {nl ? 'gecertificeerd' : 'certified'}</li>
-              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />IP67 installatie</li>
+              <li className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />LFP/LiFePO4 {nl ? 'celtechnologie' : 'cell technology'}</li>
+              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'Slim EMS-beheer' : 'Smart EMS management'}</li>
+              <li className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />All-in-One ESS</li>
+              <li className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />{nl ? 'Modulair uitbreidbaar' : 'Modular expandable'}</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} Voltrax · {nl ? 'Officieel HYXiPower dealer Nederland' : 'Official HYXiPower dealer Netherlands'}</p>
-            <p className="text-xs text-[#131A20]/30">HYXiPower Benelux B.V. · High Tech Campus 41 · 5656 AE Eindhoven</p>
+            <p className="text-xs text-[#131A20]/35">© {new Date().getFullYear()} SolarFast · {nl ? 'HYXiPower partner Nederland' : 'HYXiPower partner Netherlands'}</p>
+            <p className="text-xs text-[#131A20]/30">info@solarfast.nl</p>
           </div>
         </div>
       </footer>

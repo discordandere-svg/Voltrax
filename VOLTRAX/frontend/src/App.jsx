@@ -8,7 +8,7 @@ import AanbodPage from './pages/AanbodPage.jsx'
 import OverOnsPage from './pages/OverOnsPage.jsx'
 import HYXiPowerPage from './pages/HyxiPowerPage.jsx'
 import WarmtefondsPage from './pages/WarmtefondsPage.jsx'
-import WaaromVoltraxPage from './pages/WaaromVoltraxPage.jsx'
+import WaaromSolarFastPage from './pages/WaaromSolarFastPage.jsx'
 import FAQPage from './pages/FAQPage.jsx'
 import VideoTemplate from './components/video/VideoTemplate'
 import { LanguageProvider } from './context/LanguageContext'
@@ -31,7 +31,7 @@ function App() {
           <Route path="/over-ons"       element={<OverOnsPage />} />
           <Route path="/hyxipower"       element={<HYXiPowerPage />} />
           <Route path="/warmtefonds"    element={<WarmtefondsPage />} />
-          <Route path="/waarom-voltrax" element={<WaaromVoltraxPage />} />
+          <Route path="/waarom-solarfast" element={<WaaromSolarFastPage />} />
           <Route path="/faq"            element={<FAQPage />} />
           <Route path="/calculator"     element={<CalculatorPage />} />
           <Route path="/results"        element={<ResultsPage />} />

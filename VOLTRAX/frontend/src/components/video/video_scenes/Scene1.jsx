@@ -36,7 +36,7 @@ const Scene1 = forwardRef(function Scene1(props, ref) {
           transition={{ duration: 1, delay: 0.2 }}
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
-          Voltrax Presenteert
+          SolarFast Presenteert
         </motion.div>
         
         <h1 

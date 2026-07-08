@@ -320,7 +320,7 @@ export default function ResultsPage() {
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      a.download = `VOLTRAX-Energierapport-${new Date().toISOString().slice(0, 10)}.pdf`
+      a.download = `SolarFast-Energierapport-${new Date().toISOString().slice(0, 10)}.pdf`
       a.click()
       URL.revokeObjectURL(url)
     } finally {
@@ -338,7 +338,7 @@ export default function ResultsPage() {
           <ChevronLeft className="w-4 h-4" /> {res.adjust}
         </button>
         <button onClick={() => navigate('/')} className="text-sm font-extrabold tracking-tight">
-          VOLT<span className="text-[#22a55d]">RAX</span>
+          SOLAR<span className="text-[#22a55d]">FAST</span>
         </button>
         <button
           onClick={handleDownloadPDF}
@@ -601,7 +601,7 @@ export default function ResultsPage() {
           <p className="text-[#131A20]/65 text-base mb-6 max-w-xs mx-auto leading-relaxed">
             {res.ctaDesc}
           </p>
-          <a href="mailto:info@voltrax.nl?subject=Adviesaanvraag%20thuisbatterij"
+          <a href="mailto:info@solarfast.nl?subject=Adviesaanvraag%20thuisbatterij"
             className="inline-flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-bold text-sm px-8 py-3.5 rounded-full hover:shadow-lg hover:shadow-green-500/25 transition-all">
             {res.ctaBtn} <ArrowRight className="w-4 h-4" />
           </a>

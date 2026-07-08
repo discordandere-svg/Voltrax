@@ -239,7 +239,7 @@ export default function AanbodPage() {
     },
     {
       icon: <Shield className="w-5 h-5 text-green-600" />, bg: 'bg-green-50',
-      title: nl ? '10 jaar garantie' : '10 year warranty',
+      title: nl ? 'Fabrieksgarantie' : 'Factory warranty',
       desc: nl ? 'Fabrieksgarantie, uw investering presteert jarenlang uitstekend.' : 'Factory warranty, your investment performs excellently for years.',
     },
     {
@@ -282,13 +282,13 @@ export default function AanbodPage() {
     'Tot 8.500 euro lenen voor uw thuisbatterij',
     '0% rente bij inkomen onder 60.000 euro',
     'Voor iedere eigenaar-bewoner in Nederland',
-    'VOLTRAX regelt de volledige aanvraag voor u',
+    'SolarFast regelt de volledige aanvraag voor u',
     'Gecombineerd met andere verduurzamingsmaatregelen',
   ] : [
     'Borrow up to €8,500 for your home battery',
     '0% interest with income below €60,000',
     'For every owner-occupier in the Netherlands',
-    'VOLTRAX handles the complete application for you',
+    'SolarFast handles the complete application for you',
     'Combined with other sustainability measures',
   ]
 
@@ -314,7 +314,7 @@ export default function AanbodPage() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold px-4 py-2 rounded-full mb-6">
             <Battery className="w-3.5 h-3.5" />
-            {nl ? 'HYXiPower All-in-One ESS, Officieel dealer' : 'HYXiPower All-in-One ESS, Official dealer'}
+            {nl ? 'HYXiPower All-in-One ESS, HYXiPower partner' : 'HYXiPower All-in-One ESS, HYXiPower partner'}
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl font-extrabold leading-tight mb-5 text-[#131A20]">
@@ -323,13 +323,13 @@ export default function AanbodPage() {
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#131A20]/60 text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
             {nl
-              ? 'Van starter tot maximale onafhankelijkheid: elk systeem bevat batterij, omvormer, installatie en 10 jaar garantie. Alles inbegrepen, niets extra.'
-              : 'From starter to maximum independence: every system includes battery, inverter, installation and 10-year warranty. Everything included, nothing extra.'}
+              ? 'Van starter tot maximale onafhankelijkheid: elk systeem bevat batterij, omvormer, installatie en fabrieksgarantie. Alles inbegrepen, niets extra.'
+              : 'From starter to maximum independence: every system includes battery, inverter, installation and factory warranty. Everything included, nothing extra.'}
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.35 }}
             className="inline-flex items-center gap-2 bg-white border border-green-200 text-green-700 text-xs font-semibold px-4 py-2 rounded-full">
             <CheckCircle2 className="w-3.5 h-3.5" />
-            {nl ? 'Elk systeem: minimaal 10.000 laadcycli gegarandeerd' : 'Every system: minimum 10,000 charge cycles guaranteed'}
+            {nl ? 'LFP-celtechnologie voor lange levensduur' : 'LFP cell technology for long lifespan'}
           </motion.div>
         </div>
       </section>
@@ -403,8 +403,8 @@ export default function AanbodPage() {
               <Shield className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
               <p className="text-sm text-[#131A20]/70 leading-relaxed">
                 {nl
-                  ? 'Elk systeem is compleet inclusief batterij, hybride omvormer, installatie, BTW en 10 jaar fabrieksgarantie. De exacte configuratie wordt afgestemd na een gratis adviesgesprek.'
-                  : 'Every system is complete including battery, hybrid inverter, installation, VAT and 10-year factory warranty. The exact configuration is agreed after a free consultation.'}
+                  ? 'Elk systeem is compleet inclusief batterij, hybride omvormer, installatie, BTW en fabrieksgarantie. De exacte configuratie wordt afgestemd na een gratis adviesgesprek.'
+                  : 'Every system is complete including battery, hybrid inverter, installation, VAT and factory warranty. The exact configuration is agreed after a free consultation.'}
               </p>
             </div>
             <button onClick={() => navigate('/calculator')}
@@ -509,8 +509,8 @@ export default function AanbodPage() {
               </h2>
               <p className="text-[#131A20]/60 leading-relaxed mb-6">
                 {nl
-                  ? 'Als erkend Warmtefonds partner regelt VOLTRAX uw Energiebespaarlening volledig voor u. Tot 8.500 euro lenen voor uw thuisbatterij, bij een inkomen onder 60.000 euro betaalt u 0% rente.'
-                  : 'As an approved Warmtefonds partner, VOLTRAX arranges your Energy Savings Loan completely for you. Borrow up to €8,500 for your home battery, with an income below €60,000 you pay 0% interest.'}
+                  ? 'Als erkend Warmtefonds partner regelt SolarFast uw Energiebespaarlening volledig voor u. Tot 8.500 euro lenen voor uw thuisbatterij, bij een inkomen onder 60.000 euro betaalt u 0% rente.'
+                  : 'As an approved Warmtefonds partner, SolarFast arranges your Energy Savings Loan completely for you. Borrow up to €8,500 for your home battery, with an income below €60,000 you pay 0% interest.'}
               </p>
               <div className="space-y-3">
                 {warmtefondsFeatures.map((item, i) => (
@@ -572,8 +572,8 @@ export default function AanbodPage() {
 
       <footer className="bg-[#F9F7F4] border-t border-gray-100 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-lg font-extrabold text-[#131A20]">VOLT<span style={{ color: '#22a55d' }}>RAX</span></span>
-          <p className="text-sm text-[#131A20]/40">{nl ? 'Officieel HYXiPower dealer' : 'Official HYXiPower dealer'}</p>
+          <span className="text-lg font-extrabold text-[#131A20]">SOLAR<span style={{ color: '#22a55d' }}>FAST</span></span>
+          <p className="text-sm text-[#131A20]/40">{nl ? 'HYXiPower partner' : 'HYXiPower partner'}</p>
           <div className="flex items-center gap-2 text-xs text-[#131A20]/40">
             <Shield className="w-3.5 h-3.5 text-[#22a55d]" />
             {nl ? 'Warmtefonds partner' : 'Warmtefonds partner'}

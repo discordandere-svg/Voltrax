@@ -38,7 +38,7 @@ const Scene5 = forwardRef(function Scene5(props, ref) {
         animate={phase >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
         transition={{ duration: 1, type: 'spring', stiffness: 200, damping: 20 }}
       >
-        <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="VOLTRAX Logo" className="h-[6vw] filter brightness-0 invert" />
+        <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="SolarFast Logo" className="h-[6vw] filter brightness-0 invert" />
       </motion.div>
 
       <motion.div
