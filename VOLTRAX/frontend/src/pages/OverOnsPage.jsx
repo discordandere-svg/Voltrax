@@ -7,6 +7,17 @@ import {
 } from 'lucide-react'
 import Nav from '../components/Nav.jsx'
 
+const INSTALL_PHOTOS = [
+  { src: '/assets/installaties/install-05.jpg', alt: 'HYXiPower buitenopstelling tegen bakstenen gevel' },
+  { src: '/assets/installaties/install-02.jpg', alt: 'HYXiPower installatie in gang' },
+  { src: '/assets/installaties/install-08.jpg', alt: 'HYXiPower buitenopstelling naast tuinpoort' },
+  { src: '/assets/installaties/install-01.jpg', alt: 'Bekabeling van HYXiPower systeem in meterkast' },
+  { src: '/assets/installaties/install-09.jpg', alt: 'HYXiPower buitenopstelling met meterkast' },
+  { src: '/assets/installaties/install-03.jpg', alt: 'HYXiPower installatie in bergruimte' },
+  { src: '/assets/installaties/install-07.jpg', alt: 'HYXiPower opstelling bij zekeringkast' },
+  { src: '/assets/installaties/install-10.jpg', alt: 'HYXiPower installatie in nis' },
+]
+
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (i = 0) => ({
@@ -82,29 +93,44 @@ export default function OverOnsPage() {
 
       {/* Hero */}
       <section className="pt-32 pb-16 bg-[#F9F7F4]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white border border-gray-200 text-[#131A20]/50 text-xs font-semibold px-4 py-2 rounded-full mb-6"
-          >
-            <Battery className="w-3.5 h-3.5" /> Specialisten in thuisbatterijen
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-5xl font-extrabold leading-tight mb-5"
-          >
-            Wie zijn wij?
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[#131A20]/60 text-lg max-w-2xl mx-auto leading-relaxed"
-          >
-            SolarFast is een team van specialisten in verduurzaming. Wij zijn HYXiPower partner
-            in Nederland en begeleiden u van advies tot installatie en nazorg.
-          </motion.p>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 bg-white border border-gray-200 text-[#131A20]/50 text-xs font-semibold px-4 py-2 rounded-full mb-6"
+              >
+                <Battery className="w-3.5 h-3.5" /> Specialisten in thuisbatterijen
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-5xl font-extrabold leading-tight mb-5"
+              >
+                Wie zijn wij?
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-[#131A20]/60 text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              >
+                SolarFast is een team van specialisten in verduurzaming. Wij zijn HYXiPower partner
+                in Nederland en begeleiden u van advies tot installatie en nazorg.
+              </motion.p>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10 aspect-[4/3]"
+            >
+              <img
+                src="/assets/installaties/hyxipower-studio-render.png"
+                alt="HYXiPower All-in-One thuisbatterij"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -127,6 +153,56 @@ export default function OverOnsPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Installatiefoto's */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <Reveal className="text-center mb-12">
+            <h2 className="text-4xl font-extrabold mb-4">Echte installaties bij onze klanten</h2>
+            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
+              Een greep uit de HYXiPower-systemen die onze monteurs door heel Nederland hebben geplaatst,
+              binnen en buiten.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {INSTALL_PHOTOS.map((photo, i) => (
+              <Reveal key={i} delay={i * 0.08}>
+                <div className="rounded-2xl overflow-hidden aspect-square bg-[#F9F7F4]">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="grid md:grid-cols-2 gap-0 bg-[#F9F7F4] rounded-3xl overflow-hidden items-stretch">
+              <div className="aspect-[4/3] md:aspect-auto">
+                <img
+                  src="/assets/installaties/install-technician.jpg"
+                  alt="Monteur installeert een HYXiPower thuisbatterij"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-8 md:p-10 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 bg-white border border-gray-200 text-[#131A20]/50 text-xs font-semibold px-4 py-2 rounded-full mb-4 w-fit">
+                  <Wrench className="w-3.5 h-3.5" /> Onze eigen monteurs
+                </div>
+                <h3 className="text-2xl font-extrabold mb-3">Vakwerk, geen onderaannemers</h3>
+                <p className="text-[#131A20]/60 leading-relaxed">
+                  Onze gecertificeerde monteurs plaatsen elk HYXiPower-systeem persoonlijk. Dankzij het
+                  meterloze ontwerp van HYXiPower duurt een installatie gemiddeld slechts een halve dag,
+                  waarna alles direct wordt geactiveerd en getest.
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

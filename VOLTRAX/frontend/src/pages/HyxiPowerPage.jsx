@@ -82,6 +82,8 @@ export default function HYXiPowerPage() {
     { label: nl ? 'IP-klasse' : 'IP class', value: 'IP67', sub: nl ? 'Binnen & buiten' : 'Indoor & outdoor' },
     { label: nl ? 'Noodstroom' : 'Backup power', value: '< 1 ms', sub: nl ? 'Omschakeltijd' : 'Switchover time' },
     { label: nl ? 'AFCI-detectie' : 'AFCI detection', value: '0,5 sec', sub: nl ? 'Vlamboogbeveiliging' : 'Arc-fault protection' },
+    { label: nl ? 'PV-overdimensionering' : 'PV over-dimensioning', value: '160%', sub: nl ? 'Ten opzichte van nominaal vermogen' : 'Relative to nominal power' },
+    { label: nl ? 'Fase-uitgang' : 'Phase output', value: nl ? '3-fase asymmetrisch' : '3-phase unbalanced', sub: nl ? 'Vermogen per fase verdeeld' : 'Power split per phase' },
   ]
 
   const vergelijking = [
@@ -102,6 +104,7 @@ export default function HYXiPowerPage() {
     { name: 'C4-zoutnevel', desc: nl ? 'Corrosiebestendigheid getest' : 'Corrosion resistance tested' },
     { name: 'LiFePO4', desc: nl ? 'Veilige celchemie' : 'Safe cell chemistry' },
     { name: 'BMS', desc: nl ? 'Automotive-grade bewaking' : 'Automotive-grade monitoring' },
+    { name: 'TÜV Rheinland', desc: nl ? 'Onderdeel van 400+ keurmerken' : 'Part of 400+ certifications' },
   ]
 
   return (
@@ -314,7 +317,7 @@ export default function HYXiPowerPage() {
               {nl ? 'HYXiPower All-in-One, de meest populaire reeks' : 'HYXiPower All-in-One, the most popular series'}
             </p>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {specs.map((s, i) => (
               <Reveal key={i} delay={i * 0.07}>
                 <div className="text-center p-5 rounded-2xl bg-[#F9F7F4] hover:bg-[#22a55d]/5 transition-colors">
@@ -434,11 +437,11 @@ export default function HYXiPowerPage() {
             </h2>
             <p className="text-[#131A20]/45 max-w-lg mx-auto text-base">
               {nl
-                ? 'Elk HYXiPower systeem doorloopt onafhankelijke keuringen door toonaangevende internationale testlaboratoria.'
-                : 'Every HYXiPower system undergoes independent inspections by leading international testing laboratories.'}
+                ? 'HYXiPower heeft meer dan 400 certificeringen behaald bij toonaangevende testlaboratoria, waaronder TÜV Rheinland, CSA, Bureau Veritas en SGS.'
+                : 'HYXiPower has obtained more than 400 certifications from leading testing laboratories, including TÜV Rheinland, CSA, Bureau Veritas and SGS.'}
             </p>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {certs.map((c, i) => (
               <Reveal key={i} delay={i * 0.07}>
                 <div className="bg-[#F9F7F4] rounded-2xl p-5 text-center hover:bg-[#22a55d]/5 transition-colors">
