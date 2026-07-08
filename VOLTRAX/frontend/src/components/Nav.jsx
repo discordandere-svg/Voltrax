@@ -53,8 +53,11 @@ export default function Nav() {
       className={`fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b transition-all duration-300 ${scrolled ? 'border-gray-200 shadow-md shadow-black/[0.04]' : 'border-gray-100 shadow-none'}`}
     >
       <div className="max-w-6xl mx-auto px-6 py-3.5 flex items-center justify-between">
-        <button onClick={() => navigate('/')} className="text-xl font-extrabold tracking-tight text-[#131A20] flex-shrink-0">
-          SOLAR<span style={{ color: '#22a55d' }}>FAST</span>
+        <button onClick={() => navigate('/')} className="flex items-center gap-2 flex-shrink-0">
+          <img src="/assets/solarfast-logo.png" alt="SolarFast" className="h-9 w-auto" />
+          <span className="text-xl font-extrabold tracking-tight text-[#131A20] hidden sm:inline">
+            SOLAR<span style={{ color: '#22a55d' }}>FAST</span>
+          </span>
         </button>
 
         <div className="hidden lg:flex items-center gap-1">

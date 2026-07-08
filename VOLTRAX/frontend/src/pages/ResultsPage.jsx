@@ -337,8 +337,8 @@ export default function ResultsPage() {
           className="flex items-center gap-1.5 text-sm text-black/55 hover:text-black/80 transition-colors font-semibold">
           <ChevronLeft className="w-4 h-4" /> {res.adjust}
         </button>
-        <button onClick={() => navigate('/')} className="text-sm font-extrabold tracking-tight">
-          SOLAR<span className="text-[#22a55d]">FAST</span>
+        <button onClick={() => navigate('/')} className="flex items-center">
+          <img src="/assets/solarfast-logo.png" alt="SolarFast" className="h-7 w-auto" />
         </button>
         <button
           onClick={handleDownloadPDF}

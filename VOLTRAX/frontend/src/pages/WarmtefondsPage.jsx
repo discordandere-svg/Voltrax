@@ -472,7 +472,7 @@ export default function WarmtefondsPage() {
 
       <footer className="bg-[#F9F7F4] border-t border-gray-100 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-lg font-extrabold text-[#131A20]">SOLAR<span style={{ color: '#22a55d' }}>FAST</span></span>
+          <img src="/assets/solarfast-logo.png" alt="SolarFast" className="h-7 w-auto" />
           <p className="text-sm text-[#131A20]/40">
             {nl ? 'Partner van het Nationaal Warmtefonds' : 'Partner of the National Warmtefonds'}
           </p>

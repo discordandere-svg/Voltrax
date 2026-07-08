@@ -473,7 +473,7 @@ export default function WaaromSolarFastPage() {
       <footer className="bg-[#F9F7F4] border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
-            <div className="text-xl font-extrabold text-[#131A20] mb-3">SOLAR<span className="text-[#22a55d]">FAST</span></div>
+            <img src="/assets/solarfast-logo.png" alt="SolarFast" className="h-9 w-auto mb-3" />
             <p className="text-sm text-[#131A20]/45 leading-relaxed mb-4">{nl ? 'HYXiPower partner in Nederland. Uw thuisbatterij specialist.' : 'HYXiPower partner in the Netherlands. Your home battery specialist.'}</p>
             <a href="mailto:info@solarfast.nl" className="text-sm text-[#22a55d] font-medium hover:underline">info@solarfast.nl</a>
           </div>
