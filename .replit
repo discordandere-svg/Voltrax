@@ -71,3 +71,7 @@ externalPort = 8000
 deploymentTarget = "autoscale"
 run = ["bash", "-c", "cd VOLTRAX/backend && uvicorn server:app --host 0.0.0.0 --port 5000"]
 build = ["bash", "-c", "cd VOLTRAX/frontend && /home/runner/workspace/node_modules/.bin/vite build --outDir dist"]
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 60000
