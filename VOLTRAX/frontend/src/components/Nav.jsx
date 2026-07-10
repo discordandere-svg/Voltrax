@@ -24,6 +24,7 @@ export default function Nav() {
     { to: '/aanbod',        label: t.nav.aanbod },
     { to: '/hoe-werkt-het', label: t.nav.hoeWerktHet },
     { to: '/waarom-solarfast', label: t.nav.waaromSolarFast },
+    { to: '/over-ons',       label: t.nav.overOns },
     { to: '/faq',            label: t.nav.faq },
   ]
 
