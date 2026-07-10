@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import {
   ArrowRight, Battery, CheckCircle2,
-  Zap, TrendingUp, Shield, Euro, Sun, Award, Wrench, Phone, Star
+  Package, Zap, TrendingUp, Shield, Euro, Sun, Award, Wrench, Phone, Star
 } from 'lucide-react'
 
 import Nav from '../components/Nav.jsx'
@@ -38,6 +38,7 @@ const FEATURE_ICONS = [
 const WHY_ICONS = [
   <Award className="w-5 h-5" />,
   <Wrench className="w-5 h-5" />,
+  <Package className="w-5 h-5" />,
   <Euro className="w-5 h-5" />,
   <CheckCircle2 className="w-5 h-5" />,
   <Zap className="w-5 h-5" />,
@@ -103,7 +104,7 @@ export default function HomePage() {
               >
                 <button
                   onClick={() => navigate('/calculator')}
-                  className="flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-7 py-4 rounded-full transition-all hover:shadow-xl hover:shadow-green-500/30 text-base"
+                  className="flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-7 py-4 rounded-full transition-all shadow-md shadow-[#22a55d]/30 hover:shadow-xl hover:shadow-[#22a55d]/40 text-base"
                 >
                   {h.calcBtn} <ArrowRight className="w-5 h-5" />
                 </button>
@@ -184,6 +185,41 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* LIFESTYLE — "AAN TAFEL" WOW SECTIE */}
+      <section className="py-0 bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 pb-20 pt-4">
+          <Reveal>
+            <div className="grid lg:grid-cols-5 rounded-3xl overflow-hidden shadow-2xl shadow-black/10 border border-gray-100">
+              <div className="lg:col-span-3 aspect-[4/3] lg:aspect-auto relative min-h-72">
+                <img
+                  src="/assets/battery-home.webp"
+                  alt={h.lifestyleAlt}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/8" />
+              </div>
+              <div className="lg:col-span-2 bg-[#F9F7F4] p-10 lg:p-14 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 bg-[#22a55d]/10 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-6 w-fit border border-[#22a55d]/15">
+                  <Battery className="w-3.5 h-3.5" /> {h.lifestyleBadge}
+                </div>
+                <h2 className="text-3xl lg:text-4xl font-extrabold leading-tight mb-5 tracking-tight whitespace-pre-line">
+                  {h.lifestyleTitle}
+                </h2>
+                <p className="text-[#131A20]/60 leading-relaxed mb-8 text-[0.97rem]">
+                  {h.lifestyleDesc}
+                </p>
+                <button
+                  onClick={() => navigate('/calculator')}
+                  className="inline-flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-7 py-3.5 rounded-full transition-all shadow-md shadow-[#22a55d]/30 hover:shadow-xl hover:shadow-[#22a55d]/40 text-sm w-fit"
+                >
+                  {h.lifestyleBtn} <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* KPI STRIP */}
       <section className="py-12 bg-[#EEF6F1]">
         <div className="max-w-6xl mx-auto px-6">
@@ -204,6 +240,48 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* WAAROM SOLARFAST USPs — groen, direct na KPI */}
+      <section className="py-24 bg-[#22a55d] relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-28 -right-28 w-96 h-96 rounded-full bg-white/6" />
+          <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-white/4" />
+        </div>
+        <div className="max-w-6xl mx-auto px-6 relative">
+          <Reveal className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-white/20 text-white text-xs font-semibold px-4 py-2 rounded-full mb-5">
+              <Shield className="w-3.5 h-3.5" /> {h.whyBadge}
+            </div>
+            <h2 className="text-4xl font-extrabold mb-4 tracking-tight text-white">
+              {h.whyTitle}
+            </h2>
+            <p className="text-white/75 text-lg max-w-xl mx-auto leading-relaxed">
+              {h.whySub}
+            </p>
+          </Reveal>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {h.whyUsps.map((usp, i) => (
+              <Reveal key={i} delay={i * 0.09}>
+                <div className="bg-white rounded-3xl p-7 h-full hover:shadow-2xl hover:shadow-black/20 transition-all duration-300 hover:-translate-y-1.5 group">
+                  <div className="w-11 h-11 rounded-2xl bg-[#22a55d]/10 flex items-center justify-center text-[#22a55d] mb-5 group-hover:bg-[#22a55d]/15 transition-colors">
+                    {WHY_ICONS[i % WHY_ICONS.length]}
+                  </div>
+                  <h3 className="font-bold text-base mb-2 text-[#131A20]">{usp.title}</h3>
+                  <p className="text-sm text-[#131A20]/55 leading-relaxed">{usp.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="text-center mt-10">
+            <button
+              onClick={() => navigate('/waarom-solarfast')}
+              className="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-medium px-6 py-3 rounded-full transition-all text-sm hover:bg-white/10"
+            >
+              {h.whyMore} <ArrowRight className="w-4 h-4" />
+            </button>
+          </Reveal>
         </div>
       </section>
 
@@ -332,45 +410,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WAAROM SolarFast USPs */}
-      <section className="py-24 bg-[#F9F7F4]">
-        <div className="max-w-6xl mx-auto px-6">
-          <Reveal className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 bg-white border border-gray-100 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-5">
-              <Shield className="w-3.5 h-3.5" />
-              {h.whyBadge}
-            </div>
-            <h2 className="text-4xl font-extrabold mb-4 tracking-tight">
-              {h.whyTitle}
-            </h2>
-            <p className="text-[#131A20]/55 text-lg max-w-xl mx-auto leading-relaxed">
-              {h.whySub}
-            </p>
-          </Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {h.whyUsps.map((usp, i) => (
-              <Reveal key={i} delay={i * 0.1}>
-                <div className="bg-white rounded-3xl p-7 h-full border border-gray-100 hover:border-[#22a55d]/20 hover:shadow-xl hover:shadow-gray-100 transition-all duration-300 hover:-translate-y-1.5 group">
-                  <div className="w-11 h-11 rounded-2xl bg-[#22a55d]/10 flex items-center justify-center text-[#22a55d] mb-5 group-hover:bg-[#22a55d]/15 transition-colors">
-                    {WHY_ICONS[i]}
-                  </div>
-                  <h3 className="font-bold text-base mb-2 text-[#131A20]">{usp.title}</h3>
-                  <p className="text-sm text-[#131A20]/55 leading-relaxed">{usp.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="text-center mt-10">
-            <button
-              onClick={() => navigate('/waarom-solarfast')}
-              className="inline-flex items-center gap-2 border border-gray-200 hover:border-[#22a55d] hover:text-[#22a55d] text-[#131A20]/60 font-medium px-6 py-3 rounded-full transition-all text-sm"
-            >
-              {h.whyMore} <ArrowRight className="w-4 h-4" />
-            </button>
-          </Reveal>
-        </div>
-      </section>
-
       {/* REVIEWS */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -420,22 +459,23 @@ export default function HomePage() {
               {h.installDesc}
             </p>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <Reveal delay={0} className="col-span-2 md:col-span-1 row-span-2">
-              <div className="rounded-3xl overflow-hidden h-full min-h-64">
-                <img src="/assets/installaties/install-technician.jpg" alt="HYXiPower installatie door monteur" className="w-full h-full object-cover" />
-              </div>
-            </Reveal>
-            <Reveal delay={1}>
-              <div className="rounded-3xl overflow-hidden aspect-video">
-                <img src="/assets/installaties/install-09.jpg" alt="HYXiPower in garage" className="w-full h-full object-cover" />
-              </div>
-            </Reveal>
-            <Reveal delay={2}>
-              <div className="rounded-3xl overflow-hidden aspect-video">
-                <img src="/assets/installaties/install-05.jpg" alt="HYXiPower aan de muur" className="w-full h-full object-cover" />
-              </div>
-            </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { src: '/assets/installaties/install-technician.jpg', alt: 'HYXiPower installatie door monteur' },
+              { src: '/assets/installaties/install-09.jpg', alt: 'HYXiPower thuisbatterij in garage' },
+              { src: '/assets/installaties/install-05.jpg', alt: 'HYXiPower aan de muur gemonteerd' },
+            ].map((photo, i) => (
+              <Reveal key={i} delay={i * 0.15}>
+                <div className="rounded-3xl overflow-hidden aspect-[3/4]">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
