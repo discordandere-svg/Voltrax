@@ -36,14 +36,10 @@ const FEATURE_ICONS = [
 ]
 
 const WHY_ICONS = [
-  <Award className="w-5 h-5" />,
-  <Wrench className="w-5 h-5" />,
   <Package className="w-5 h-5" />,
   <Clock className="w-5 h-5" />,
-  <Euro className="w-5 h-5" />,
   <CheckCircle2 className="w-5 h-5" />,
-  <Zap className="w-5 h-5" />,
-  <Phone className="w-5 h-5" />,
+  <Euro className="w-5 h-5" />,
 ]
 
 export default function HomePage() {
@@ -262,15 +258,15 @@ export default function HomePage() {
               {h.whySub}
             </p>
           </Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {h.whyUsps.map((usp, i) => (
               <Reveal key={i} delay={i * 0.09}>
-                <div className="bg-white rounded-3xl p-7 h-full hover:shadow-2xl hover:shadow-black/20 transition-all duration-300 hover:-translate-y-1.5 group">
-                  <div className="w-11 h-11 rounded-2xl bg-[#22a55d]/10 flex items-center justify-center text-[#22a55d] mb-5 group-hover:bg-[#22a55d]/15 transition-colors">
+                <div className="bg-white rounded-2xl p-6 h-full hover:shadow-xl hover:shadow-black/15 transition-all duration-300 hover:-translate-y-1 group">
+                  <div className="w-10 h-10 rounded-xl bg-[#22a55d]/10 flex items-center justify-center text-[#22a55d] mb-4 group-hover:bg-[#22a55d]/15 transition-colors">
                     {WHY_ICONS[i % WHY_ICONS.length]}
                   </div>
-                  <h3 className="font-bold text-base mb-2 text-[#131A20]">{usp.title}</h3>
-                  <p className="text-sm text-[#131A20]/55 leading-relaxed">{usp.desc}</p>
+                  <h3 className="font-bold text-sm mb-2 text-white">{usp.title}</h3>
+                  <p className="text-xs text-white/60 leading-relaxed">{usp.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -283,59 +279,6 @@ export default function HomePage() {
               {h.whyMore} <ArrowRight className="w-4 h-4" />
             </button>
           </Reveal>
-        </div>
-      </section>
-
-      {/* TRUST STRIP */}
-      <section className="py-5 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm">
-            <div className="flex items-center gap-1.5 text-[#131A20]/55">
-              <Shield className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />
-              <span>HYXiPower partner Nederland</span>
-            </div>
-            <div className="hidden md:block w-px h-4 bg-gray-200 flex-shrink-0" />
-            <div className="flex items-center gap-1.5 text-[#131A20]/55">
-              <Award className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />
-              <span>LFP/LiFePO4 accutechnologie</span>
-            </div>
-            <div className="hidden md:block w-px h-4 bg-gray-200 flex-shrink-0" />
-            <div className="flex items-center gap-1.5 text-[#131A20]/55">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#22a55d] flex-shrink-0" />
-              <span>Modulair uitbreidbaar</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* KENMERKEN */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <Reveal className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 bg-[#22a55d]/10 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-5">
-              <Zap className="w-3.5 h-3.5" /> {h.featuresBadge}
-            </div>
-            <h2 className="text-4xl font-extrabold mb-4 tracking-tight">
-              {h.featuresTitle}
-            </h2>
-            <p className="text-[#131A20]/55 text-lg max-w-2xl mx-auto leading-relaxed">
-              {h.featuresDesc}
-            </p>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {h.features.map((k, i) => (
-              <Reveal key={i} delay={i * 0.15}>
-                <div className="bg-[#F9F7F4] rounded-3xl p-7 h-full hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300 hover:-translate-y-1.5 border border-transparent hover:border-[#22a55d]/10 group">
-                  <div className="w-11 h-11 rounded-2xl bg-[#22a55d]/10 flex items-center justify-center text-[#22a55d] mb-5 group-hover:bg-[#22a55d]/15 transition-colors">
-                    {FEATURE_ICONS[i]}
-                  </div>
-                  <h3 className="font-bold text-base mb-2 text-[#131A20]">{k.title}</h3>
-                  <p className="text-sm text-[#131A20]/55 leading-relaxed">{k.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
