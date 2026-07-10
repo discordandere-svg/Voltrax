@@ -8,21 +8,21 @@ import {
 import Nav from '../components/Nav.jsx'
 import { useLanguage } from '../context/LanguageContext'
 
-const INSTALL_PHOTOS = [
-  { src: '/assets/installaties/install-05.jpg', alt: 'HYXiPower buitenopstelling tegen bakstenen gevel' },
-  { src: '/assets/installaties/install-02.jpg', alt: 'HYXiPower installatie in gang' },
-  { src: '/assets/installaties/install-08.jpg', alt: 'HYXiPower buitenopstelling naast tuinpoort' },
-  { src: '/assets/installaties/install-01.jpg', alt: 'Bekabeling van HYXiPower systeem in meterkast' },
-  { src: '/assets/installaties/install-09.jpg', alt: 'HYXiPower buitenopstelling met meterkast' },
-  { src: '/assets/installaties/install-03.jpg', alt: 'HYXiPower installatie in bergruimte' },
-  { src: '/assets/installaties/install-07.jpg', alt: 'HYXiPower opstelling bij zekeringkast' },
-  { src: '/assets/installaties/install-10.jpg', alt: 'HYXiPower installatie in nis' },
+const INSTALL_SRCS = [
+  '/assets/installaties/install-05.jpg',
+  '/assets/installaties/install-02.jpg',
+  '/assets/installaties/install-08.jpg',
+  '/assets/installaties/install-01.jpg',
+  '/assets/installaties/install-09.jpg',
+  '/assets/installaties/install-03.jpg',
+  '/assets/installaties/install-07.jpg',
+  '/assets/installaties/install-10.jpg',
 ]
 
-const PRODUCT_PHOTOS = [
-  { src: '/assets/installaties/solarfast-garage-render.jpg', alt: 'HYXiPower All-in-One in garage, 3D render' },
-  { src: '/assets/installaties/product-exploded.jpg', alt: 'HYXiPower All-in-One onderdelen uiteengezet' },
-  { src: '/assets/installaties/hyxipower-studio-render.png', alt: 'HYXiPower All-in-One studio render' },
+const PRODUCT_SRCS = [
+  '/assets/installaties/solarfast-garage-render.jpg',
+  '/assets/installaties/product-exploded.jpg',
+  '/assets/installaties/hyxipower-studio-render.png',
 ]
 
 const fadeUp = {
@@ -67,6 +67,8 @@ export default function OverOnsPage() {
   const { t } = useLanguage()
   const o = t.overOns
   const h = t.home
+  const installPhotos = INSTALL_SRCS.map((src, i) => ({ src, alt: o.installAlts[i] }))
+  const productPhotos = PRODUCT_SRCS.map((src, i) => ({ src, alt: o.productAlts[i] }))
 
   return (
     <div className="min-h-screen bg-white text-[#131A20] font-['Plus_Jakarta_Sans']">
@@ -180,7 +182,7 @@ export default function OverOnsPage() {
               <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
                 <img
                   src="/assets/installaties/install-technician.jpg"
-                  alt="SolarFast monteur installeert HYXiPower thuisbatterij"
+                  alt={o.verhaalPhotoAlt}
                   className="w-full h-full object-cover"
                   style={{ maxHeight: 420 }}
                 />
@@ -226,7 +228,7 @@ export default function OverOnsPage() {
             <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">{o.installDesc}</p>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            {INSTALL_PHOTOS.map((photo, i) => (
+            {installPhotos.map((photo, i) => (
               <Reveal key={i} delay={i * 0.06}>
                 <div className="rounded-2xl overflow-hidden aspect-square bg-[#EEF6F1]">
                   <img
@@ -245,7 +247,7 @@ export default function OverOnsPage() {
               <div className="aspect-[4/3] md:aspect-auto">
                 <img
                   src="/assets/installaties/install-technician.jpg"
-                  alt="Monteur installeert HYXiPower thuisbatterij"
+                  alt={o.technicianAlt}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -265,7 +267,7 @@ export default function OverOnsPage() {
               <p className="text-[#131A20]/60 max-w-xl mx-auto">{o.productDesc}</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {PRODUCT_PHOTOS.map((photo, i) => (
+              {productPhotos.map((photo, i) => (
                 <div key={i} className="rounded-2xl overflow-hidden aspect-square bg-[#EEF6F1]">
                   <img
                     src={photo.src}
@@ -364,7 +366,7 @@ export default function OverOnsPage() {
             </div>
             <div className="flex flex-wrap justify-center gap-5 mt-8 text-sm text-white/50">
               <span className="flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> info@solarfast.nl</span>
-              <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> Nederland</span>
+              <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {o.ctaLocation}</span>
             </div>
           </Reveal>
         </div>
@@ -373,10 +375,10 @@ export default function OverOnsPage() {
       <footer className="bg-[#F9F7F4] border-t border-gray-100 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <img src="/assets/solarfast-logo.png" alt="SolarFast" className="h-7 w-auto" />
-          <p className="text-sm text-[#131A20]/40">HYXiPower partner</p>
+          <p className="text-sm text-[#131A20]/40">{o.footerPartner}</p>
           <div className="flex items-center gap-2 text-xs text-[#131A20]/40">
             <Shield className="w-3.5 h-3.5 text-[#22a55d]" />
-            Warmtefonds partner
+            {o.footerWarmte}
           </div>
         </div>
       </footer>
