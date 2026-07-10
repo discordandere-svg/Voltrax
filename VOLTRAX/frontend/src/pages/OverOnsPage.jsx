@@ -126,14 +126,21 @@ export default function OverOnsPage() {
               </motion.p>
             </div>
             <motion.div
-              initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10 aspect-square bg-white"
+              initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex items-end justify-center py-4"
             >
+              <div className="absolute w-[70%] aspect-square rounded-full bg-[#22a55d]/16 blur-3xl bottom-8" />
+              <div className="absolute w-[42%] aspect-square rounded-full bg-[#22a55d]/10 blur-xl bottom-12" />
               <img
-                src="/assets/installaties/hyxipower-studio-render.png"
+                src="/assets/hyxipower-battery-3d.png"
                 alt="HYXiPower All-in-One thuisbatterij"
-                className="w-full h-full object-cover object-[center_30%]"
+                className="relative"
+                style={{
+                  height: 460,
+                  width: 'auto',
+                  filter: 'drop-shadow(0 32px 56px rgba(0,0,0,0.20)) drop-shadow(0 8px 18px rgba(34,165,93,0.13))',
+                }}
               />
             </motion.div>
           </div>

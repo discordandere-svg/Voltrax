@@ -250,7 +250,7 @@ export default function AanbodPage() {
       <section className="pt-32 pb-16 bg-[#F9F7F4]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold px-4 py-2 rounded-full mb-6">
+            className="inline-flex items-center gap-2 bg-[#22a55d]/15 border border-[#22a55d]/20 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-6">
             <Battery className="w-3.5 h-3.5" />
             {nl ? 'HYXiPower All-in-One, HYXiPower partner' : 'HYXiPower All-in-One, HYXiPower partner'}
           </motion.div>
@@ -274,17 +274,18 @@ export default function AanbodPage() {
           <motion.div
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-center justify-center"
+            className="relative flex items-end justify-center"
           >
-            <div className="absolute w-[40%] aspect-square rounded-full bg-[#22a55d]/12 blur-3xl" />
+            <div className="absolute w-[55%] aspect-square rounded-full bg-[#22a55d]/18 blur-3xl bottom-4" />
+            <div className="absolute w-[32%] aspect-square rounded-full bg-[#22a55d]/12 blur-xl bottom-8" />
             <img
               src="/assets/hyxipower-battery-3d.png"
               alt="HYXiPower All-in-One thuisbatterij"
               className="relative mx-auto"
               style={{
-                height: 260,
+                height: 340,
                 width: 'auto',
-                filter: 'drop-shadow(0 24px 40px rgba(0,0,0,0.16)) drop-shadow(0 6px 12px rgba(34,165,93,0.1))',
+                filter: 'drop-shadow(0 32px 56px rgba(0,0,0,0.20)) drop-shadow(0 8px 18px rgba(34,165,93,0.13))',
               }}
             />
           </motion.div>
@@ -300,7 +301,7 @@ export default function AanbodPage() {
                 <div className={`relative rounded-3xl p-7 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                   pkg.popular
                     ? 'bg-[#22a55d] text-white ring-2 ring-green-500/40 hover:shadow-green-500/20'
-                    : 'bg-[#F9F7F4] border border-gray-100 text-[#131A20] hover:shadow-gray-100'
+                    : 'bg-[#F9F7F4] border border-gray-100 text-[#131A20] hover:shadow-xl hover:shadow-black/6'
                 }`}>
                   {pkg.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">

@@ -239,13 +239,17 @@ export default function WaaromSolarFastPage() {
               transition={{ duration: 0.85, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="relative flex items-center justify-center py-4"
             >
-              <div className="absolute w-[65%] aspect-square rounded-full bg-[#22a55d]/14 blur-3xl" />
-              <div className="absolute w-[40%] aspect-square rounded-full bg-[#22a55d]/10 blur-xl" />
+              <div className="absolute w-[65%] aspect-square rounded-full bg-[#22a55d]/18 blur-3xl" />
+              <div className="absolute w-[40%] aspect-square rounded-full bg-[#22a55d]/12 blur-xl" />
               <img
                 src="/assets/hyxipower-battery-3d.png"
                 alt="HYXiPower All-in-One thuisbatterij"
-                className="relative w-[75%] max-w-[300px] mx-auto"
-                style={{ filter: 'drop-shadow(0 32px 48px rgba(0,0,0,0.18)) drop-shadow(0 8px 16px rgba(34,165,93,0.12))' }}
+                className="relative mx-auto"
+                style={{
+                  height: 490,
+                  width: 'auto',
+                  filter: 'drop-shadow(0 32px 56px rgba(0,0,0,0.20)) drop-shadow(0 8px 18px rgba(34,165,93,0.13))',
+                }}
               />
             </motion.div>
           </div>
@@ -291,7 +295,7 @@ export default function WaaromSolarFastPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {reasons.map((r, i) => (
               <Reveal key={i} delay={i * 0.1}>
-                <div className="bg-[#F9F7F4] rounded-3xl p-7 h-full hover:shadow-lg hover:shadow-gray-100 transition-all duration-300 hover:-translate-y-1 border border-gray-50">
+                <div className="bg-[#F9F7F4] rounded-3xl p-7 h-full hover:shadow-xl hover:shadow-black/6 transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                   <div className="w-12 h-12 rounded-2xl bg-[#22a55d]/10 flex items-center justify-center mb-5">
                     {r.icon}
                   </div>

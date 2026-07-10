@@ -118,10 +118,10 @@ export default function HYXiPowerPage() {
           <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#22a55d]/4" />
         </div>
         <div className="max-w-6xl mx-auto px-6 pt-12 pb-0 relative">
-          <div className="grid lg:grid-cols-2 gap-14 items-end">
+          <div className="grid lg:grid-cols-2 gap-14 items-start">
             <div className="pb-16">
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 bg-[#22a55d]/15 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-7">
+                className="inline-flex items-center gap-2 bg-[#22a55d]/15 border border-[#22a55d]/20 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-7">
                 <Award className="w-3.5 h-3.5" />
                 {nl ? 'Europese kwaliteitsstandaard' : 'European quality standard'}
               </motion.div>
@@ -151,11 +151,21 @@ export default function HYXiPowerPage() {
                 </a>
               </motion.div>
             </div>
-            <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.2, ease }}
-              className="relative pb-0">
-              <div className="rounded-t-3xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/30">
-                <img src="/hyxipower-battery.png" alt="HYXiPower All-in-One thuisbatterij" className="w-full h-full object-cover" />
-              </div>
+            <motion.div initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.85, delay: 0.2, ease }}
+              className="relative flex items-end justify-center py-4">
+              <div className="absolute w-[70%] aspect-square rounded-full bg-[#22a55d]/16 blur-3xl bottom-8" />
+              <div className="absolute w-[42%] aspect-square rounded-full bg-[#22a55d]/10 blur-xl bottom-12" />
+              <img
+                src="/assets/hyxipower-battery-3d.png"
+                alt="HYXiPower All-in-One thuisbatterij"
+                className="relative"
+                style={{
+                  height: 480,
+                  width: 'auto',
+                  filter: 'drop-shadow(0 32px 56px rgba(0,0,0,0.20)) drop-shadow(0 8px 18px rgba(34,165,93,0.13))',
+                }}
+              />
             </motion.div>
           </div>
         </div>
