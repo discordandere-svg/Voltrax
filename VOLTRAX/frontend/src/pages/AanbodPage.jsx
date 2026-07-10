@@ -32,6 +32,60 @@ export default function AanbodPage() {
   const { lang } = useLanguage()
   const nl = lang === 'nl'
 
+  const goToCalculator = (kWh) => {
+    const saved = sessionStorage.getItem('voltrax_form')
+    const form = saved ? JSON.parse(saved) : {}
+    sessionStorage.setItem('voltrax_form', JSON.stringify({ ...form, battery_kWh: kWh }))
+    navigate('/calculator')
+  }
+
+  const CAPACITY_OPTIONS = [
+    {
+      kWh: 10.6,
+      label: '10,6 kWh',
+      tier: nl ? 'Starter' : 'Starter',
+      forWhom: nl
+        ? 'Ideaal voor kleinere huishoudens met zonnepanelen en gemiddeld energieverbruik.'
+        : 'Ideal for smaller households with solar panels and average energy consumption.',
+      price: 'Vanaf €6.990',
+      priceSub: nl ? 'incl. btw + installatie' : 'incl. VAT + installation',
+      popular: false,
+    },
+    {
+      kWh: 15.9,
+      label: '15,9 kWh',
+      tier: nl ? 'Comfort' : 'Comfort',
+      forWhom: nl
+        ? 'De meest gekozen maat voor gezinnen met zonnepanelen en gemiddeld verbruik.'
+        : 'The most popular size for families with solar panels and average consumption.',
+      price: 'Vanaf €9.490',
+      priceSub: nl ? 'incl. btw + installatie' : 'incl. VAT + installation',
+      popular: true,
+    },
+    {
+      kWh: 21.2,
+      label: '21,2 kWh',
+      tier: nl ? 'Premium' : 'Premium',
+      forWhom: nl
+        ? 'Voor woningen met een warmtepomp, elektrische auto of een hoger verbruik.'
+        : 'For homes with a heat pump, electric vehicle or higher consumption.',
+      price: 'Vanaf €12.490',
+      priceSub: nl ? 'incl. btw + installatie' : 'incl. VAT + installation',
+      popular: false,
+    },
+    {
+      kWh: 26.5,
+      label: '26,5 kWh',
+      tier: nl ? 'Maximum' : 'Maximum',
+      forWhom: nl
+        ? 'Voor grote huishoudens of wie maximale energieonafhankelijkheid wil bereiken.'
+        : 'For large households or those seeking maximum energy independence.',
+      price: 'Vanaf €15.490',
+      priceSub: nl ? 'incl. btw + installatie' : 'incl. VAT + installation',
+      popular: false,
+    },
+  ]
+
   const PACKAGES = [
     {
       kWh: 10.6,
@@ -252,17 +306,21 @@ export default function AanbodPage() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 bg-[#22a55d]/15 border border-[#22a55d]/20 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-6">
             <Battery className="w-3.5 h-3.5" />
-            {nl ? 'HYXiPower All-in-One, HYXiPower partner' : 'HYXiPower All-in-One, HYXiPower partner'}
+            {nl ? 'HYXiPower All-in-One — officieel partner' : 'HYXiPower All-in-One — official partner'}
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-5xl font-extrabold leading-tight mb-5 text-[#131A20]">
-            {nl ? 'Kies het systeem dat bij u past' : 'Choose the system that suits you'}
+            className="text-5xl font-extrabold leading-tight mb-3 text-[#131A20]">
+            {nl ? 'HYXiPower All-in-One.' : 'HYXiPower All-in-One.'}
           </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.15 }}
+            className="text-3xl font-extrabold text-[#22a55d] mb-5">
+            {nl ? 'Kies uw capaciteit.' : 'Choose your capacity.'}
+          </motion.p>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#131A20]/60 text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
             {nl
-              ? 'Van starter tot maximale onafhankelijkheid: elk systeem bevat batterij, omvormer, installatie en fabrieksgarantie. Alles inbegrepen, niets extra.'
-              : 'From starter to maximum independence: every system includes battery, inverter, installation and factory warranty. Everything included, nothing extra.'}
+              ? 'Eén thuisbatterijsysteem, beschikbaar in vier capaciteiten. Batterij, omvormer, installatie en fabrieksgarantie — alles inbegrepen, niets extra.'
+              : 'One home battery system, available in four capacities. Battery, inverter, installation and factory warranty — everything included, nothing extra.'}
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.35 }}
             className="inline-flex items-center gap-2 bg-white border border-green-200 text-green-700 text-xs font-semibold px-4 py-2 rounded-full mb-10">
@@ -292,63 +350,63 @@ export default function AanbodPage() {
         </div>
       </section>
 
-      {/* ── BATTERY CARDS ── */}
+      {/* ── CAPACITEITS-SELECTOR ── */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {PACKAGES.map((pkg, i) => (
-              <Reveal key={pkg.kWh} delay={i * 0.15}>
-                <div className={`relative rounded-3xl p-7 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                  pkg.popular
-                    ? 'bg-[#22a55d] text-white ring-2 ring-green-500/40 hover:shadow-green-500/20'
-                    : 'bg-[#F9F7F4] border border-gray-100 text-[#131A20] hover:shadow-xl hover:shadow-black/6'
+          <Reveal className="text-center mb-10">
+            <h2 className="text-3xl font-extrabold mb-2">
+              {nl ? 'Kies uw capaciteit' : 'Choose your capacity'}
+            </h2>
+            <p className="text-[#131A20]/50 text-sm max-w-lg mx-auto">
+              {nl
+                ? 'Alle varianten bevatten hetzelfde systeem — batterij, omvormer, installatie en garantie.'
+                : 'All variants include the same system — battery, inverter, installation and warranty.'}
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {CAPACITY_OPTIONS.map((opt, i) => (
+              <Reveal key={opt.kWh} delay={i * 0.1}>
+                <div className={`relative rounded-3xl p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                  opt.popular
+                    ? 'bg-[#22a55d] text-white ring-2 ring-[#22a55d]/30 hover:shadow-green-500/20'
+                    : 'bg-[#F9F7F4] border border-gray-100 text-[#131A20] hover:shadow-black/6'
                 }`}>
-                  {pkg.popular && (
+                  {opt.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="bg-[#22a55d] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                      <span className="bg-white text-[#22a55d] text-xs font-bold px-4 py-1 rounded-full shadow-sm whitespace-nowrap border border-green-100">
                         {nl ? 'Meest gekozen' : 'Most chosen'}
                       </span>
                     </div>
                   )}
 
-                  <div className="mb-5">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-10 h-10 rounded-2xl ${pkg.iconBg} flex items-center justify-center flex-shrink-0`}>
-                        {pkg.icon}
-                      </div>
-                      <div>
-                        <div className={`text-xs font-semibold ${pkg.popular ? 'text-white/60' : 'text-[#131A20]/40'}`}>{pkg.subtitle}</div>
-                        <div className="text-2xl font-extrabold">{pkg.label}</div>
-                      </div>
+                  <div className={`text-xs font-semibold uppercase tracking-widest mb-2 ${opt.popular ? 'text-white/60' : 'text-[#131A20]/40'}`}>
+                    {opt.tier}
+                  </div>
+                  <div className="text-4xl font-extrabold mb-4">{opt.label}</div>
+
+                  <div className={`h-px mb-4 ${opt.popular ? 'bg-white/20' : 'bg-gray-200'}`} />
+
+                  <p className={`text-sm leading-relaxed flex-1 mb-5 ${opt.popular ? 'text-white/75' : 'text-[#131A20]/60'}`}>
+                    {opt.forWhom}
+                  </p>
+
+                  <div className={`rounded-2xl p-4 mb-4 ${opt.popular ? 'bg-white/15' : 'bg-white border border-gray-100'}`}>
+                    <div className={`text-xs font-medium mb-0.5 ${opt.popular ? 'text-white/50' : 'text-[#131A20]/40'}`}>
+                      {nl ? 'Indicatieve investering' : 'Indicative investment'}
                     </div>
-                    <div className={`text-sm leading-relaxed ${pkg.popular ? 'text-white/70' : 'text-[#131A20]/60'}`}>
-                      {pkg.desc}
-                    </div>
+                    <div className={`text-xl font-extrabold ${opt.popular ? 'text-white' : 'text-[#131A20]'}`}>{opt.price}</div>
+                    <div className={`text-xs mt-0.5 ${opt.popular ? 'text-white/50' : 'text-[#131A20]/40'}`}>{opt.priceSub}</div>
                   </div>
 
-                  <div className={`rounded-2xl p-4 mb-5 ${pkg.popular ? 'bg-white/10' : 'bg-white border border-gray-100'}`}>
-                    <div className={`text-xs font-semibold mb-1 ${pkg.popular ? 'text-white/50' : 'text-[#131A20]/40'}`}>{pkg.situatie}</div>
-                    <div className={`text-sm leading-relaxed ${pkg.popular ? 'text-white/80' : 'text-[#131A20]/70'}`}>{pkg.situatieDesc}</div>
-                  </div>
-
-                  <div className={`inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full mb-5 w-fit ${
-                    pkg.popular ? 'bg-[#22a55d]/80 text-white' : 'bg-green-100 text-green-700'
-                  }`}>
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    {pkg.highlight}
-                  </div>
-
-                  <ul className="space-y-2.5 flex-1 mb-7">
-                    {pkg.specs.map((spec, j) => (
-                      <li key={j} className={`flex items-start gap-2.5 text-sm ${pkg.popular ? 'text-white/80' : 'text-[#131A20]/70'}`}>
-                        <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-0.5 ${pkg.popular ? 'text-green-400' : 'text-green-500'}`} />
-                        {spec}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <button onClick={() => navigate('/calculator')}
-                    className="w-full flex items-center justify-center gap-2 font-semibold py-3.5 rounded-full transition-all text-sm bg-[#22a55d] text-white hover:bg-[#1a9050] hover:shadow-lg hover:shadow-green-500/20">
+                  <button
+                    onClick={() => goToCalculator(opt.kWh)}
+                    className={`w-full flex items-center justify-center gap-2 font-semibold py-3 rounded-full transition-all text-sm ${
+                      opt.popular
+                        ? 'bg-white text-[#22a55d] hover:bg-green-50'
+                        : 'bg-[#22a55d] text-white hover:bg-[#1a9050] hover:shadow-lg hover:shadow-green-500/20'
+                    }`}
+                  >
                     {nl ? 'Bereken mijn besparing' : 'Calculate my savings'} <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -356,19 +414,12 @@ export default function AanbodPage() {
             ))}
           </div>
 
-          <Reveal className="mt-6 bg-green-50 rounded-3xl p-5 flex flex-wrap items-center gap-4 justify-between border border-green-100" delay={3}>
-            <div className="flex items-start gap-3">
-              <Shield className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-[#131A20]/70 leading-relaxed">
-                {nl
-                  ? 'Elk systeem is compleet inclusief batterij, hybride omvormer, installatie, BTW en fabrieksgarantie. De exacte configuratie wordt afgestemd na een gratis adviesgesprek.'
-                  : 'Every system is complete including battery, hybrid inverter, installation, VAT and factory warranty. The exact configuration is agreed after a free consultation.'}
-              </p>
-            </div>
-            <button onClick={() => navigate('/calculator')}
-              className="flex items-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold px-5 py-2.5 rounded-full text-sm whitespace-nowrap transition-all hover:shadow-lg hover:shadow-green-500/20">
-              {nl ? 'Bereken uw besparing' : 'Calculate your savings'} <ArrowRight className="w-4 h-4" />
-            </button>
+          <Reveal delay={4}>
+            <p className="text-center text-xs text-[#131A20]/40 mt-6 leading-relaxed">
+              {nl
+                ? 'Indicatieve prijzen incl. btw en standaard installatie. Exacte prijs na gratis adviesgesprek.'
+                : 'Indicative prices incl. VAT and standard installation. Exact price after free consultation.'}
+            </p>
           </Reveal>
         </div>
       </section>
@@ -495,7 +546,7 @@ export default function AanbodPage() {
                     </div>
                   ))}
                 </div>
-                <button onClick={() => navigate('/calculator')}
+                <button onClick={() => goToCalculator(15.9)}
                   className="w-full bg-[#22a55d] hover:bg-[#1a9050] text-white font-semibold py-3.5 rounded-full text-sm transition-all hover:shadow-lg hover:shadow-green-500/20">
                   {nl ? 'Bereken inclusief Warmtefonds' : 'Calculate including Warmtefonds'}
                 </button>
@@ -517,7 +568,7 @@ export default function AanbodPage() {
                 ? 'Gebruik de calculator en ontdek welke capaciteit het meeste oplevert voor uw persoonlijk verbruik en zonneopbrengst.'
                 : 'Use the calculator and discover which capacity delivers the most for your personal consumption and solar yield.'}
             </p>
-            <button onClick={() => navigate('/calculator')}
+            <button onClick={() => goToCalculator(15.9)}
               className="inline-flex items-center gap-3 bg-[#22a55d] hover:bg-[#1a9050] text-white font-bold px-8 py-4 rounded-full transition-all hover:shadow-2xl hover:shadow-green-500/25 text-lg">
               {nl ? 'Start de berekening' : 'Start the calculation'} <ArrowRight className="w-5 h-5" />
             </button>
