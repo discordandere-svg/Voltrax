@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import {
   ArrowRight, Battery, CheckCircle2,
-  Package, Zap, TrendingUp, Shield, Euro, Sun, Award, Wrench, Phone, Star
+  Package, Zap, TrendingUp, Shield, Euro, Sun, Award, Wrench, Phone, Star, Clock
 } from 'lucide-react'
 
 import Nav from '../components/Nav.jsx'
@@ -39,6 +39,7 @@ const WHY_ICONS = [
   <Award className="w-5 h-5" />,
   <Wrench className="w-5 h-5" />,
   <Package className="w-5 h-5" />,
+  <Clock className="w-5 h-5" />,
   <Euro className="w-5 h-5" />,
   <CheckCircle2 className="w-5 h-5" />,
   <Zap className="w-5 h-5" />,
