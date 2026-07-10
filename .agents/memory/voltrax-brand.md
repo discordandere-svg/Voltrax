@@ -10,8 +10,15 @@ description: Color system and button rules for VOLTRAX website
 - `#131A20` — near-black body text ONLY (not for backgrounds or large surfaces)
 
 ## BANNED colors
-- `#0D2B1A`, `#0D1810`, or ANY dark/black/near-black tones as backgrounds — user explicitly banned these site-wide
-- No dark section backgrounds anywhere — only eco colors (green, mint, cream, white)
+- `#0D2B1A`, `#0D1810` specifically banned by user (original rule)
+- **Exception (2026-07-10):** user requested "eco eco" feel + 3D contrast for the WHY/USP section — a deep forest-green gradient `linear-gradient(135deg, #0a3d1f 0%, #0f5029 50%, #1a6b38 100%)` is now approved for that section only. This is NOT a general license for dark backgrounds on other sections.
+
+## WHY/USP section style (homepage)
+- Background: `linear-gradient(135deg, #0a3d1f 0%, #0f5029 50%, #1a6b38 100%)` via inline style
+- Cards: `bg-white` with 3D boxShadow (`0 2px 0 rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.28), 0 1px 0 rgba(255,255,255,0.9) inset`), hover lifts and deepens shadow
+- Card titles: `text-[#0a3d1f]` (deep forest green), body: `text-[#131A20]/55`
+- Icon container: gradient `from-[#22a55d]/15 to-[#22a55d]/5` with border `border-[#22a55d]/15`
+- Grid: `sm:grid-cols-2 lg:grid-cols-3` (6 cards, 2 rows of 3)
 
 ## CTA section style (all pages)
 - Background: `bg-[#22a55d]` with decorative `bg-white/8` blob circles

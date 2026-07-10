@@ -38,8 +38,10 @@ const FEATURE_ICONS = [
 const WHY_ICONS = [
   <Package className="w-5 h-5" />,
   <Clock className="w-5 h-5" />,
+  <Wrench className="w-5 h-5" />,
   <CheckCircle2 className="w-5 h-5" />,
   <Euro className="w-5 h-5" />,
+  <Phone className="w-5 h-5" />,
 ]
 
 export default function HomePage() {
@@ -240,41 +242,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WAAROM SOLARFAST USPs — groen, direct na KPI */}
-      <section className="py-24 bg-[#22a55d] relative overflow-hidden">
+      {/* WAAROM SOLARFAST USPs — eco bosgroen gradient */}
+      <section className="py-24 relative overflow-hidden" style={{background: 'linear-gradient(135deg, #0a3d1f 0%, #0f5029 50%, #1a6b38 100%)'}}>
+        {/* Texture circles */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-28 -right-28 w-96 h-96 rounded-full bg-white/6" />
-          <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-white/4" />
+          <div className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full bg-white/4" />
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 rounded-full bg-white/3 blur-2xl" />
+          <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-black/15" />
+          <div className="absolute top-8 left-8 w-2 h-2 rounded-full bg-white/20" />
+          <div className="absolute bottom-12 right-24 w-1.5 h-1.5 rounded-full bg-white/15" />
         </div>
         <div className="max-w-6xl mx-auto px-6 relative">
           <Reveal className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 bg-white/20 text-white text-xs font-semibold px-4 py-2 rounded-full mb-5">
+            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white/90 text-xs font-semibold px-4 py-2 rounded-full mb-5 border border-white/20">
               <Shield className="w-3.5 h-3.5" /> {h.whyBadge}
             </div>
             <h2 className="text-4xl font-extrabold mb-4 tracking-tight text-white">
               {h.whyTitle}
             </h2>
-            <p className="text-white/75 text-lg max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/65 text-lg max-w-xl mx-auto leading-relaxed">
               {h.whySub}
             </p>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {h.whyUsps.map((usp, i) => (
-              <Reveal key={i} delay={i * 0.09}>
-                <div className="bg-white rounded-2xl p-6 h-full hover:shadow-xl hover:shadow-black/15 transition-all duration-300 hover:-translate-y-1 group">
-                  <div className="w-10 h-10 rounded-xl bg-[#22a55d]/10 flex items-center justify-center text-[#22a55d] mb-4 group-hover:bg-[#22a55d]/15 transition-colors">
+              <Reveal key={i} delay={i * 0.08}>
+                <div
+                  className="relative bg-white rounded-2xl p-7 h-full group transition-all duration-300 hover:-translate-y-2"
+                  style={{
+                    boxShadow: '0 2px 0 rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.28), 0 1px 0 rgba(255,255,255,0.9) inset',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.boxShadow = '0 6px 0 rgba(0,0,0,0.22), 0 20px 48px rgba(0,0,0,0.32), 0 1px 0 rgba(255,255,255,0.9) inset'}
+                  onMouseLeave={e => e.currentTarget.style.boxShadow = '0 2px 0 rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.28), 0 1px 0 rgba(255,255,255,0.9) inset'}
+                >
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#22a55d]/15 to-[#22a55d]/5 flex items-center justify-center text-[#22a55d] mb-5 group-hover:from-[#22a55d]/25 group-hover:to-[#22a55d]/10 transition-all border border-[#22a55d]/15">
                     {WHY_ICONS[i % WHY_ICONS.length]}
                   </div>
-                  <h3 className="font-bold text-sm mb-2 text-white">{usp.title}</h3>
-                  <p className="text-xs text-white/60 leading-relaxed">{usp.desc}</p>
+                  <h3 className="font-bold text-base mb-2 text-[#0a3d1f]">{usp.title}</h3>
+                  <p className="text-sm text-[#131A20]/55 leading-relaxed">{usp.desc}</p>
                 </div>
               </Reveal>
             ))}
           </div>
-          <Reveal className="text-center mt-10">
+          <Reveal className="text-center mt-12">
             <button
               onClick={() => navigate('/waarom-solarfast')}
-              className="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-medium px-6 py-3 rounded-full transition-all text-sm hover:bg-white/10"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/18 border border-white/25 hover:border-white/40 text-white font-medium px-7 py-3 rounded-full transition-all text-sm backdrop-blur-sm"
             >
               {h.whyMore} <ArrowRight className="w-4 h-4" />
             </button>
