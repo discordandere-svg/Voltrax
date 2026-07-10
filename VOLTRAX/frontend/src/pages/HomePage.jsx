@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import {
   ArrowRight, Battery, CheckCircle2,
-  Zap, TrendingUp, Shield, Euro, Sun, Award, Wrench, Phone
+  Zap, TrendingUp, Shield, Euro, Sun, Award, Wrench, Phone, Star
 } from 'lucide-react'
 
 import Nav from '../components/Nav.jsx'
@@ -184,6 +184,29 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* KPI STRIP */}
+      <section className="py-12 bg-[#EEF6F1]">
+        <div className="max-w-6xl mx-auto px-6">
+          <Reveal className="text-center mb-8">
+            <span className="inline-flex items-center gap-2 bg-[#22a55d]/15 border border-[#22a55d]/20 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full">
+              <CheckCircle2 className="w-3.5 h-3.5" /> {h.kpiBadge}
+            </span>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {h.kpis.map((kpi, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <div className="text-center">
+                  <div className="text-4xl lg:text-[2.75rem] font-extrabold text-[#131A20] leading-none mb-2 tracking-tight">
+                    {kpi.value}
+                  </div>
+                  <div className="text-sm text-[#131A20]/55 font-medium">{kpi.label}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* TRUST STRIP */}
       <section className="py-5 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
@@ -345,6 +368,46 @@ export default function HomePage() {
               {h.whyMore} <ArrowRight className="w-4 h-4" />
             </button>
           </Reveal>
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <Reveal className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-600 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+              <Star className="w-3.5 h-3.5" /> {h.reviewsBadge}
+            </div>
+            <h2 className="text-4xl font-extrabold mb-4 tracking-tight">{h.reviewsTitle}</h2>
+            <p className="text-[#131A20]/55 text-lg max-w-xl mx-auto leading-relaxed">{h.reviewsSub}</p>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-5">
+            {h.reviews.map((review, i) => (
+              <Reveal key={i} delay={i * 0.15}>
+                <div className="bg-[#F9F7F4] rounded-3xl p-7 flex flex-col h-full border border-gray-100 hover:shadow-xl hover:shadow-black/5 transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex gap-0.5 mb-4">
+                    {Array.from({ length: review.stars }).map((_, s) => (
+                      <svg key={s} className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-[#131A20]/70 text-sm leading-relaxed flex-1 mb-5 italic">
+                    "{review.text}"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-[#22a55d]/15 flex items-center justify-center text-[#22a55d] font-bold text-sm flex-shrink-0">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm text-[#131A20]">{review.name}</div>
+                      <div className="text-xs text-[#131A20]/45">{review.location}</div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

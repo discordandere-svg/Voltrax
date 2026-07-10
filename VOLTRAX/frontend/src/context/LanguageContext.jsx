@@ -83,6 +83,36 @@ const T = {
       ctaSub: '100% vrijblijvend',
       footerDealer: 'HYXiPower partner Nederland',
       footerWarranty: 'Garantie via HYXiPower',
+      kpiBadge: 'Bewezen resultaten',
+      kpis: [
+        { value: '200+', label: 'Installaties voltooid' },
+        { value: '4,8/5', label: 'Klantscore' },
+        { value: '10 jaar', label: 'Fabrieksgarantie' },
+        { value: '100%', label: 'Gecertificeerde monteurs' },
+      ],
+      reviewsBadge: 'Klantbeoordelingen',
+      reviewsTitle: 'Wat klanten zeggen',
+      reviewsSub: 'Eerlijke ervaringen van klanten die voor SolarFast kozen.',
+      reviews: [
+        {
+          name: 'Jan de Vries',
+          location: 'Amsterdam',
+          stars: 5,
+          text: 'Uitstekende service van begin tot eind. De installatie verliep vlekkeloos en de batterij werkt precies zoals beloofd. Al na een paar maanden merk ik een stuk lagere energierekening.',
+        },
+        {
+          name: 'Marleen Bakker',
+          location: 'Rotterdam',
+          stars: 5,
+          text: 'Heel tevreden met de HYXiPower batterij. Het team was vakkundig, vriendelijk en hield ons goed op de hoogte. De app geeft mooi inzicht in het verbruik. Ik zou het iedereen aanraden.',
+        },
+        {
+          name: 'Peter Smit',
+          location: 'Utrecht',
+          stars: 5,
+          text: 'Na lang twijfelen toch de stap gezet via SolarFast. Wat een goede keuze! De begeleiding bij het Warmtefonds was erg fijn, en de installatie was in een halve dag klaar.',
+        },
+      ],
     },
     calc: {
       back: 'Terug',
@@ -399,6 +429,36 @@ const T = {
       ctaSub: '100% no obligation',
       footerDealer: 'HYXiPower partner Netherlands',
       footerWarranty: 'Warranty via HYXiPower',
+      kpiBadge: 'Proven results',
+      kpis: [
+        { value: '200+', label: 'Installations completed' },
+        { value: '4.8/5', label: 'Customer rating' },
+        { value: '10 years', label: 'Factory warranty' },
+        { value: '100%', label: 'Certified installers' },
+      ],
+      reviewsBadge: 'Customer reviews',
+      reviewsTitle: 'What customers say',
+      reviewsSub: 'Real experiences from customers who chose SolarFast.',
+      reviews: [
+        {
+          name: 'Jan de Vries',
+          location: 'Amsterdam',
+          stars: 5,
+          text: 'Excellent service from start to finish. The installation went smoothly and the battery works exactly as promised. Already noticeably lower energy bills after a few months.',
+        },
+        {
+          name: 'Marleen Bakker',
+          location: 'Rotterdam',
+          stars: 5,
+          text: 'Very happy with the HYXiPower battery. The team was skilled, friendly and kept us well informed. The app gives great insight into usage. I would recommend it to everyone.',
+        },
+        {
+          name: 'Peter Smit',
+          location: 'Utrecht',
+          stars: 5,
+          text: 'After long hesitation I finally took the step with SolarFast. What a great choice! The Warmtefonds guidance was very helpful and the installation was done in half a day.',
+        },
+      ],
     },
     calc: {
       back: 'Back',
