@@ -6,6 +6,7 @@ import {
   Battery, Wrench, MessageCircle, MapPin
 } from 'lucide-react'
 import Nav from '../components/Nav.jsx'
+import { useLanguage } from '../context/LanguageContext'
 
 const INSTALL_PHOTOS = [
   { src: '/assets/installaties/install-05.jpg', alt: 'HYXiPower buitenopstelling tegen bakstenen gevel' },
@@ -43,87 +44,75 @@ function Reveal({ children, className = '', delay = 0 }) {
   )
 }
 
+const AANPAK_ICONS = {
+  MessageCircle: <MessageCircle className="w-6 h-6 text-[#22a55d]" />,
+  Wrench: <Wrench className="w-6 h-6 text-[#22a55d]" />,
+  Zap: <Zap className="w-6 h-6 text-[#22a55d]" />,
+  Shield: <Shield className="w-6 h-6 text-[#22a55d]" />,
+}
 
-const SERVICE_HIGHLIGHTS = [
-  { title: 'Persoonlijk adviesgesprek', text: 'Wij bespreken uw energieverbruik, woning en wensen voordat we een systeem voorstellen. Geen standaardoplossing, maar advies op maat.' },
-  { title: 'Vakkundige installatie', text: 'Onze eigen gecertificeerde monteurs plaatsen uw systeem en leggen precies uit hoe de app en het systeem werken.' },
-  { title: 'Begeleiding bij de Warmtefondsaanvraag', text: 'Wij helpen u stap voor stap bij het aanvragen van een Energiebespaarlening, zodat u het overzicht houdt.' },
-  { title: 'Bereikbaar na installatie', text: 'Ook na oplevering staan wij klaar voor vragen over uw systeem, de app of uw lening.' },
+const WHY_ICONS = [
+  <Award className="w-6 h-6 text-amber-500" />,
+  <Wrench className="w-6 h-6 text-blue-500" />,
+  <Shield className="w-6 h-6 text-green-600" />,
+  <Zap className="w-6 h-6 text-[#131A20]/60" />,
+  <Users className="w-6 h-6 text-blue-400" />,
+  <MessageCircle className="w-6 h-6 text-green-500" />,
 ]
 
-const WAAROM = [
-  {
-    icon: <Award className="w-6 h-6 text-amber-500" />,
-    bg: 'bg-amber-50',
-    title: 'HYXiPower partner',
-    desc: 'Wij werken met de HYXiPower All-in-One: LiFePO4-batterijtechnologie met een slim Energy Management System.',
-  },
-  {
-    icon: <Wrench className="w-6 h-6 text-blue-500" />,
-    bg: 'bg-blue-50',
-    title: 'Eigen gecertificeerde monteurs',
-    desc: 'Onze installateurs zijn gecertificeerd en gespecialiseerd in HYXiPower systemen. Geen onderaannemers, geen verassingen.',
-  },
-  {
-    icon: <Shield className="w-6 h-6 text-green-600" />,
-    bg: 'bg-green-50',
-    title: 'Volledig ontzorgd traject',
-    desc: 'Van adviesgesprek tot subsidieaanvraag en installatie: wij regelen het. U hoeft nergens anders aan te kloppen.',
-  },
-  {
-    icon: <Zap className="w-6 h-6 text-[#131A20]/60" />,
-    bg: 'bg-[#F9F7F4]',
-    title: 'Geen verborgen kosten',
-    desc: 'Onze offertes zijn transparant en compleet. Batterij, omvormer, installatie en BTW: alles staat erin, niets wordt bijgerekend.',
-  },
-  {
-    icon: <Users className="w-6 h-6 text-blue-400" />,
-    bg: 'bg-blue-50',
-    title: 'Warmtefonds partner',
-    desc: 'Wij regelen uw Energiebespaarlening van A tot Z. Tot 8.500 euro, mogelijk met 0% rente. U hoeft het formulier niet eens zelf in te vullen.',
-  },
-  {
-    icon: <MessageCircle className="w-6 h-6 text-green-500" />,
-    bg: 'bg-green-50',
-    title: 'Nazorg en langetermijn support',
-    desc: 'Na de installatie bent u er niet alleen voor. Wij zijn bereikbaar voor vragen, updates en onderhoud, voor de lange termijn.',
-  },
-]
+const WHY_BGS = ['bg-amber-50', 'bg-blue-50', 'bg-green-50', 'bg-[#F9F7F4]', 'bg-blue-50', 'bg-green-50']
 
 export default function OverOnsPage() {
   const navigate = useNavigate()
+  const { t } = useLanguage()
+  const o = t.overOns
+  const h = t.home
 
   return (
     <div className="min-h-screen bg-white text-[#131A20] font-['Plus_Jakarta_Sans']">
       <Nav />
 
-      {/* Hero */}
-      <section className="pt-28 pb-16 bg-[#F9F7F4]">
+      {/* HERO */}
+      <section className="pt-28 pb-0 bg-[#F9F7F4] overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="text-center lg:text-left">
+          <div className="grid lg:grid-cols-2 gap-12 items-center pb-16">
+            <div>
               <motion.div
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-2 bg-white border border-gray-200 text-[#131A20]/50 text-xs font-semibold px-4 py-2 rounded-full mb-6"
               >
-                <Battery className="w-3.5 h-3.5" /> Specialisten in thuisbatterijen
+                <Battery className="w-3.5 h-3.5 text-[#22a55d]" /> {o.heroBadge}
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-5xl font-extrabold leading-tight mb-5"
+                className="text-5xl lg:text-[3.5rem] font-extrabold leading-tight mb-5 tracking-tight"
               >
-                Wie zijn wij?
+                {o.heroTitle}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-[#131A20]/60 text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                className="text-[#131A20]/60 text-lg leading-relaxed mb-8 max-w-lg"
               >
-                SolarFast is een team van specialisten in verduurzaming. Wij zijn HYXiPower partner
-                in Nederland en begeleiden u van advies tot installatie en nazorg.
+                {o.heroDesc}
               </motion.p>
+              <motion.div
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="flex items-center gap-0"
+              >
+                {o.heroFacts.map((f, i) => (
+                  <React.Fragment key={i}>
+                    <div className="pr-7">
+                      <div className="text-[1.6rem] font-extrabold text-[#131A20] leading-none">{f.value}</div>
+                      <div className="text-xs text-[#131A20]/45 mt-1 font-medium">{f.label}</div>
+                    </div>
+                    {i < o.heroFacts.length - 1 && <div className="w-px h-8 bg-[#131A20]/10 mr-7 flex-shrink-0" />}
+                  </React.Fragment>
+                ))}
+              </motion.div>
             </div>
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -137,7 +126,7 @@ export default function OverOnsPage() {
                 alt="HYXiPower All-in-One thuisbatterij"
                 className="relative"
                 style={{
-                  height: 460,
+                  height: 420,
                   width: 'auto',
                   filter: 'drop-shadow(0 32px 56px rgba(0,0,0,0.20)) drop-shadow(0 8px 18px rgba(34,165,93,0.13))',
                 }}
@@ -147,21 +136,22 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* Key stats */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { val: '100%', label: 'Vrijblijvend advies', sub: 'geen verplichtingen' },
-              { val: '<24u', label: 'Reactietijd', sub: 'na uw aanvraag' },
-              { val: 'LFP', label: 'Batterijtechnologie', sub: 'LiFePO4-celtechnologie' },
-              { val: 'EMS', label: 'Smart Energy Management', sub: 'automatisch geoptimaliseerd' },
-            ].map((s, i) => (
-              <Reveal key={i} delay={i * 0.2}>
-                <div className="bg-[#F9F7F4] rounded-3xl p-6 text-center">
-                  <div className="text-3xl font-extrabold text-[#131A20] mb-1">{s.val}</div>
-                  <div className="text-sm font-semibold text-[#131A20]">{s.label}</div>
-                  <div className="text-xs text-[#131A20]/40 mt-1">{s.sub}</div>
+      {/* KPI STRIP */}
+      <section className="py-12 bg-[#EEF6F1]">
+        <div className="max-w-6xl mx-auto px-6">
+          <Reveal className="text-center mb-8">
+            <span className="inline-flex items-center gap-2 bg-[#22a55d]/15 border border-[#22a55d]/20 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full">
+              <CheckCircle2 className="w-3.5 h-3.5" /> {h.kpiBadge}
+            </span>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {h.kpis.map((kpi, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <div className="text-center">
+                  <div className="text-4xl lg:text-[2.75rem] font-extrabold text-[#131A20] leading-none mb-2 tracking-tight">
+                    {kpi.value}
+                  </div>
+                  <div className="text-sm text-[#131A20]/55 font-medium">{kpi.label}</div>
                 </div>
               </Reveal>
             ))}
@@ -169,20 +159,76 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* Installatiefoto's */}
-      <section className="py-16 bg-white">
+      {/* ONS VERHAAL */}
+      <section className="py-20 bg-[#EEF6F1] border-t border-[#22a55d]/8">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 bg-[#22a55d]/15 border border-[#22a55d]/20 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-5">
+                <Battery className="w-3.5 h-3.5" /> {o.verhaalBadge}
+              </div>
+              <h2 className="text-4xl font-extrabold mb-6 tracking-tight leading-tight">
+                {o.verhaalTitle}
+              </h2>
+              <div className="space-y-4 text-[#131A20]/65 leading-relaxed">
+                <p>{o.verhaalText1}</p>
+                <p>{o.verhaalText2}</p>
+                <p className="font-medium text-[#131A20]/80">{o.verhaalText3}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={1}>
+              <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
+                <img
+                  src="/assets/installaties/install-technician.jpg"
+                  alt="SolarFast monteur installeert HYXiPower thuisbatterij"
+                  className="w-full h-full object-cover"
+                  style={{ maxHeight: 420 }}
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ONZE AANPAK */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <Reveal className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-[#22a55d]/10 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-5">
+              <Zap className="w-3.5 h-3.5" /> {o.aanpakBadge}
+            </div>
+            <h2 className="text-4xl font-extrabold mb-4 tracking-tight">{o.aanpakTitle}</h2>
+          </Reveal>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {o.aanpak.map((step, i) => (
+              <Reveal key={i} delay={i * 0.12}>
+                <div className="bg-[#F9F7F4] rounded-3xl p-7 h-full border border-transparent hover:border-[#22a55d]/15 hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300 hover:-translate-y-1.5 group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-2xl bg-[#22a55d]/10 flex items-center justify-center group-hover:bg-[#22a55d]/15 transition-colors flex-shrink-0">
+                      {AANPAK_ICONS[step.icon]}
+                    </div>
+                    <span className="text-xs font-bold text-[#131A20]/25 tabular-nums">0{i + 1}</span>
+                  </div>
+                  <h3 className="font-bold text-base mb-2 text-[#131A20]">{step.title}</h3>
+                  <p className="text-sm text-[#131A20]/55 leading-relaxed">{step.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INSTALLATIE FOTO'S */}
+      <section className="py-20 bg-[#F9F7F4]">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4">Echte installaties bij onze klanten</h2>
-            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
-              Een greep uit de HYXiPower-systemen die onze monteurs door heel Nederland hebben geplaatst,
-              binnen en buiten.
-            </p>
+            <h2 className="text-4xl font-extrabold mb-4 tracking-tight">{o.installTitle}</h2>
+            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">{o.installDesc}</p>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {INSTALL_PHOTOS.map((photo, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <div className="rounded-2xl overflow-hidden aspect-square bg-[#F9F7F4]">
+              <Reveal key={i} delay={i * 0.06}>
+                <div className="rounded-2xl overflow-hidden aspect-square bg-[#EEF6F1]">
                   <img
                     src={photo.src}
                     alt={photo.alt}
@@ -195,39 +241,32 @@ export default function OverOnsPage() {
           </div>
 
           <Reveal>
-            <div className="grid md:grid-cols-2 gap-0 bg-[#F9F7F4] rounded-3xl overflow-hidden items-stretch">
+            <div className="grid md:grid-cols-2 gap-0 bg-white rounded-3xl overflow-hidden shadow-lg shadow-gray-100 border border-gray-100 items-stretch">
               <div className="aspect-[4/3] md:aspect-auto">
                 <img
                   src="/assets/installaties/install-technician.jpg"
-                  alt="Monteur installeert een HYXiPower thuisbatterij"
+                  alt="Monteur installeert HYXiPower thuisbatterij"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-8 md:p-10 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 bg-white border border-gray-200 text-[#131A20]/50 text-xs font-semibold px-4 py-2 rounded-full mb-4 w-fit">
-                  <Wrench className="w-3.5 h-3.5" /> Onze eigen monteurs
+                <div className="inline-flex items-center gap-2 bg-[#EEF6F1] text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-5 w-fit">
+                  <Wrench className="w-3.5 h-3.5" /> {o.technicianBadge}
                 </div>
-                <h3 className="text-2xl font-extrabold mb-3">Vakwerk, geen onderaannemers</h3>
-                <p className="text-[#131A20]/60 leading-relaxed">
-                  Onze gecertificeerde monteurs plaatsen elk HYXiPower-systeem persoonlijk. Dankzij het
-                  meterloze ontwerp van HYXiPower duurt een installatie gemiddeld slechts een halve dag,
-                  waarna alles direct wordt geactiveerd en getest.
-                </p>
+                <h3 className="text-2xl font-extrabold mb-3 tracking-tight">{o.technicianTitle}</h3>
+                <p className="text-[#131A20]/60 leading-relaxed">{o.technicianDesc}</p>
               </div>
             </div>
           </Reveal>
 
           <Reveal className="mt-14">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-extrabold mb-3">Het HYXiPower product</h3>
-              <p className="text-[#131A20]/60 max-w-xl mx-auto">
-                Een blik op het HYXiPower All-in-One systeem zelf: compact, modulair en ontworpen
-                voor een naadloze plek in huis.
-              </p>
+              <h3 className="text-2xl font-extrabold mb-3 tracking-tight">{o.productTitle}</h3>
+              <p className="text-[#131A20]/60 max-w-xl mx-auto">{o.productDesc}</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {PRODUCT_PHOTOS.map((photo, i) => (
-                <div key={i} className="rounded-2xl overflow-hidden aspect-square bg-[#F9F7F4]">
+                <div key={i} className="rounded-2xl overflow-hidden aspect-square bg-[#EEF6F1]">
                   <img
                     src={photo.src}
                     alt={photo.alt}
@@ -241,24 +280,22 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* Waarom SolarFast */}
-      <section className="py-16 bg-[#F9F7F4]">
+      {/* WAAROM SOLARFAST */}
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <Reveal className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4">Waarom SolarFast?</h2>
-            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
-              Er zijn veel partijen die thuisbatterijen verkopen. Dit onderscheidt ons.
-            </p>
+          <Reveal className="text-center mb-14">
+            <h2 className="text-4xl font-extrabold mb-4 tracking-tight">{o.whyTitle}</h2>
+            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">{o.whySub}</p>
           </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {WAAROM.map((w, i) => (
-              <Reveal key={i} delay={i * 0.2}>
-                <div className="bg-white rounded-3xl p-7 h-full hover:shadow-lg hover:shadow-gray-100 transition-all hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-2xl ${w.bg} flex items-center justify-center mb-4`}>
-                    {w.icon}
+            {o.whyUsps.map((w, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <div className="bg-[#F9F7F4] rounded-3xl p-7 h-full hover:shadow-xl hover:shadow-gray-100 transition-all hover:-translate-y-1 border border-transparent hover:border-[#22a55d]/10 group">
+                  <div className={`w-12 h-12 rounded-2xl ${WHY_BGS[i]} flex items-center justify-center mb-5`}>
+                    {WHY_ICONS[i]}
                   </div>
-                  <h3 className="font-bold text-lg mb-2">{w.title}</h3>
-                  <p className="text-sm text-[#131A20]/60 leading-relaxed">{w.desc}</p>
+                  <h3 className="font-bold text-base mb-2 text-[#131A20]">{w.title}</h3>
+                  <p className="text-sm text-[#131A20]/55 leading-relaxed">{w.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -266,84 +303,30 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* Wat u van SolarFast mag verwachten */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <Reveal className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4">Wat u van SolarFast mag verwachten</h2>
-            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
-              SolarFast focust volledig op HYXiPower en begeleidt u van advies tot en met installatie.
-            </p>
-          </Reveal>
-
-          <Reveal className="bg-[#F9F7F4] rounded-3xl overflow-hidden">
-            <div className="divide-y divide-black/4">
-              {[
-                { label: 'Specialisatie in 1 merk (HYXiPower)' },
-                { label: 'Eigen gecertificeerde monteurs' },
-                { label: 'Begeleiding bij de Warmtefondsaanvraag' },
-                { label: 'Transparante all-in prijzen' },
-                { label: 'Bereikbaar na installatie' },
-              ].map((r, i) => (
-                <div key={i} className="flex items-center justify-between px-8 py-4 bg-white">
-                  <div className="text-sm text-[#131A20]/70 pr-4">{r.label}</div>
-                  <span className="inline-flex items-center gap-1 bg-[#f0fdf4] text-[#22a55d] font-bold text-xs px-3 py-1.5 rounded-full">
-                    <CheckCircle2 className="w-3 h-3" /> Ja
-                  </span>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Werkwijze */}
-      <section className="py-16 bg-[#F9F7F4]">
-        <div className="max-w-5xl mx-auto px-6">
-          <Reveal className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4">Van aanvraag tot installatie</h2>
-            <p className="text-[#131A20]/60 text-lg">Binnen 2 tot 3 weken bent u klaar.</p>
-          </Reveal>
-          <div className="grid md:grid-cols-4 gap-5">
-            {[
-              { num: '01', title: 'Aanvraag doen', desc: 'Vul het contactformulier in of bel ons. Duurt minder dan 1 minuut.', time: '1 minuut' },
-              { num: '02', title: 'Adviesgesprek', desc: 'Persoonlijk advies op basis van uw energiesituatie, woning en wensen.', time: '1 werkdag' },
-              { num: '03', title: 'Digitale schouw', desc: 'Snelle controle van uw woning op afstand. Geen bezoek nodig.', time: '2 tot 3 dagen' },
-              { num: '04', title: 'Installatie', desc: 'Vakkundige plaatsing door onze eigen monteurs. Alles geactiveerd.', time: '2 tot 3 weken' },
-            ].map((s, i) => (
-              <Reveal key={i} delay={i * 0.3}>
-                <div className="bg-white rounded-3xl p-6 text-center hover:shadow-lg hover:shadow-gray-100 transition-all hover:-translate-y-1">
-                  <div className="w-12 h-12 rounded-full bg-[#F9F7F4] flex items-center justify-center mx-auto mb-4">
-                    <span className="font-extrabold text-sm text-[#131A20]/40">{s.num}</span>
-                  </div>
-                  <h3 className="font-bold mb-2">{s.title}</h3>
-                  <p className="text-xs text-[#131A20]/60 leading-relaxed mb-3">{s.desc}</p>
-                  <span className="text-xs bg-green-50 text-green-700 font-semibold px-3 py-1 rounded-full">
-                    {s.time}
-                  </span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Service */}
-      <section className="py-16 bg-white">
+      {/* TEAM */}
+      <section className="py-24 bg-[#EEF6F1]">
         <div className="max-w-6xl mx-auto px-6">
-          <Reveal className="text-center mb-4">
-            <h2 className="text-4xl font-extrabold mb-4">Wat u van ons kunt verwachten</h2>
-            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">
-              Van aanvraag tot installatie en daarna nog.
-            </p>
+          <Reveal className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-[#22a55d]/15 border border-[#22a55d]/20 text-[#22a55d] text-xs font-semibold px-4 py-2 rounded-full mb-5">
+              <Users className="w-3.5 h-3.5" /> {o.teamBadge}
+            </div>
+            <h2 className="text-4xl font-extrabold mb-4 tracking-tight">{o.teamTitle}</h2>
+            <p className="text-[#131A20]/55 text-lg max-w-xl mx-auto leading-relaxed">{o.teamSub}</p>
           </Reveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4 mt-10">
-            {SERVICE_HIGHLIGHTS.map((r, i) => (
-              <Reveal key={i} delay={i * 0.2}>
-                <div className="bg-[#F9F7F4] rounded-3xl p-6 h-full flex flex-col">
-                  <h3 className="font-bold text-lg mb-2">{r.title}</h3>
-                  <p className="text-sm text-[#131A20]/70 leading-relaxed flex-1">{r.text}</p>
+          <div className="grid md:grid-cols-3 gap-5">
+            {o.team.map((member, i) => (
+              <Reveal key={i} delay={i * 0.15}>
+                <div className="bg-white rounded-3xl p-7 h-full border border-gray-100 hover:shadow-xl hover:shadow-black/5 transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-14 h-14 rounded-2xl bg-[#22a55d]/12 flex items-center justify-center text-[#22a55d] font-extrabold text-lg flex-shrink-0">
+                      {member.initials}
+                    </div>
+                    <div>
+                      <div className="font-bold text-[#131A20] leading-tight">{member.name}</div>
+                      <div className="text-xs text-[#22a55d] font-semibold mt-0.5">{member.role}</div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#131A20]/60 leading-relaxed">{member.bio}</p>
                 </div>
               </Reveal>
             ))}
@@ -351,88 +334,35 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* Certificeringen */}
-      <section className="py-16 bg-[#F9F7F4]">
-        <div className="max-w-5xl mx-auto px-6">
-          <Reveal className="text-center mb-10">
-            <h2 className="text-4xl font-extrabold mb-3">SolarFast en HYXiPower</h2>
-            <p className="text-[#131A20]/60 text-lg max-w-xl mx-auto">Wat u van onze partnership en onze werkwijze mag verwachten.</p>
-          </Reveal>
-          <div className="grid md:grid-cols-2 gap-5 mb-5">
-            <Reveal>
-              <div className="bg-white rounded-3xl p-7 h-full border border-gray-100">
-                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">HYXiPower All-in-One</div>
-                <div className="space-y-3">
-                  {[
-                    { icon: <Battery className="w-4 h-4 text-green-600" />, bg: 'bg-green-50', title: 'LFP / LiFePO4 batterijtechnologie', desc: 'Veilige en duurzame celtechnologie.' },
-                    { icon: <Zap className="w-4 h-4 text-amber-500" />, bg: 'bg-amber-50', title: 'Slim Energy Management System', desc: 'Automatische aansturing van laden en ontladen.' },
-                    { icon: <MessageCircle className="w-4 h-4 text-blue-500" />, bg: 'bg-blue-50', title: 'Realtime monitoring via app', desc: 'Altijd inzicht in productie, opslag en verbruik.' },
-                    { icon: <Wrench className="w-4 h-4 text-[#131A20]/50" />, bg: 'bg-[#F9F7F4]', title: 'Modulair uitbreidbaar', desc: 'Eenvoudig op te schalen naarmate uw behoefte groeit.' },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className={`w-8 h-8 rounded-xl ${item.bg} flex items-center justify-center flex-shrink-0`}>
-                        {item.icon}
-                      </div>
-                      <div>
-                        <div className="text-sm font-bold text-[#131A20]">{item.title}</div>
-                        <div className="text-xs text-[#131A20]/50 leading-relaxed">{item.desc}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={1}>
-              <div className="bg-white rounded-3xl p-7 h-full border border-gray-100">
-                <div className="text-xs font-bold text-[#131A20]/30 uppercase tracking-widest mb-4">SolarFast als installatiebedrijf</div>
-                <div className="space-y-3">
-                  {[
-                    { icon: <Award className="w-4 h-4 text-amber-500" />, bg: 'bg-amber-50', title: 'HYXiPower partner', desc: 'Wij installeren en ondersteunen HYXiPower thuisbatterijen.' },
-                    { icon: <Shield className="w-4 h-4 text-blue-500" />, bg: 'bg-blue-50', title: 'Begeleiding bij Warmtefondsaanvraag', desc: 'Wij helpen u met de aanvraag van een Energiebespaarlening.' },
-                    { icon: <CheckCircle2 className="w-4 h-4 text-green-600" />, bg: 'bg-green-50', title: 'Eigen gecertificeerde monteurs', desc: 'Geen onderaannemers, vakkundige installatie.' },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className={`w-8 h-8 rounded-xl ${item.bg} flex items-center justify-center flex-shrink-0`}>
-                        {item.icon}
-                      </div>
-                      <div>
-                        <div className="text-sm font-bold text-[#131A20]">{item.title}</div>
-                        <div className="text-xs text-[#131A20]/50 leading-relaxed">{item.desc}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
+      {/* CTA */}
+      <section className="py-20 bg-[#22a55d] relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-white/8" />
+          <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-white/5" />
         </div>
-      </section>
-
-      {/* Contact & CTA */}
-      <section className="py-20 bg-[#EEF6F1]">
-        <div className="max-w-3xl mx-auto text-center px-6">
+        <div className="max-w-3xl mx-auto text-center px-6 relative">
           <Reveal>
-            <h2 className="text-4xl font-extrabold text-[#131A20] mb-5">
-              Persoonlijk advies, 100% vrijblijvend
+            <h2 className="text-4xl font-extrabold text-white mb-5 tracking-tight leading-tight">
+              {o.ctaTitle}
             </h2>
-            <p className="text-[#131A20]/60 text-lg mb-8 leading-relaxed">
-              Mail ons of gebruik de calculator. Wij reageren altijd binnen 1 werkdag.
+            <p className="text-white/75 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
+              {o.ctaDesc}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={() => navigate('/calculator')}
-                className="inline-flex items-center justify-center gap-2 bg-[#22a55d] hover:bg-[#1a9050] text-white font-bold px-8 py-4 rounded-full transition-all hover:shadow-xl hover:shadow-green-500/25 text-base"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-green-50 text-[#22a55d] font-bold px-8 py-4 rounded-full transition-all hover:shadow-2xl hover:shadow-black/10 text-base"
               >
-                Bereken mijn besparing <ArrowRight className="w-5 h-5" />
+                {o.ctaCalc} <ArrowRight className="w-5 h-5" />
               </button>
               <a
                 href="mailto:info@solarfast.nl"
-                className="inline-flex items-center justify-center gap-2 border border-gray-200 bg-white hover:border-[#22a55d] text-[#131A20]/70 hover:text-[#22a55d] font-semibold px-8 py-4 rounded-full transition-all text-base"
+                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full transition-all text-base"
               >
-                Stuur een e-mail
+                {o.ctaMail}
               </a>
             </div>
-            <div className="flex flex-wrap justify-center gap-5 text-sm text-[#131A20]/40">
+            <div className="flex flex-wrap justify-center gap-5 mt-8 text-sm text-white/50">
               <span className="flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" /> info@solarfast.nl</span>
               <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> Nederland</span>
             </div>
